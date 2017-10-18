@@ -647,7 +647,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::GUI.Properties.Resources.vod1;
+            this.pictureBox2.Image = global::ProkatAuto22.Properties.Resources.vod1;
             this.pictureBox2.Location = new System.Drawing.Point(74, 14);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(128, 126);
@@ -657,7 +657,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::GUI.Properties.Resources._2016_Honda_Civic;
+            this.pictureBox1.Image = global::ProkatAuto22.Properties.Resources._2016_Honda_Civic;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(246, 148);
