@@ -298,6 +298,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 441);
             this.Controls.Add(this.panel2);
+            this.MaximumSize = new System.Drawing.Size(531, 480);
+            this.MinimumSize = new System.Drawing.Size(531, 480);
             this.Name = "Arenda_add";
             this.Text = "Оформление аренды";
             this.panel2.ResumeLayout(false);

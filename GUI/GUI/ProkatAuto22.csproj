@@ -90,6 +90,18 @@
       <DependentUpon>Arenda add.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DataBaseClass.cs" />
+    <Compile Include="CustomerAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerAdd.Designer.cs">
+      <DependentUpon>CustomerAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DriverInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverInfo.Designer.cs">
+      <DependentUpon>DriverInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
