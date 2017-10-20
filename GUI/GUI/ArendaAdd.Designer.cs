@@ -29,55 +29,55 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button1Cancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox1NumberRequest = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.comboBox6CustomerID = new System.Windows.Forms.ComboBox();
+            this.comboBox1Automobile = new System.Windows.Forms.ComboBox();
+            this.textBox9Driver = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox6Price = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button9AddRequest = new System.Windows.Forms.Button();
+            this.textBox5DurationLease = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.textBox1KidsChair = new System.Windows.Forms.TextBox();
+            this.textBox2WinterTires = new System.Windows.Forms.TextBox();
+            this.textBox3SportFastenings = new System.Windows.Forms.TextBox();
+            this.textBox4GpsNav = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.textBox4GpsNav);
+            this.panel2.Controls.Add(this.textBox3SportFastenings);
+            this.panel2.Controls.Add(this.textBox2WinterTires);
+            this.panel2.Controls.Add(this.textBox1KidsChair);
+            this.panel2.Controls.Add(this.button1Cancel);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.textBox1NumberRequest);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.comboBox6);
-            this.panel2.Controls.Add(this.comboBox5);
-            this.panel2.Controls.Add(this.comboBox4);
-            this.panel2.Controls.Add(this.comboBox3);
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.textBox9);
+            this.panel2.Controls.Add(this.comboBox6CustomerID);
+            this.panel2.Controls.Add(this.comboBox1Automobile);
+            this.panel2.Controls.Add(this.textBox9Driver);
             this.panel2.Controls.Add(this.label22);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.label19);
-            this.panel2.Controls.Add(this.textBox6);
+            this.panel2.Controls.Add(this.textBox6Price);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label20);
             this.panel2.Controls.Add(this.label21);
-            this.panel2.Controls.Add(this.button9);
-            this.panel2.Controls.Add(this.textBox5);
+            this.panel2.Controls.Add(this.button9AddRequest);
+            this.panel2.Controls.Add(this.textBox5DurationLease);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label11);
@@ -86,15 +86,15 @@
             this.panel2.Size = new System.Drawing.Size(508, 431);
             this.panel2.TabIndex = 16;
             // 
-            // button1
+            // button1Cancel
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(328, 385);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 32);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Отмена";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1Cancel.Location = new System.Drawing.Point(328, 385);
+            this.button1Cancel.Name = "button1Cancel";
+            this.button1Cancel.Size = new System.Drawing.Size(171, 32);
+            this.button1Cancel.TabIndex = 39;
+            this.button1Cancel.Text = "Отмена";
+            this.button1Cancel.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -106,12 +106,12 @@
             this.label2.TabIndex = 38;
             this.label2.Text = "Доп. услуги";
             // 
-            // textBox1
+            // textBox1NumberRequest
             // 
-            this.textBox1.Location = new System.Drawing.Point(17, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 20);
-            this.textBox1.TabIndex = 37;
+            this.textBox1NumberRequest.Location = new System.Drawing.Point(17, 40);
+            this.textBox1NumberRequest.Name = "textBox1NumberRequest";
+            this.textBox1NumberRequest.Size = new System.Drawing.Size(181, 20);
+            this.textBox1NumberRequest.TabIndex = 37;
             // 
             // label1
             // 
@@ -123,60 +123,28 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "№ Заявки";
             // 
-            // comboBox6
+            // comboBox6CustomerID
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(17, 385);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(181, 21);
-            this.comboBox6.TabIndex = 35;
+            this.comboBox6CustomerID.FormattingEnabled = true;
+            this.comboBox6CustomerID.Location = new System.Drawing.Point(17, 385);
+            this.comboBox6CustomerID.Name = "comboBox6CustomerID";
+            this.comboBox6CustomerID.Size = new System.Drawing.Size(181, 21);
+            this.comboBox6CustomerID.TabIndex = 35;
             // 
-            // comboBox5
+            // comboBox1Automobile
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(423, 188);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(68, 21);
-            this.comboBox5.TabIndex = 34;
+            this.comboBox1Automobile.FormattingEnabled = true;
+            this.comboBox1Automobile.Location = new System.Drawing.Point(17, 105);
+            this.comboBox1Automobile.Name = "comboBox1Automobile";
+            this.comboBox1Automobile.Size = new System.Drawing.Size(181, 21);
+            this.comboBox1Automobile.TabIndex = 30;
             // 
-            // comboBox4
+            // textBox9Driver
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(423, 137);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(68, 21);
-            this.comboBox4.TabIndex = 33;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(423, 96);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(68, 21);
-            this.comboBox3.TabIndex = 32;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(423, 51);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(68, 21);
-            this.comboBox2.TabIndex = 31;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(17, 105);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(181, 21);
-            this.comboBox1.TabIndex = 30;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(17, 175);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(181, 20);
-            this.textBox9.TabIndex = 29;
+            this.textBox9Driver.Location = new System.Drawing.Point(17, 175);
+            this.textBox9Driver.Name = "textBox9Driver";
+            this.textBox9Driver.Size = new System.Drawing.Size(181, 20);
+            this.textBox9Driver.TabIndex = 29;
             // 
             // label22
             // 
@@ -208,12 +176,12 @@
             this.label19.TabIndex = 19;
             this.label19.Text = "Зимные шины";
             // 
-            // textBox6
+            // textBox6Price
             // 
-            this.textBox6.Location = new System.Drawing.Point(17, 312);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(181, 20);
-            this.textBox6.TabIndex = 26;
+            this.textBox6Price.Location = new System.Drawing.Point(17, 312);
+            this.textBox6Price.Name = "textBox6Price";
+            this.textBox6Price.Size = new System.Drawing.Size(181, 20);
+            this.textBox6Price.TabIndex = 26;
             // 
             // label13
             // 
@@ -245,22 +213,22 @@
             this.label21.TabIndex = 16;
             this.label21.Text = "Детские кресла";
             // 
-            // button9
+            // button9AddRequest
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(328, 337);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(171, 32);
-            this.button9.TabIndex = 21;
-            this.button9.Text = "Добавить заявку";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9AddRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button9AddRequest.Location = new System.Drawing.Point(328, 337);
+            this.button9AddRequest.Name = "button9AddRequest";
+            this.button9AddRequest.Size = new System.Drawing.Size(171, 32);
+            this.button9AddRequest.TabIndex = 21;
+            this.button9AddRequest.Text = "Добавить заявку";
+            this.button9AddRequest.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // textBox5DurationLease
             // 
-            this.textBox5.Location = new System.Drawing.Point(17, 243);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(181, 20);
-            this.textBox5.TabIndex = 20;
+            this.textBox5DurationLease.Location = new System.Drawing.Point(17, 243);
+            this.textBox5DurationLease.Name = "textBox5DurationLease";
+            this.textBox5DurationLease.Size = new System.Drawing.Size(181, 20);
+            this.textBox5DurationLease.TabIndex = 20;
             // 
             // label9
             // 
@@ -292,6 +260,34 @@
             this.label11.TabIndex = 16;
             this.label11.Text = "Автомобиль";
             // 
+            // textBox1KidsChair
+            // 
+            this.textBox1KidsChair.Location = new System.Drawing.Point(430, 51);
+            this.textBox1KidsChair.Name = "textBox1KidsChair";
+            this.textBox1KidsChair.Size = new System.Drawing.Size(56, 20);
+            this.textBox1KidsChair.TabIndex = 40;
+            // 
+            // textBox2WinterTires
+            // 
+            this.textBox2WinterTires.Location = new System.Drawing.Point(430, 100);
+            this.textBox2WinterTires.Name = "textBox2WinterTires";
+            this.textBox2WinterTires.Size = new System.Drawing.Size(56, 20);
+            this.textBox2WinterTires.TabIndex = 41;
+            // 
+            // textBox3SportFastenings
+            // 
+            this.textBox3SportFastenings.Location = new System.Drawing.Point(430, 145);
+            this.textBox3SportFastenings.Name = "textBox3SportFastenings";
+            this.textBox3SportFastenings.Size = new System.Drawing.Size(56, 20);
+            this.textBox3SportFastenings.TabIndex = 42;
+            // 
+            // textBox4GpsNav
+            // 
+            this.textBox4GpsNav.Location = new System.Drawing.Point(430, 189);
+            this.textBox4GpsNav.Name = "textBox4GpsNav";
+            this.textBox4GpsNav.Size = new System.Drawing.Size(56, 20);
+            this.textBox4GpsNav.TabIndex = 43;
+            // 
             // Arenda_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,28 +307,28 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox9Driver;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox6Price;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button9AddRequest;
+        private System.Windows.Forms.TextBox textBox5DurationLease;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox6CustomerID;
+        private System.Windows.Forms.ComboBox comboBox1Automobile;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox1NumberRequest;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button1Cancel;
+        private System.Windows.Forms.TextBox textBox4GpsNav;
+        private System.Windows.Forms.TextBox textBox3SportFastenings;
+        private System.Windows.Forms.TextBox textBox2WinterTires;
+        private System.Windows.Forms.TextBox textBox1KidsChair;
     }
 }
