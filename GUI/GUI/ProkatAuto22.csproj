@@ -83,11 +83,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arenda add.cs">
+    <Compile Include="ArendaAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Arenda add.Designer.cs">
-      <DependentUpon>Arenda add.cs</DependentUpon>
+    <Compile Include="ArendaAdd.Designer.cs">
+      <DependentUpon>ArendaAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutomobileAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutomobileAdd.Designer.cs">
+      <DependentUpon>AutomobileAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DataBaseClass.cs" />
     <Compile Include="CustomerAdd.cs">
@@ -110,8 +116,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Arenda add.resx">
-      <DependentUpon>Arenda add.cs</DependentUpon>
+    <EmbeddedResource Include="ArendaAdd.resx">
+      <DependentUpon>ArendaAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AutomobileAdd.resx">
+      <DependentUpon>AutomobileAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
