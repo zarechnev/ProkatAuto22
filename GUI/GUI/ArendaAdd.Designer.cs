@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox4GpsNav = new System.Windows.Forms.TextBox();
+            this.textBox3SportFastenings = new System.Windows.Forms.TextBox();
+            this.textBox2WinterTires = new System.Windows.Forms.TextBox();
+            this.textBox1KidsChair = new System.Windows.Forms.TextBox();
             this.button1Cancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1NumberRequest = new System.Windows.Forms.TextBox();
@@ -43,15 +47,11 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.button9AddRequest = new System.Windows.Forms.Button();
+            this.button9AddRequestBase = new System.Windows.Forms.Button();
             this.textBox5DurationLease = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1KidsChair = new System.Windows.Forms.TextBox();
-            this.textBox2WinterTires = new System.Windows.Forms.TextBox();
-            this.textBox3SportFastenings = new System.Windows.Forms.TextBox();
-            this.textBox4GpsNav = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +76,7 @@
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label20);
             this.panel2.Controls.Add(this.label21);
-            this.panel2.Controls.Add(this.button9AddRequest);
+            this.panel2.Controls.Add(this.button9AddRequestBase);
             this.panel2.Controls.Add(this.textBox5DurationLease);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label10);
@@ -85,6 +85,34 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(508, 431);
             this.panel2.TabIndex = 16;
+            // 
+            // textBox4GpsNav
+            // 
+            this.textBox4GpsNav.Location = new System.Drawing.Point(430, 189);
+            this.textBox4GpsNav.Name = "textBox4GpsNav";
+            this.textBox4GpsNav.Size = new System.Drawing.Size(56, 20);
+            this.textBox4GpsNav.TabIndex = 43;
+            // 
+            // textBox3SportFastenings
+            // 
+            this.textBox3SportFastenings.Location = new System.Drawing.Point(430, 145);
+            this.textBox3SportFastenings.Name = "textBox3SportFastenings";
+            this.textBox3SportFastenings.Size = new System.Drawing.Size(56, 20);
+            this.textBox3SportFastenings.TabIndex = 42;
+            // 
+            // textBox2WinterTires
+            // 
+            this.textBox2WinterTires.Location = new System.Drawing.Point(430, 100);
+            this.textBox2WinterTires.Name = "textBox2WinterTires";
+            this.textBox2WinterTires.Size = new System.Drawing.Size(56, 20);
+            this.textBox2WinterTires.TabIndex = 41;
+            // 
+            // textBox1KidsChair
+            // 
+            this.textBox1KidsChair.Location = new System.Drawing.Point(430, 51);
+            this.textBox1KidsChair.Name = "textBox1KidsChair";
+            this.textBox1KidsChair.Size = new System.Drawing.Size(56, 20);
+            this.textBox1KidsChair.TabIndex = 40;
             // 
             // button1Cancel
             // 
@@ -95,6 +123,7 @@
             this.button1Cancel.TabIndex = 39;
             this.button1Cancel.Text = "Отмена";
             this.button1Cancel.UseVisualStyleBackColor = true;
+            this.button1Cancel.Click += new System.EventHandler(this.button1Cancel_Click);
             // 
             // label2
             // 
@@ -213,15 +242,15 @@
             this.label21.TabIndex = 16;
             this.label21.Text = "Детские кресла";
             // 
-            // button9AddRequest
+            // button9AddRequestBase
             // 
-            this.button9AddRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9AddRequest.Location = new System.Drawing.Point(328, 337);
-            this.button9AddRequest.Name = "button9AddRequest";
-            this.button9AddRequest.Size = new System.Drawing.Size(171, 32);
-            this.button9AddRequest.TabIndex = 21;
-            this.button9AddRequest.Text = "Добавить заявку";
-            this.button9AddRequest.UseVisualStyleBackColor = true;
+            this.button9AddRequestBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button9AddRequestBase.Location = new System.Drawing.Point(328, 337);
+            this.button9AddRequestBase.Name = "button9AddRequestBase";
+            this.button9AddRequestBase.Size = new System.Drawing.Size(171, 32);
+            this.button9AddRequestBase.TabIndex = 21;
+            this.button9AddRequestBase.Text = "Добавить заявку";
+            this.button9AddRequestBase.UseVisualStyleBackColor = true;
             // 
             // textBox5DurationLease
             // 
@@ -260,34 +289,6 @@
             this.label11.TabIndex = 16;
             this.label11.Text = "Автомобиль";
             // 
-            // textBox1KidsChair
-            // 
-            this.textBox1KidsChair.Location = new System.Drawing.Point(430, 51);
-            this.textBox1KidsChair.Name = "textBox1KidsChair";
-            this.textBox1KidsChair.Size = new System.Drawing.Size(56, 20);
-            this.textBox1KidsChair.TabIndex = 40;
-            // 
-            // textBox2WinterTires
-            // 
-            this.textBox2WinterTires.Location = new System.Drawing.Point(430, 100);
-            this.textBox2WinterTires.Name = "textBox2WinterTires";
-            this.textBox2WinterTires.Size = new System.Drawing.Size(56, 20);
-            this.textBox2WinterTires.TabIndex = 41;
-            // 
-            // textBox3SportFastenings
-            // 
-            this.textBox3SportFastenings.Location = new System.Drawing.Point(430, 145);
-            this.textBox3SportFastenings.Name = "textBox3SportFastenings";
-            this.textBox3SportFastenings.Size = new System.Drawing.Size(56, 20);
-            this.textBox3SportFastenings.TabIndex = 42;
-            // 
-            // textBox4GpsNav
-            // 
-            this.textBox4GpsNav.Location = new System.Drawing.Point(430, 189);
-            this.textBox4GpsNav.Name = "textBox4GpsNav";
-            this.textBox4GpsNav.Size = new System.Drawing.Size(56, 20);
-            this.textBox4GpsNav.TabIndex = 43;
-            // 
             // Arenda_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,7 +316,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button button9AddRequest;
+        private System.Windows.Forms.Button button9AddRequestBase;
         private System.Windows.Forms.TextBox textBox5DurationLease;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;

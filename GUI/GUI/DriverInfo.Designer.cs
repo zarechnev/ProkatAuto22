@@ -30,7 +30,6 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textboxBadHabits = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxExperience = new System.Windows.Forms.TextBox();
@@ -38,15 +37,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxFIO = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonAddDriver = new System.Windows.Forms.Button();
+            this.buttonAddDriverBase = new System.Windows.Forms.Button();
+            this.button1AddPhotoDriver = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel2.Controls.Add(this.button1AddPhotoDriver);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.textboxBadHabits);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.textBoxExperience);
@@ -54,7 +54,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.textBoxFIO);
             this.panel2.Controls.Add(this.buttonCancel);
-            this.panel2.Controls.Add(this.buttonAddDriver);
+            this.panel2.Controls.Add(this.buttonAddDriverBase);
             this.panel2.Location = new System.Drawing.Point(5, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(273, 431);
@@ -70,13 +70,6 @@
             this.label1.Size = new System.Drawing.Size(44, 17);
             this.label1.TabIndex = 47;
             this.label1.Text = "Фото";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(79, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 20);
-            this.textBox1.TabIndex = 46;
             // 
             // textboxBadHabits
             // 
@@ -138,16 +131,28 @@
             this.buttonCancel.TabIndex = 39;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // buttonAddDriver
+            // buttonAddDriverBase
             // 
-            this.buttonAddDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddDriver.Location = new System.Drawing.Point(49, 314);
-            this.buttonAddDriver.Name = "buttonAddDriver";
-            this.buttonAddDriver.Size = new System.Drawing.Size(171, 32);
-            this.buttonAddDriver.TabIndex = 21;
-            this.buttonAddDriver.Text = "Добавить водителя";
-            this.buttonAddDriver.UseVisualStyleBackColor = true;
+            this.buttonAddDriverBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddDriverBase.Location = new System.Drawing.Point(49, 314);
+            this.buttonAddDriverBase.Name = "buttonAddDriverBase";
+            this.buttonAddDriverBase.Size = new System.Drawing.Size(171, 32);
+            this.buttonAddDriverBase.TabIndex = 21;
+            this.buttonAddDriverBase.Text = "Добавить водителя";
+            this.buttonAddDriverBase.UseVisualStyleBackColor = true;
+            // 
+            // button1AddPhotoDriver
+            // 
+            this.button1AddPhotoDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1AddPhotoDriver.Location = new System.Drawing.Point(81, 63);
+            this.button1AddPhotoDriver.Name = "button1AddPhotoDriver";
+            this.button1AddPhotoDriver.Size = new System.Drawing.Size(171, 25);
+            this.button1AddPhotoDriver.TabIndex = 48;
+            this.button1AddPhotoDriver.Text = "Добавить фото";
+            this.button1AddPhotoDriver.UseVisualStyleBackColor = true;
+            this.button1AddPhotoDriver.Click += new System.EventHandler(this.button1AddPhotoDriver_Click);
             // 
             // DriverInfo
             // 
@@ -169,14 +174,14 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonAddDriver;
+        private System.Windows.Forms.Button buttonAddDriverBase;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textboxBadHabits;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxExperience;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxFIO;
+        private System.Windows.Forms.Button button1AddPhotoDriver;
     }
 }
