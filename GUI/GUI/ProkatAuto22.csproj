@@ -122,6 +122,12 @@
     <EmbeddedResource Include="AutomobileAdd.resx">
       <DependentUpon>AutomobileAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerAdd.resx">
+      <DependentUpon>CustomerAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DriverInfo.resx">
+      <DependentUpon>DriverInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

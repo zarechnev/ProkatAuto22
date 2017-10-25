@@ -16,5 +16,10 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void button1Cancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

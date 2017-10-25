@@ -36,7 +36,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxFIO = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonAddDriver = new System.Windows.Forms.Button();
+            this.buttonAddCustomerBase = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.textBoxFIO);
             this.panel2.Controls.Add(this.buttonCancel);
-            this.panel2.Controls.Add(this.buttonAddDriver);
+            this.panel2.Controls.Add(this.buttonAddCustomerBase);
             this.panel2.Location = new System.Drawing.Point(3, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(323, 386);
@@ -116,16 +116,17 @@
             this.buttonCancel.TabIndex = 39;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // buttonAddDriver
+            // buttonAddCustomerBase
             // 
-            this.buttonAddDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddDriver.Location = new System.Drawing.Point(53, 259);
-            this.buttonAddDriver.Name = "buttonAddDriver";
-            this.buttonAddDriver.Size = new System.Drawing.Size(214, 32);
-            this.buttonAddDriver.TabIndex = 21;
-            this.buttonAddDriver.Text = "Добавить клиента";
-            this.buttonAddDriver.UseVisualStyleBackColor = true;
+            this.buttonAddCustomerBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddCustomerBase.Location = new System.Drawing.Point(53, 259);
+            this.buttonAddCustomerBase.Name = "buttonAddCustomerBase";
+            this.buttonAddCustomerBase.Size = new System.Drawing.Size(214, 32);
+            this.buttonAddCustomerBase.TabIndex = 21;
+            this.buttonAddCustomerBase.Text = "Добавить клиента";
+            this.buttonAddCustomerBase.UseVisualStyleBackColor = true;
             // 
             // CustomerAdd
             // 
@@ -153,6 +154,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxFIO;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonAddDriver;
+        private System.Windows.Forms.Button buttonAddCustomerBase;
     }
 }

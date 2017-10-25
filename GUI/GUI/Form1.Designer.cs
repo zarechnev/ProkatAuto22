@@ -35,7 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button1AddAuto = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -43,13 +43,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.button4AddDriver = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox16 = new System.Windows.Forms.TextBox();
@@ -60,7 +61,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.button12AddCustomer = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
@@ -78,19 +79,18 @@
             this.button8 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.button9AddRequest = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,15 +156,16 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Стоимость аренды (1 час) ";
             // 
-            // button1
+            // button1AddAuto
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(12, 572);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 32);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1AddAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1AddAuto.Location = new System.Drawing.Point(12, 572);
+            this.button1AddAuto.Name = "button1AddAuto";
+            this.button1AddAuto.Size = new System.Drawing.Size(83, 32);
+            this.button1AddAuto.TabIndex = 8;
+            this.button1AddAuto.Text = "Добавить";
+            this.button1AddAuto.UseVisualStyleBackColor = true;
+            this.button1AddAuto.Click += new System.EventHandler(this.button1AddAuto_Click);
             // 
             // button2
             // 
@@ -209,7 +210,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button4AddDriver);
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.textBox3);
@@ -242,15 +243,16 @@
             this.button5.Text = "Удалить информацию";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // button4AddDriver
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(50, 352);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(171, 32);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Добавить водителя";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4AddDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4AddDriver.Location = new System.Drawing.Point(50, 352);
+            this.button4AddDriver.Name = "button4AddDriver";
+            this.button4AddDriver.Size = new System.Drawing.Size(171, 32);
+            this.button4AddDriver.TabIndex = 21;
+            this.button4AddDriver.Text = "Добавить водителя";
+            this.button4AddDriver.UseVisualStyleBackColor = true;
+            this.button4AddDriver.Click += new System.EventHandler(this.button4AddDriver_Click);
             // 
             // textBox4
             // 
@@ -303,6 +305,16 @@
             this.textBox2.Size = new System.Drawing.Size(173, 20);
             this.textBox2.TabIndex = 15;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ProkatAuto22.Properties.Resources.vod1;
+            this.pictureBox2.Location = new System.Drawing.Point(74, 14);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(128, 126);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -333,7 +345,7 @@
             this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.textBox15);
-            this.panel2.Controls.Add(this.button9);
+            this.panel2.Controls.Add(this.button9AddRequest);
             this.panel2.Controls.Add(this.textBox5);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label10);
@@ -390,7 +402,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.Info;
             this.panel3.Controls.Add(this.button10);
             this.panel3.Controls.Add(this.button11);
-            this.panel3.Controls.Add(this.button12);
+            this.panel3.Controls.Add(this.button12AddCustomer);
             this.panel3.Controls.Add(this.textBox10);
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.textBox11);
@@ -422,15 +434,16 @@
             this.button11.Text = "Удалить клиента";
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // button12AddCustomer
             // 
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button12.Location = new System.Drawing.Point(50, 141);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(171, 32);
-            this.button12.TabIndex = 21;
-            this.button12.Text = "Добавить клиента";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12AddCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button12AddCustomer.Location = new System.Drawing.Point(50, 141);
+            this.button12AddCustomer.Name = "button12AddCustomer";
+            this.button12AddCustomer.Size = new System.Drawing.Size(171, 32);
+            this.button12AddCustomer.TabIndex = 21;
+            this.button12AddCustomer.Text = "Добавить клиента";
+            this.button12AddCustomer.UseVisualStyleBackColor = true;
+            this.button12AddCustomer.Click += new System.EventHandler(this.button12AddCustomer_Click);
             // 
             // textBox10
             // 
@@ -581,15 +594,16 @@
             this.textBox15.Size = new System.Drawing.Size(68, 20);
             this.textBox15.TabIndex = 15;
             // 
-            // button9
+            // button9AddRequest
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button9.Location = new System.Drawing.Point(16, 473);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(171, 32);
-            this.button9.TabIndex = 21;
-            this.button9.Text = "Добавить заявку";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9AddRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button9AddRequest.Location = new System.Drawing.Point(16, 473);
+            this.button9AddRequest.Name = "button9AddRequest";
+            this.button9AddRequest.Size = new System.Drawing.Size(171, 32);
+            this.button9AddRequest.TabIndex = 21;
+            this.button9AddRequest.Text = "Добавить заявку";
+            this.button9AddRequest.UseVisualStyleBackColor = true;
+            this.button9AddRequest.Click += new System.EventHandler(this.button9AddRequest_Click);
             // 
             // textBox5
             // 
@@ -645,16 +659,6 @@
             this.label12.TabIndex = 16;
             this.label12.Text = "Аренда автомобиля";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ProkatAuto22.Properties.Resources.vod1;
-            this.pictureBox2.Location = new System.Drawing.Point(74, 14);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(128, 126);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProkatAuto22.Properties.Resources._2016_Honda_Civic;
@@ -679,7 +683,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button1AddAuto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -692,11 +696,11 @@
             this.Text = "ПрокатАвто22";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -713,7 +717,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button1AddAuto;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button3;
@@ -729,7 +733,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button4AddDriver;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox8;
@@ -738,7 +742,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button9AddRequest;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -748,7 +752,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button12AddCustomer;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox11;
