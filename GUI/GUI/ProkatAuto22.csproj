@@ -95,7 +95,9 @@
     <Compile Include="AutomobileAdd.Designer.cs">
       <DependentUpon>AutomobileAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\AutomobileClass.cs" />
     <Compile Include="Classes\DataBaseClass.cs" />
+    <Compile Include="Classes\OrderClass.cs" />
     <Compile Include="CustomerAdd.cs">
       <SubType>Form</SubType>
     </Compile>
