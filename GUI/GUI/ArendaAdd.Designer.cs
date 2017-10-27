@@ -251,6 +251,7 @@
             this.button9AddRequestBase.TabIndex = 21;
             this.button9AddRequestBase.Text = "Добавить заявку";
             this.button9AddRequestBase.UseVisualStyleBackColor = true;
+            this.button9AddRequestBase.Click += new System.EventHandler(this.button9AddRequestBase_Click);
             // 
             // textBox5DurationLease
             // 

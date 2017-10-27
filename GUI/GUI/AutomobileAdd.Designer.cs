@@ -45,7 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1Cancel = new System.Windows.Forms.Button();
             this.textBox1ClassAuto = new System.Windows.Forms.TextBox();
-            this.textBox2Driver = new System.Windows.Forms.TextBox();
             this.textBox3ReleaseYear = new System.Windows.Forms.TextBox();
             this.textBox4MaxSpeed = new System.Windows.Forms.TextBox();
             this.textBox8NumberSeats = new System.Windows.Forms.TextBox();
@@ -53,6 +52,7 @@
             this.textBox10VolumeTrunk = new System.Windows.Forms.TextBox();
             this.button1AddPhotoAuto = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox1Driver = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,6 +102,7 @@
             this.button9AddAutoBase.TabIndex = 21;
             this.button9AddAutoBase.Text = "Добавить автомобиль";
             this.button9AddAutoBase.UseVisualStyleBackColor = true;
+            this.button9AddAutoBase.Click += new System.EventHandler(this.button9AddAutoBase_Click);
             // 
             // label21
             // 
@@ -205,13 +206,6 @@
             this.textBox1ClassAuto.Size = new System.Drawing.Size(181, 20);
             this.textBox1ClassAuto.TabIndex = 40;
             // 
-            // textBox2Driver
-            // 
-            this.textBox2Driver.Location = new System.Drawing.Point(17, 385);
-            this.textBox2Driver.Name = "textBox2Driver";
-            this.textBox2Driver.Size = new System.Drawing.Size(181, 20);
-            this.textBox2Driver.TabIndex = 41;
-            // 
             // textBox3ReleaseYear
             // 
             this.textBox3ReleaseYear.Location = new System.Drawing.Point(367, 51);
@@ -264,13 +258,13 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel2.Controls.Add(this.comboBox1Driver);
             this.panel2.Controls.Add(this.button1AddPhotoAuto);
             this.panel2.Controls.Add(this.textBox10VolumeTrunk);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.textBox8NumberSeats);
             this.panel2.Controls.Add(this.textBox4MaxSpeed);
             this.panel2.Controls.Add(this.textBox3ReleaseYear);
-            this.panel2.Controls.Add(this.textBox2Driver);
             this.panel2.Controls.Add(this.textBox1ClassAuto);
             this.panel2.Controls.Add(this.button1Cancel);
             this.panel2.Controls.Add(this.label2);
@@ -293,6 +287,15 @@
             this.panel2.Size = new System.Drawing.Size(508, 431);
             this.panel2.TabIndex = 17;
             // 
+            // comboBox1Driver
+            // 
+            this.comboBox1Driver.FormattingEnabled = true;
+            this.comboBox1Driver.Location = new System.Drawing.Point(17, 385);
+            this.comboBox1Driver.Name = "comboBox1Driver";
+            this.comboBox1Driver.Size = new System.Drawing.Size(181, 21);
+            this.comboBox1Driver.TabIndex = 51;
+            
+            // 
             // AutomobileAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,7 +304,7 @@
             this.Controls.Add(this.panel2);
             this.MinimumSize = new System.Drawing.Size(531, 480);
             this.Name = "AutomobileAdd";
-            this.Text = "AutomobileAdd";
+            this.Text = "Добавление автомобиля";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -326,7 +329,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1Cancel;
         private System.Windows.Forms.TextBox textBox1ClassAuto;
-        private System.Windows.Forms.TextBox textBox2Driver;
         private System.Windows.Forms.TextBox textBox3ReleaseYear;
         private System.Windows.Forms.TextBox textBox4MaxSpeed;
         private System.Windows.Forms.TextBox textBox8NumberSeats;
@@ -334,5 +336,6 @@
         private System.Windows.Forms.TextBox textBox10VolumeTrunk;
         private System.Windows.Forms.Button button1AddPhotoAuto;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBox1Driver;
     }
 }
