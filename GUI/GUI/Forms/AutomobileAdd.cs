@@ -65,7 +65,8 @@ namespace ProkatAuto22
 
             textBoxModelAuto.Text = CarObjectRedaction.ModelCarList[indexRedaction];
             textBox1ClassAuto.Text = CarObjectRedaction.ClassCarList[indexRedaction];
-            .............................
+            /*.............................
+             */
         }
 
         private void TextboxClear()

@@ -44,8 +44,10 @@ namespace GUI
             OrderClass RequestObjectRedaction = new OrderClass();
             RequestObjectRedaction.ReadRequest();
 
+            /*
             textBox1NumberRequest.Text = RequestObjectRedaction.NumberRequestList[indexRedaction];
             .............................
+            */
         }
 
 

@@ -56,8 +56,10 @@ namespace GUI
         {
             CarObject.ReadCar();
 
+            /*
             for (int i = 0; i < CarObject.ModelCarList.Count; i++)
                 listBox1.Items.Add(CarObject.ModelCarList[i]);
+                */
         }
 
 
@@ -109,7 +111,9 @@ namespace GUI
         {
             RequestObject.ReadRequest();
 
+            /*
             textBox7RequestCar.Text = RequestObject.ModelCarList[index];
+            */
 
         }
 
