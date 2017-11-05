@@ -83,55 +83,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArendaAdd.cs">
+    <Compile Include="Forms\ArendaAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ArendaAdd.Designer.cs">
+    <Compile Include="Forms\ArendaAdd.Designer.cs">
       <DependentUpon>ArendaAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="AutomobileAdd.cs">
+    <Compile Include="Forms\AutomobileAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutomobileAdd.Designer.cs">
+    <Compile Include="Forms\AutomobileAdd.Designer.cs">
       <DependentUpon>AutomobileAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\AutomobileClass.cs" />
     <Compile Include="Classes\DataBaseClass.cs" />
     <Compile Include="Classes\OrderClass.cs" />
-    <Compile Include="CustomerAdd.cs">
+    <Compile Include="Forms\CustomerAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerAdd.Designer.cs">
+    <Compile Include="Forms\CustomerAdd.Designer.cs">
       <DependentUpon>CustomerAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="DriverInfo.cs">
+    <Compile Include="Forms\DriverInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DriverInfo.Designer.cs">
+    <Compile Include="Forms\DriverInfo.Designer.cs">
       <DependentUpon>DriverInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ArendaAdd.resx">
+    <EmbeddedResource Include="Forms\ArendaAdd.resx">
       <DependentUpon>ArendaAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AutomobileAdd.resx">
+    <EmbeddedResource Include="Forms\AutomobileAdd.resx">
       <DependentUpon>AutomobileAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerAdd.resx">
+    <EmbeddedResource Include="Forms\CustomerAdd.resx">
       <DependentUpon>CustomerAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DriverInfo.resx">
+    <EmbeddedResource Include="Forms\DriverInfo.resx">
       <DependentUpon>DriverInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
