@@ -119,8 +119,6 @@ namespace GUI
             AddDriver.DriverHabitDrugs = habitDrugs;
 
             AddDriver.InsertDriver();
-
-            listBox2Driver.Refresh();
         }
 
         private void button6RedactionDriver_Click(object sender, EventArgs e)

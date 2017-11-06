@@ -229,6 +229,7 @@
             // 
             this.textBox2IdDriver.Location = new System.Drawing.Point(256, 176);
             this.textBox2IdDriver.Name = "textBox2IdDriver";
+            this.textBox2IdDriver.ReadOnly = true;
             this.textBox2IdDriver.Size = new System.Drawing.Size(70, 20);
             this.textBox2IdDriver.TabIndex = 59;
             // 
@@ -937,6 +938,7 @@
             // 
             this.textBox2IdCustomer.Location = new System.Drawing.Point(518, 23);
             this.textBox2IdCustomer.Name = "textBox2IdCustomer";
+            this.textBox2IdCustomer.ReadOnly = true;
             this.textBox2IdCustomer.Size = new System.Drawing.Size(161, 20);
             this.textBox2IdCustomer.TabIndex = 60;
             // 
@@ -982,6 +984,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(211, 379);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(158, 20);
             this.textBox2.TabIndex = 63;
             // 
@@ -999,6 +1002,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(343, 160);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(64, 20);
             this.textBox3.TabIndex = 68;
             // 

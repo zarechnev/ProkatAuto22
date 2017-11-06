@@ -45,9 +45,9 @@ namespace ProkatAuto22.Classes
                 SQLiteConnection.CreateFile(DBFileName);
                 using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
                 {
+                    DBConnection.Open();
                     using (SQLiteCommand CreateCommand = new SQLiteCommand(DBConnection))
                     {
-                        DBConnection.Open();
                         CreateCommand.CommandText = CreateBDCommand;
                         CreateCommand.ExecuteNonQuery();
                     }
@@ -60,7 +60,40 @@ namespace ProkatAuto22.Classes
         }
 
         public void AddNewDriverDB(DriverClass NewDriverAdd) {
-            
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    int AddedDviverID;
+                    Command.CommandText = @"INSERT INTO drivers (name, photoFileName, experienceFrom) VALUES ('" +
+                         NewDriverAdd.FIOdriver.ToUpper() + "','" +
+                         NewDriverAdd.PhotoDriver + "','" +
+                         NewDriverAdd.ExpirienceDriver + "');";
+                    Console.WriteLine("Create driver whis SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+
+                    Command.CommandText = @"SELECT ID from drivers ORDER by ID DESC LIMIT 1;";
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        Reader.Read();
+                        AddedDviverID = Reader.GetInt32(0);
+                        Console.WriteLine("Last record Driver ID is: " + AddedDviverID);
+                    }
+
+                    if (NewDriverAdd.DriverHabitSmoke)
+                    {
+                    }
+
+                    if (NewDriverAdd.DriverHabitDrink)
+                    {
+                    }
+
+                    if (NewDriverAdd.DriverHabitDrugs)
+                    {
+                    }
+                }
+            }
         }
 
         public void EditDriverDB(DriverClass DriverEdit)

@@ -22,7 +22,7 @@ namespace ProkatAuto22.Classes
 
         public CustomerClass()
         {
-
+            DB = new DataBaseClass();
         }
 
         public void InsertCustomer()

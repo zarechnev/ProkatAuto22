@@ -27,7 +27,7 @@ namespace ProkatAuto22.Classes
 
         public DriverClass()
         {
-
+            DB = new DataBaseClass();
         }
 
         public void InsertDriver()
