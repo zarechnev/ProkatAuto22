@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProkatAuto22;
 using ProkatAuto22.Classes;
+using System.IO;
 
 namespace GUI
 {
@@ -17,6 +18,12 @@ namespace GUI
         AutomobileClass CarObject;
         OrderClass RequestObject;
         int index; // индекс выбранного элемента listbox
+
+        string fileNameDriver;
+
+        bool habitSmoke = false, habitDrink = false, habitDrugs = false;
+
+
 
         public Form1()
         {
@@ -74,15 +81,48 @@ namespace GUI
 
 
         ////////////////////////////////// Водители
+
+        private void button1EditPhotoDriver_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog AddPhotoDriver = new OpenFileDialog();
+            
+            AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
+             if (AddPhotoDriver.ShowDialog() == DialogResult.OK)
+              {
+                fileNameDriver = AddPhotoDriver.SafeFileName;
+                string sourcePath = AddPhotoDriver.FileName;
+                string targetPath = @"DriverPhoto";
+                
+                string destFile = Path.Combine(targetPath, fileNameDriver);
+                
+                File.Copy(sourcePath, destFile, true);
+              }
+        }
+
+
+
+
         private void button4AddDriver_Click(object sender, EventArgs e)
         {
-            DriverClass AddDriver = new DriverClass();
+            DataBaseClass dataBaseDriver = new DataBaseClass();
+            DriverClass AddDriver = new DriverClass(dataBaseDriver);
 
-            AddDriver.PhotoDriver = filename;
-            AddDriver.FIOdriver = t;
+            AddDriver.DriverDBID = textBox2IdDriver.Text;
+            AddDriver.PhotoDriver = fileNameDriver;
+            AddDriver.FIOdriver = textBox2FioDriver.Text;
+            AddDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
+            AddDriver.DriverHabitSmoke = habitSmoke;
 
-            listBox2.Refresh();
+            AddDriver.InsertDriver();
 
+            listBox2Driver.Refresh();
+
+        }
+
+        private void checkBox6Smoke_Click(object sender, EventArgs e)
+        {
+            if (checkBox6Smoke.Checked)
+                habitSmoke = true;
         }
 
 
@@ -148,6 +188,8 @@ namespace GUI
 
         }
 
+        
+
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -157,5 +199,7 @@ namespace GUI
         {
 
         }
+
+        
     }
 }
