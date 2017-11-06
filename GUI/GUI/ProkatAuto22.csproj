@@ -83,6 +83,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DriverClass.cs" />
     <Compile Include="Forms\ArendaAdd.cs">
       <SubType>Form</SubType>
     </Compile>

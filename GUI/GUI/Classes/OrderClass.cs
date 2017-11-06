@@ -8,16 +8,16 @@ namespace ProkatAuto22.Classes
 {
     class OrderClass
     {
-        public List<string> NumberRequestList { get; private set; }
-        public List<string> ModelCarList { get; private set; }
-        public List<string> DriverCarList { get; private set; }
-        public List<string> DurationLeaseList { get; private set; }
-        public List<string> PriceLeaseList { get; private set; }
-        public List<string> CustomerIDList { get; private set; }
-        public List<string> KidsChairList { get; private set; }
-        public List<string> WinterTiresList { get; private set; }
-        public List<string> SportFasteningsList { get; private set; }
-        public List<string> GpsList { get; private set; }
+        public List<string> NumberRequestList { get;  set; }
+        public List<string> ModelCarList { get;  set; }
+        public List<string> DriverCarList { get;  set; }
+        public List<string> DurationLeaseList { get;  set; }
+        public List<string> PriceLeaseList { get;  set; }
+        public List<string> CustomerIDList { get;  set; }
+        public List<string> KidsChairList { get;  set; }
+        public List<string> WinterTiresList { get;  set; }
+        public List<string> SportFasteningsList { get;  set; }
+        public List<string> GpsList { get;  set; }
 
 
 
