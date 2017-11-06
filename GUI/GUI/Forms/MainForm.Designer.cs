@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox1Automobile = new System.Windows.Forms.ListBox();
             this.comboBox2ClassType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -37,6 +37,8 @@
             this.button2DeleteCar = new System.Windows.Forms.Button();
             this.button3RedactionAuto = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox2IdDriver = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.button1EditPhotoDriver = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -65,7 +67,7 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.listBox4Order = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox9RequestDriver = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -83,12 +85,12 @@
             this.button10RedactionCustomer = new System.Windows.Forms.Button();
             this.button11DeleteCustomer = new System.Windows.Forms.Button();
             this.button12AddCustomer = new System.Windows.Forms.Button();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox10CityCustomer = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox11PhoneCustomer = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox12FioCustomer = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox14 = new System.Windows.Forms.TextBox();
@@ -104,10 +106,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.listBox3Customers = new System.Windows.Forms.ListBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBox2IdDriver = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBox2IdCustomer = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -118,14 +120,14 @@
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // listBox1Automobile
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(9, 23);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(395, 147);
-            this.listBox1.TabIndex = 1;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1Automobile.FormattingEnabled = true;
+            this.listBox1Automobile.Location = new System.Drawing.Point(9, 23);
+            this.listBox1Automobile.Name = "listBox1Automobile";
+            this.listBox1Automobile.Size = new System.Drawing.Size(395, 147);
+            this.listBox1Automobile.TabIndex = 1;
+            this.listBox1Automobile.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // comboBox2ClassType
             // 
@@ -219,6 +221,23 @@
             this.panel1.Size = new System.Drawing.Size(342, 432);
             this.panel1.TabIndex = 14;
             // 
+            // textBox2IdDriver
+            // 
+            this.textBox2IdDriver.Location = new System.Drawing.Point(258, 183);
+            this.textBox2IdDriver.Name = "textBox2IdDriver";
+            this.textBox2IdDriver.Size = new System.Drawing.Size(70, 20);
+            this.textBox2IdDriver.TabIndex = 59;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label27.Location = new System.Drawing.Point(149, 185);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(89, 17);
+            this.label27.TabIndex = 58;
+            this.label27.Text = "ID Водителя";
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -272,6 +291,7 @@
             this.checkBox7Drink.TabIndex = 52;
             this.checkBox7Drink.Text = "Пьёт";
             this.checkBox7Drink.UseVisualStyleBackColor = true;
+            this.checkBox7Drink.Click += new System.EventHandler(this.checkBox7Drink_Click);
             // 
             // checkBox5Drugs
             // 
@@ -282,6 +302,7 @@
             this.checkBox5Drugs.TabIndex = 54;
             this.checkBox5Drugs.Text = "Наркоман";
             this.checkBox5Drugs.UseVisualStyleBackColor = true;
+            this.checkBox5Drugs.Click += new System.EventHandler(this.checkBox5Drugs_Click);
             // 
             // checkBox6Smoke
             // 
@@ -311,6 +332,7 @@
             this.button6RedactionDriver.TabIndex = 23;
             this.button6RedactionDriver.Text = "Редактировать";
             this.button6RedactionDriver.UseVisualStyleBackColor = true;
+            this.button6RedactionDriver.Click += new System.EventHandler(this.button6RedactionDriver_Click);
             // 
             // button5DeleteDriver
             // 
@@ -321,6 +343,7 @@
             this.button5DeleteDriver.TabIndex = 22;
             this.button5DeleteDriver.Text = "Удалить";
             this.button5DeleteDriver.UseVisualStyleBackColor = true;
+            this.button5DeleteDriver.Click += new System.EventHandler(this.button5DeleteDriver_Click);
             // 
             // button4AddDriver
             // 
@@ -395,7 +418,7 @@
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.listBox4);
+            this.panel2.Controls.Add(this.listBox4Order);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.textBox9RequestDriver);
             this.panel2.Controls.Add(this.textBox8);
@@ -514,13 +537,13 @@
             this.checkBox3.Text = "Спортивные крепления";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // listBox4
+            // listBox4Order
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(17, 23);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(529, 342);
-            this.listBox4.TabIndex = 35;
+            this.listBox4Order.FormattingEnabled = true;
+            this.listBox4Order.Location = new System.Drawing.Point(17, 23);
+            this.listBox4Order.Name = "listBox4Order";
+            this.listBox4Order.Size = new System.Drawing.Size(529, 342);
+            this.listBox4Order.TabIndex = 35;
             // 
             // label12
             // 
@@ -660,6 +683,7 @@
             this.button10RedactionCustomer.TabIndex = 23;
             this.button10RedactionCustomer.Text = "Редактировать";
             this.button10RedactionCustomer.UseVisualStyleBackColor = true;
+            this.button10RedactionCustomer.Click += new System.EventHandler(this.button10RedactionCustomer_Click);
             // 
             // button11DeleteCustomer
             // 
@@ -670,6 +694,7 @@
             this.button11DeleteCustomer.TabIndex = 22;
             this.button11DeleteCustomer.Text = "Удалить";
             this.button11DeleteCustomer.UseVisualStyleBackColor = true;
+            this.button11DeleteCustomer.Click += new System.EventHandler(this.button11DeleteCustomer_Click);
             // 
             // button12AddCustomer
             // 
@@ -682,35 +707,35 @@
             this.button12AddCustomer.UseVisualStyleBackColor = true;
             this.button12AddCustomer.Click += new System.EventHandler(this.button12AddCustomer_Click);
             // 
-            // textBox10
+            // textBox10CityCustomer
             // 
-            this.textBox10.Location = new System.Drawing.Point(529, 94);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(168, 20);
-            this.textBox10.TabIndex = 20;
+            this.textBox10CityCustomer.Location = new System.Drawing.Point(536, 116);
+            this.textBox10CityCustomer.Name = "textBox10CityCustomer";
+            this.textBox10CityCustomer.Size = new System.Drawing.Size(161, 20);
+            this.textBox10CityCustomer.TabIndex = 20;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(449, 95);
+            this.label15.Location = new System.Drawing.Point(449, 117);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(48, 17);
             this.label15.TabIndex = 19;
             this.label15.Text = "Город";
             // 
-            // textBox11
+            // textBox11PhoneCustomer
             // 
-            this.textBox11.Location = new System.Drawing.Point(529, 68);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(168, 20);
-            this.textBox11.TabIndex = 18;
+            this.textBox11PhoneCustomer.Location = new System.Drawing.Point(536, 90);
+            this.textBox11PhoneCustomer.Name = "textBox11PhoneCustomer";
+            this.textBox11PhoneCustomer.Size = new System.Drawing.Size(161, 20);
+            this.textBox11PhoneCustomer.TabIndex = 18;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.Location = new System.Drawing.Point(449, 69);
+            this.label16.Location = new System.Drawing.Point(449, 91);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(68, 17);
             this.label16.TabIndex = 17;
@@ -720,18 +745,18 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(449, 43);
+            this.label17.Location = new System.Drawing.Point(449, 65);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(42, 17);
             this.label17.TabIndex = 16;
             this.label17.Text = "ФИО";
             // 
-            // textBox12
+            // textBox12FioCustomer
             // 
-            this.textBox12.Location = new System.Drawing.Point(529, 42);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(168, 20);
-            this.textBox12.TabIndex = 15;
+            this.textBox12FioCustomer.Location = new System.Drawing.Point(536, 64);
+            this.textBox12FioCustomer.Name = "textBox12FioCustomer";
+            this.textBox12FioCustomer.Size = new System.Drawing.Size(161, 20);
+            this.textBox12FioCustomer.TabIndex = 15;
             // 
             // pictureBox1
             // 
@@ -758,7 +783,7 @@
             this.panel5.Controls.Add(this.button2);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.pictureBox1);
-            this.panel5.Controls.Add(this.listBox1);
+            this.panel5.Controls.Add(this.listBox1Automobile);
             this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.comboBox2ClassType);
@@ -882,29 +907,31 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel6.Controls.Add(this.textBox10);
-            this.panel6.Controls.Add(this.listBox3);
+            this.panel6.Controls.Add(this.textBox2IdCustomer);
+            this.panel6.Controls.Add(this.label28);
+            this.panel6.Controls.Add(this.textBox10CityCustomer);
+            this.panel6.Controls.Add(this.listBox3Customers);
             this.panel6.Controls.Add(this.label15);
             this.panel6.Controls.Add(this.button11DeleteCustomer);
-            this.panel6.Controls.Add(this.textBox11);
+            this.panel6.Controls.Add(this.textBox11PhoneCustomer);
             this.panel6.Controls.Add(this.button10RedactionCustomer);
             this.panel6.Controls.Add(this.label16);
             this.panel6.Controls.Add(this.label17);
             this.panel6.Controls.Add(this.button12AddCustomer);
-            this.panel6.Controls.Add(this.textBox12);
+            this.panel6.Controls.Add(this.textBox12FioCustomer);
             this.panel6.Controls.Add(this.label25);
             this.panel6.Location = new System.Drawing.Point(12, 447);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(767, 221);
             this.panel6.TabIndex = 18;
             // 
-            // listBox3
+            // listBox3Customers
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(14, 24);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(411, 186);
-            this.listBox3.TabIndex = 24;
+            this.listBox3Customers.FormattingEnabled = true;
+            this.listBox3Customers.Location = new System.Drawing.Point(14, 24);
+            this.listBox3Customers.Name = "listBox3Customers";
+            this.listBox3Customers.Size = new System.Drawing.Size(411, 186);
+            this.listBox3Customers.TabIndex = 24;
             // 
             // label25
             // 
@@ -916,22 +943,22 @@
             this.label25.TabIndex = 16;
             this.label25.Text = "Список клиентов";
             // 
-            // label27
+            // label28
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label27.Location = new System.Drawing.Point(149, 185);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(89, 17);
-            this.label27.TabIndex = 58;
-            this.label27.Text = "ID Водителя";
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label28.Location = new System.Drawing.Point(449, 33);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(81, 17);
+            this.label28.TabIndex = 59;
+            this.label28.Text = "ID Клиента";
             // 
-            // textBox2IdDriver
+            // textBox2IdCustomer
             // 
-            this.textBox2IdDriver.Location = new System.Drawing.Point(258, 183);
-            this.textBox2IdDriver.Name = "textBox2IdDriver";
-            this.textBox2IdDriver.Size = new System.Drawing.Size(70, 20);
-            this.textBox2IdDriver.TabIndex = 59;
+            this.textBox2IdCustomer.Location = new System.Drawing.Point(536, 33);
+            this.textBox2IdCustomer.Name = "textBox2IdCustomer";
+            this.textBox2IdCustomer.Size = new System.Drawing.Size(161, 20);
+            this.textBox2IdCustomer.TabIndex = 60;
             // 
             // Form1
             // 
@@ -969,7 +996,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox1Automobile;
         private System.Windows.Forms.ComboBox comboBox2ClassType;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
@@ -1006,12 +1033,12 @@
         private System.Windows.Forms.Button button10RedactionCustomer;
         private System.Windows.Forms.Button button11DeleteCustomer;
         private System.Windows.Forms.Button button12AddCustomer;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox10CityCustomer;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox11PhoneCustomer;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox12FioCustomer;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox3;
@@ -1039,15 +1066,17 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox listBox3Customers;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.ListBox listBox4Order;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox textBox2IdDriver;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textBox2IdCustomer;
+        private System.Windows.Forms.Label label28;
     }
 }
 

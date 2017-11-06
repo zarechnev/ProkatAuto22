@@ -15,26 +15,41 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
+        DataBaseClass DataBase;
+        DriverClass DriverObjectRead;
+        CustomerClass CustomerObjectRead;
         AutomobileClass CarObject;
         OrderClass RequestObject;
         int index; // индекс выбранного элемента listbox
 
         string fileNameDriver;
 
-        bool habitSmoke = false, habitDrink = false, habitDrugs = false;
+        bool habitSmoke, habitDrink, habitDrugs;
 
 
 
         public Form1()
         {
             InitializeComponent();
-            CarObject = new AutomobileClass();
-            RequestObject = new OrderClass();
-            
-            GetCar(CarObject);
-            GetRequest(RequestObject);
+            DataBase = new DataBaseClass();
+            DriverObjectRead = new DriverClass(DataBase);
+            CustomerObjectRead = new CustomerClass(DataBase);
 
-            comboBox2ClassType.DataSource = CarObject.ClassCarList;
+            DriverObjectRead.ReadDriver();
+            GetDrivers();
+
+            CustomerObjectRead.ReadCustomer();
+            GetCustomers()
+
+         //   CarObject = new AutomobileClass();
+         //   RequestObject = new OrderClass();
+
+            //   GetCar(CarObject);
+            //  GetRequest(RequestObject);
+
+            //  comboBox2ClassType.DataSource = CarObject.ClassCarList;
+
+
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd.MM.yyyy; hh:mm";
@@ -104,14 +119,16 @@ namespace GUI
 
         private void button4AddDriver_Click(object sender, EventArgs e)
         {
-            DataBaseClass dataBaseDriver = new DataBaseClass();
-            DriverClass AddDriver = new DriverClass(dataBaseDriver);
+            
+            DriverClass AddDriver = new DriverClass(DataBase);
 
             AddDriver.DriverDBID = textBox2IdDriver.Text;
             AddDriver.PhotoDriver = fileNameDriver;
             AddDriver.FIOdriver = textBox2FioDriver.Text;
             AddDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
             AddDriver.DriverHabitSmoke = habitSmoke;
+            AddDriver.DriverHabitDrink = habitDrink;
+            AddDriver.DriverHabitDrugs = habitDrugs;
 
             AddDriver.InsertDriver();
 
@@ -119,14 +136,68 @@ namespace GUI
 
         }
 
-        private void checkBox6Smoke_Click(object sender, EventArgs e)
+
+        private void button6RedactionDriver_Click(object sender, EventArgs e)
         {
-            if (checkBox6Smoke.Checked)
-                habitSmoke = true;
+            DriverClass RedactionDriver = new DriverClass(DataBase);
+           // string idDriver;
+
+            RedactionDriver.DriverDBID = DriverObjectRead.DriverDBIDList(Int32.Parse(listBox2Driver.SelectedIndex.ToString()));
+            RedactionDriver.PhotoDriver = fileNameDriver;
+            RedactionDriver.FIOdriver = textBox2FioDriver.Text;
+            RedactionDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
+            RedactionDriver.DriverHabitSmoke = habitSmoke;
+            RedactionDriver.DriverHabitDrink = habitDrink;
+            RedactionDriver.DriverHabitDrugs = habitDrugs;
+
+            RedactionDriver.EditDriver();
+
+            listBox2Driver.Refresh();
+        }
+
+
+        private void button5DeleteDriver_Click(object sender, EventArgs e)
+        {
+            DriverClass DeleteDriver = new DriverClass(DataBase);
+
+            DeleteDriver.DriverDBID = DriverObjectRead.DriverDBIDList(Int32.Parse(listBox2Driver.SelectedIndex.ToString()));
+            DeleteDriver.DeleteDriver();
+
+            listBox2Driver.Refresh();
         }
 
 
 
+        private void GetDrivers()
+        {
+            for (int i = 0; i < DriverObjectRead.FIOdriverList.Count; i++)
+                listBox2Driver.Items.Add(DriverObjectRead.FIOdriverList[i]);
+        }
+
+
+        private void checkBox6Smoke_Click(object sender, EventArgs e)
+        {
+            if (checkBox6Smoke.Checked)
+                habitSmoke = true;
+            else
+                habitSmoke = false;
+        }
+
+        private void checkBox7Drink_Click(object sender, EventArgs e)
+        {
+            if (checkBox7Drink.Checked)
+                habitDrink = true;
+            else
+                habitDrink = false;
+        }
+
+        private void checkBox5Drugs_Click(object sender, EventArgs e)
+        {
+            if (checkBox5Drugs.Checked)
+                habitDrugs = true;
+            else
+                habitDrugs = false;
+        }
 
 
         //////////////////////////// Заявки
@@ -160,8 +231,53 @@ namespace GUI
         ////////////////////////////////// Клиенты
         private void button12AddCustomer_Click(object sender, EventArgs e)
         {
+            CustomerClass AddCustomer = new CustomerClass(DataBase);
+
+            AddCustomer.FIOcustomer = textBox12FioCustomer.Text;
+            AddCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
+            AddCustomer.CityCustomer = textBox10CityCustomer.Text;
+
+            AddCustomer.InsertCustomer();
+
+            listBox3Customers.Refresh();
 
         }
+
+
+        private void button10RedactionCustomer_Click(object sender, EventArgs e)
+        {
+            CustomerClass RedactionCustomer = new CustomerClass(DataBase);
+            // string idDriver;
+
+            RedactionCustomer.IDcustomer = CustomerObjectRead.IDcustomerList(Int32.Parse(listBox3Customers.SelectedIndex.ToString()));
+            RedactionCustomer.FIOcustomer = textBox12FioCustomer.Text;
+            RedactionCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
+            RedactionCustomer.CityCustomer = textBox10CityCustomer.Text;
+
+            RedactionCustomer.EditCustomer();
+
+            listBox3Customers.Refresh();
+        }
+
+
+        private void button11DeleteCustomer_Click(object sender, EventArgs e)
+        {
+            CustomerClass DeleteCustomer = new CustomerClass(DataBase);
+
+            DeleteCustomer.IDcustomer = CustomerObjectRead.IDcustomerList(Int32.Parse(listBox3Customers.SelectedIndex.ToString()));
+            DeleteCustomer.DeleteCustomer();
+
+            listBox3Customers.Refresh();
+        }
+
+
+        private void GetCustomers()
+        {
+            for (int i = 0; i < CustomerObjectRead.FIOcustomerList.Count; i++)
+                listBox3Customers.Items.Add(CustomerObjectRead.FIOcustomerList[i]);
+        }
+
+
         //////////////////////////////////////////
 
 
@@ -170,7 +286,7 @@ namespace GUI
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            index= Int32.Parse(listBox1.SelectedIndex.ToString());
+            index= Int32.Parse(listBox1Automobile.SelectedIndex.ToString());
         }
 
         private void label9_Click(object sender, EventArgs e)
