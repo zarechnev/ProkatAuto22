@@ -59,7 +59,10 @@ namespace ProkatAuto22.Classes
             }
         }
 
-        // Ниже необходимо указать перечень необходимых методов!!!
+        public void AddNewDriver(DriverClass NewDriver) {
+
+        }
+
 
 
 

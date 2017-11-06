@@ -23,15 +23,16 @@ namespace ProkatAuto22.Classes
         public string PhotoDriver { get; set; }
         public string FIOdriver { get; set; }
         public string ExpirienceDriver { get; set; }
-        public bool DriverHabit1 { get; set; }
-        public bool DriverHabit2 { get; set; }
-        public bool DriverHabit3 { get; set; }
+        public bool DriverHabitSmouke { get; set; }
+        public bool DriverHabitDrink { get; set; }
+        public bool DriverHabitDrugs { get; set; }
 
 
 
 
-        public void InsertDriver(string PhotoDriver, string FIOdriver, string ExpirienceDriver, bool DriverHabit1, bool DriverHabit2, bool DriverHabit3)
+        public void InsertDriver()
         {
+            DataBaseClass myDB = new DataBaseClass();
 
         }
 
