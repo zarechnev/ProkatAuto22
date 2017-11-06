@@ -63,24 +63,29 @@ namespace ProkatAuto22.Classes
             
         }
 
-        public void EditDriverDB(DriverClass NewDriverEdit)
+        public void EditDriverDB(DriverClass DriverEdit)
         {
 
         }
 
-        public void ReadDriversDB(DriverClass NewDriverRead)
+        public void ReadDriversDB(DriverClass DriverRead)
         {
 
         }
 
-
-        public void DeleteDriverDB(DriverClass NewDriverDelete)
+        public void DeleteDriverDB(DriverClass DriverDelete)
         {
 
         }
 
+        public void AddNewCustomerDB(CustomerClass NewCostomer)
+        {
 
+        }
 
+        public void ReadCustomerDB(CustomerClass ReadCustomer)
+        {
 
+        }
     }
 }

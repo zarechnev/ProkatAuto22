@@ -26,20 +26,17 @@ namespace GUI
 
         bool habitSmoke, habitDrink, habitDrugs;
 
-
-
         public Form1()
         {
             InitializeComponent();
-            DataBase = new DataBaseClass();
-            DriverObjectRead = new DriverClass(DataBase);
-            CustomerObjectRead = new CustomerClass(DataBase);
+            DriverObjectRead = new DriverClass();
+            CustomerObjectRead = new CustomerClass();
 
             DriverObjectRead.ReadDriver();
             GetDrivers();
 
             CustomerObjectRead.ReadCustomer();
-            GetCustomers()
+            GetCustomers();
 
          //   CarObject = new AutomobileClass();
          //   RequestObject = new OrderClass();
@@ -48,8 +45,6 @@ namespace GUI
             //  GetRequest(RequestObject);
 
             //  comboBox2ClassType.DataSource = CarObject.ClassCarList;
-
-
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd.MM.yyyy; hh:mm";
@@ -78,12 +73,10 @@ namespace GUI
                 */
         }
 
-
         private void button2DeleteCar_Click(object sender, EventArgs e)
         {
             CarObject.DeleteCar(CarObject.ModelCarList[index], CarObject.ClassCarList[index], CarObject.TypeCarList[index], CarObject.PriceHourList[index], CarObject.PhotoCarList[index], CarObject.DriverCarList[index], CarObject.YearIssueList[index], CarObject.MaxSpeedList[index], CarObject.CapacityCarList[index], CarObject.CapacityTrunkList[index]);
         }
-
 
         private void comboBox2ClassType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -93,7 +86,6 @@ namespace GUI
         private void comboBox1CarType_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
-
 
         ////////////////////////////////// Водители
 
@@ -113,14 +105,10 @@ namespace GUI
                 File.Copy(sourcePath, destFile, true);
               }
         }
-
-
-
-
+ 
         private void button4AddDriver_Click(object sender, EventArgs e)
         {
-            
-            DriverClass AddDriver = new DriverClass(DataBase);
+            DriverClass AddDriver = new DriverClass();
 
             AddDriver.DriverDBID = textBox2IdDriver.Text;
             AddDriver.PhotoDriver = fileNameDriver;
@@ -133,15 +121,13 @@ namespace GUI
             AddDriver.InsertDriver();
 
             listBox2Driver.Refresh();
-
         }
-
 
         private void button6RedactionDriver_Click(object sender, EventArgs e)
         {
-            DriverClass RedactionDriver = new DriverClass(DataBase);
+            DriverClass RedactionDriver = new DriverClass();
            // string idDriver;
-
+           /*
             RedactionDriver.DriverDBID = DriverObjectRead.DriverDBIDList(Int32.Parse(listBox2Driver.SelectedIndex.ToString()));
             RedactionDriver.PhotoDriver = fileNameDriver;
             RedactionDriver.FIOdriver = textBox2FioDriver.Text;
@@ -153,27 +139,25 @@ namespace GUI
             RedactionDriver.EditDriver();
 
             listBox2Driver.Refresh();
+            */
         }
-
 
         private void button5DeleteDriver_Click(object sender, EventArgs e)
         {
-            DriverClass DeleteDriver = new DriverClass(DataBase);
-
+            DriverClass DeleteDriver = new DriverClass();
+            /*
             DeleteDriver.DriverDBID = DriverObjectRead.DriverDBIDList(Int32.Parse(listBox2Driver.SelectedIndex.ToString()));
             DeleteDriver.DeleteDriver();
 
             listBox2Driver.Refresh();
+            */
         }
-
-
 
         private void GetDrivers()
         {
-            for (int i = 0; i < DriverObjectRead.FIOdriverList.Count; i++)
-                listBox2Driver.Items.Add(DriverObjectRead.FIOdriverList[i]);
+        //    for (int i = 0; i < DriverObjectRead.FIOdriverList.Count; i++)
+          //      listBox2Driver.Items.Add(DriverObjectRead.FIOdriverList[i]);
         }
-
 
         private void checkBox6Smoke_Click(object sender, EventArgs e)
         {
@@ -199,7 +183,6 @@ namespace GUI
                 habitDrugs = false;
         }
 
-
         //////////////////////////// Заявки
         private void button9AddRequest_Click(object sender, EventArgs e)
         {
@@ -221,17 +204,15 @@ namespace GUI
 
         }
 
-
         private void button8DeleteRequest_Click(object sender, EventArgs e)
         {
             RequestObject.DeleteRequest(RequestObject.NumberRequestList[index], RequestObject.ModelCarList[index], RequestObject.DriverCarList[index], RequestObject.DurationLeaseList[index], RequestObject.PriceLeaseList[index], RequestObject.CustomerIDList[index], RequestObject.KidsChairList[index], RequestObject.WinterTiresList[index], RequestObject.SportFasteningsList[index], RequestObject.GpsList[index]);
         }
 
-
         ////////////////////////////////// Клиенты
         private void button12AddCustomer_Click(object sender, EventArgs e)
         {
-            CustomerClass AddCustomer = new CustomerClass(DataBase);
+            CustomerClass AddCustomer = new CustomerClass();
 
             AddCustomer.FIOcustomer = textBox12FioCustomer.Text;
             AddCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
@@ -243,12 +224,11 @@ namespace GUI
 
         }
 
-
         private void button10RedactionCustomer_Click(object sender, EventArgs e)
         {
-            CustomerClass RedactionCustomer = new CustomerClass(DataBase);
+            CustomerClass RedactionCustomer = new CustomerClass();
             // string idDriver;
-
+            /*
             RedactionCustomer.IDcustomer = CustomerObjectRead.IDcustomerList(Int32.Parse(listBox3Customers.SelectedIndex.ToString()));
             RedactionCustomer.FIOcustomer = textBox12FioCustomer.Text;
             RedactionCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
@@ -257,32 +237,26 @@ namespace GUI
             RedactionCustomer.EditCustomer();
 
             listBox3Customers.Refresh();
+            */
         }
-
 
         private void button11DeleteCustomer_Click(object sender, EventArgs e)
         {
-            CustomerClass DeleteCustomer = new CustomerClass(DataBase);
+            CustomerClass DeleteCustomer = new CustomerClass();
 
+            /*
             DeleteCustomer.IDcustomer = CustomerObjectRead.IDcustomerList(Int32.Parse(listBox3Customers.SelectedIndex.ToString()));
             DeleteCustomer.DeleteCustomer();
 
             listBox3Customers.Refresh();
+            */
         }
-
 
         private void GetCustomers()
         {
-            for (int i = 0; i < CustomerObjectRead.FIOcustomerList.Count; i++)
-                listBox3Customers.Items.Add(CustomerObjectRead.FIOcustomerList[i]);
+            //for (int i = 0; i < CustomerObjectRead.FIOcustomerList.Count; i++)
+              //  listBox3Customers.Items.Add(CustomerObjectRead.FIOcustomerList[i]);
         }
-
-
-        //////////////////////////////////////////
-
-
-
-
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -304,8 +278,6 @@ namespace GUI
 
         }
 
-        
-
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -316,6 +288,5 @@ namespace GUI
 
         }
 
-        
     }
 }

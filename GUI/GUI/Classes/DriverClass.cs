@@ -8,12 +8,6 @@ namespace ProkatAuto22.Classes
 {
     class DriverClass
     {
-        public DriverClass(DataBaseClass myDB)
-        {
-            DB = myDB;
-
-        }
-        
         public List<string> PhotoDriverList { get;  set; }
         public List<string>  FIOdriverList { get;  set; }
         public List<string> ExpirienceDriverList { get;  set; }
@@ -21,9 +15,6 @@ namespace ProkatAuto22.Classes
         public List<bool> DriverHabitDrinkList { get; set; }
         public List<bool> DriverHabitDrugsList { get; set; }
         
-
-
-
         public string DriverDBID { get; set; }
         public string PhotoDriver { get; set; }
         public string FIOdriver { get; set; }
@@ -34,32 +25,29 @@ namespace ProkatAuto22.Classes
 
         private DataBaseClass DB;
 
+        public DriverClass()
+        {
+
+        }
 
         public void InsertDriver()
         {
-            
             DB.AddNewDriverDB(this);
         }
 
         public void ReadDriver()
         {
-           
-            DB.ReadDriversDB(this);
+            //DB.ReadDriversDB(this);
         }
-
 
         public void DeleteDriver()
         {
-            
             DB.DeleteDriverDB(this);
-
         }
 
         public void EditDriver()
         {
-            
             DB.EditDriverDB(this);
-
         }
     }
 }
