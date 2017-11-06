@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using ProkatAuto22.Classes;
 
 
 namespace ProkatAuto22
 {
     public partial class DriverInfo : Form
     {
+        string fileName;
+        bool habit1 = false, habit2 = false, habit3=false;
         public DriverInfo()
         {
             InitializeComponent();
@@ -26,7 +29,7 @@ namespace ProkatAuto22
             AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
             if (AddPhotoDriver.ShowDialog() == DialogResult.OK)
             {
-                string fileName = AddPhotoDriver.SafeFileName;
+                fileName = AddPhotoDriver.SafeFileName;
                 string sourcePath = AddPhotoDriver.FileName;
                 string targetPath = @"DriverPhoto";
 
@@ -41,14 +44,33 @@ namespace ProkatAuto22
             Close();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
 
+        private void buttonAddDriverBase_Click(object sender, EventArgs e)
+        {
+            DriverClass DriverObjectAdd = new DriverClass();
+
+            DriverObjectAdd.InsertDriver(fileName, textBoxFIO.Text, textBoxExperience.Text, habit1, habit2, habit3);
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
 
+        private void checkBox1_Click(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked)
+            { habit1 = true; }
         }
+
+        private void checkBox2_Click(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            { habit2 = true; }
+        }
+
+        private void checkBox3_Click(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked)
+            { habit3 = true; }
+        }
+
+        
     }
 }
