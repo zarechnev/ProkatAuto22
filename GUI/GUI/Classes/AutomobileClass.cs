@@ -40,13 +40,14 @@ namespace ProkatAuto22.Classes
         }
 
         public void ReadCar()
-        {
+        {/*
             ModelCarList...
             YearIssueList...
              MaxSpeedList....
              CapacityCarList..
              CapacityTrunkList..
              .........
+          */
         }
 
         public void DeleteCar(string ModelCar, string ClassCar, string TypeCar, string PriceHour, string PhotoCar, string DriverCar, string YearIssue, string MaxSpeed, string CapacityCar, string CapacityTrunk)
