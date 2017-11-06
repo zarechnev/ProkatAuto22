@@ -31,7 +31,7 @@ namespace ProkatAuto22.Classes
                                             INSERT INTO driverHabits (ID, habit) VALUES (2, 'Пьёт');
                                             INSERT INTO driverHabits (ID, habit) VALUES (3, 'Курит');
                                             CREATE TABLE driverHabitsBinding (driverID INTEGER REFERENCES drivers (ID), driverHabitsID INTEGER REFERENCES driverHabits (ID));
-                                            CREATE TABLE drivers (ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (100), photoFileName VARCHAR (100), experience INTEGER (3));
+                                            CREATE TABLE drivers (ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (100), photoFileName VARCHAR (100), experienceFrom INTEGER (4));
                                             CREATE TABLE orders (ID INTEGER PRIMARY KEY AUTOINCREMENT, data DATETIME, carID INTEGER REFERENCES cars (ID), driverID INTEGER REFERENCES drivers (ID), duration INTEGER (2), clientID INTEGER REFERENCES client (ID), address VARCHAR (100));
                                             COMMIT TRANSACTION;
                                             PRAGMA foreign_keys = on;

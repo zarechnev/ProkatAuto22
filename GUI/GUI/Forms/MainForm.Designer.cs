@@ -87,6 +87,8 @@
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -206,6 +208,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.listBox2);
             this.panel1.Controls.Add(this.button6RedactionDriver);
@@ -219,13 +223,13 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(402, 9);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(342, 483);
+            this.panel1.Size = new System.Drawing.Size(342, 497);
             this.panel1.TabIndex = 14;
             // 
             // button6RedactionDriver
             // 
             this.button6RedactionDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6RedactionDriver.Location = new System.Drawing.Point(99, 439);
+            this.button6RedactionDriver.Location = new System.Drawing.Point(100, 452);
             this.button6RedactionDriver.Name = "button6RedactionDriver";
             this.button6RedactionDriver.Size = new System.Drawing.Size(124, 32);
             this.button6RedactionDriver.TabIndex = 23;
@@ -235,7 +239,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(254, 439);
+            this.button5.Location = new System.Drawing.Point(255, 452);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(72, 32);
             this.button5.TabIndex = 22;
@@ -245,7 +249,7 @@
             // button4AddDriver
             // 
             this.button4AddDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4AddDriver.Location = new System.Drawing.Point(12, 439);
+            this.button4AddDriver.Location = new System.Drawing.Point(13, 452);
             this.button4AddDriver.Name = "button4AddDriver";
             this.button4AddDriver.Size = new System.Drawing.Size(81, 32);
             this.button4AddDriver.TabIndex = 21;
@@ -266,9 +270,9 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(195, 318);
+            this.textBox3.Location = new System.Drawing.Point(213, 318);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(132, 20);
+            this.textBox3.Size = new System.Drawing.Size(70, 20);
             this.textBox3.TabIndex = 18;
             // 
             // label7
@@ -277,9 +281,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.Location = new System.Drawing.Point(148, 319);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 17);
+            this.label7.Size = new System.Drawing.Size(52, 17);
             this.label7.TabIndex = 17;
-            this.label7.Text = "Стаж";
+            this.label7.Text = "Стаж с";
             // 
             // label6
             // 
@@ -303,7 +307,7 @@
             this.pictureBox2.Image = global::ProkatAuto22.Properties.Resources.vod1;
             this.pictureBox2.Location = new System.Drawing.Point(13, 267);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(128, 139);
+            this.pictureBox2.Size = new System.Drawing.Size(128, 135);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
@@ -656,7 +660,7 @@
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(95, 23);
+            this.checkBox5.Location = new System.Drawing.Point(6, 69);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(78, 17);
             this.checkBox5.TabIndex = 54;
@@ -676,7 +680,7 @@
             // checkBox7
             // 
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(6, 41);
+            this.checkBox7.Location = new System.Drawing.Point(6, 46);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(51, 17);
             this.checkBox7.TabIndex = 52;
@@ -692,8 +696,28 @@
             this.panel4.Controls.Add(this.checkBox6);
             this.panel4.Location = new System.Drawing.Point(150, 344);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(176, 61);
+            this.panel4.Size = new System.Drawing.Size(176, 93);
             this.panel4.TabIndex = 55;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(13, 413);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 26);
+            this.button1.TabIndex = 56;
+            this.button1.Text = "Изменить фото";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label19.Location = new System.Drawing.Point(289, 319);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(37, 17);
+            this.label19.TabIndex = 57;
+            this.label19.Text = "года";
             // 
             // Form1
             // 
@@ -794,6 +818,8 @@
         private System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button button1;
     }
 }
 
