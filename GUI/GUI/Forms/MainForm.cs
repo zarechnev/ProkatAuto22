@@ -28,27 +28,21 @@ namespace GUI
             GetRequest(RequestObject);
 
             comboBox2ClassType.DataSource = CarObject.ClassCarList;
-            comboBox1CarType.DataSource = CarObject.TypeCarList;
+
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "dd.MM.yyyy; hh:mm";
         }
 
         ///////////////////////////////////////// Авто
 
         private void button1AddAuto_Click(object sender, EventArgs e)
         {
-
-            AutomobileAdd FormAddAuto = new AutomobileAdd();
-            FormAddAuto.Show();
-
             
         }
 
         private void button3RedactionAuto_Click(object sender, EventArgs e)
         {
-            AutomobileAdd RedactionAutoForm = new AutomobileAdd();
-            RedactionAutoForm.Text = "Редактирование данных";
 
-            RedactionAutoForm.RedactionCar(index);
-            RedactionAutoForm.Show();
         }
 
         //вывод данных на форму
@@ -76,15 +70,13 @@ namespace GUI
 
         private void comboBox1CarType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CarObject.GetCarType(comboBox1CarType.SelectedText);
         }
 
 
         ////////////////////////////////// Водители
         private void button4AddDriver_Click(object sender, EventArgs e)
         {
-            DriverInfo FormAddDriver = new DriverInfo();
-            FormAddDriver.Show();
+
         }
 
 
@@ -94,17 +86,12 @@ namespace GUI
         //////////////////////////// Заявки
         private void button9AddRequest_Click(object sender, EventArgs e)
         {
-            Arenda_add FormAddArenda = new Arenda_add();
-            FormAddArenda.Show();
+
         }
 
         private void button7RedactionRequest_Click(object sender, EventArgs e)
         {
-            Arenda_add RedactionRequestForm = new Arenda_add();
-            RedactionRequestForm.Text = "Редактирование данных";
 
-            RedactionRequestForm.RedactionRequest(index);
-            RedactionRequestForm.Show();
         }
 
         private void GetRequest (OrderClass RequestObject)
@@ -127,8 +114,7 @@ namespace GUI
         ////////////////////////////////// Клиенты
         private void button12AddCustomer_Click(object sender, EventArgs e)
         {
-            CustomerAdd FormAddCustomer = new CustomerAdd();
-            FormAddCustomer.Show();
+
         }
         //////////////////////////////////////////
 
@@ -152,6 +138,16 @@ namespace GUI
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
         {
 
         }

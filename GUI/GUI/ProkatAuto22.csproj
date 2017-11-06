@@ -83,34 +83,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\DriverClass.cs" />
-    <Compile Include="Forms\ArendaAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ArendaAdd.Designer.cs">
-      <DependentUpon>ArendaAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AutomobileAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AutomobileAdd.Designer.cs">
-      <DependentUpon>AutomobileAdd.cs</DependentUpon>
-    </Compile>
     <Compile Include="Classes\AutomobileClass.cs" />
     <Compile Include="Classes\DataBaseClass.cs" />
     <Compile Include="Classes\OrderClass.cs" />
-    <Compile Include="Forms\CustomerAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerAdd.Designer.cs">
-      <DependentUpon>CustomerAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\DriverInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\DriverInfo.Designer.cs">
-      <DependentUpon>DriverInfo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,18 +94,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\ArendaAdd.resx">
-      <DependentUpon>ArendaAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AutomobileAdd.resx">
-      <DependentUpon>AutomobileAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerAdd.resx">
-      <DependentUpon>CustomerAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DriverInfo.resx">
-      <DependentUpon>DriverInfo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
