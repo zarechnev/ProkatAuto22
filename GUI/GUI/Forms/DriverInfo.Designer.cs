@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1AddPhotoDriver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textboxBadHabits = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxExperience = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -38,16 +38,20 @@
             this.textBoxFIO = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonAddDriverBase = new System.Windows.Forms.Button();
-            this.button1AddPhotoDriver = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel2.Controls.Add(this.checkBox3);
+            this.panel2.Controls.Add(this.checkBox2);
+            this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.button1AddPhotoDriver);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textboxBadHabits);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.textBoxExperience);
             this.panel2.Controls.Add(this.label7);
@@ -60,6 +64,17 @@
             this.panel2.Size = new System.Drawing.Size(273, 431);
             this.panel2.TabIndex = 17;
             // 
+            // button1AddPhotoDriver
+            // 
+            this.button1AddPhotoDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1AddPhotoDriver.Location = new System.Drawing.Point(81, 63);
+            this.button1AddPhotoDriver.Name = "button1AddPhotoDriver";
+            this.button1AddPhotoDriver.Size = new System.Drawing.Size(171, 25);
+            this.button1AddPhotoDriver.TabIndex = 48;
+            this.button1AddPhotoDriver.Text = "Добавить фото";
+            this.button1AddPhotoDriver.UseVisualStyleBackColor = true;
+            this.button1AddPhotoDriver.Click += new System.EventHandler(this.button1AddPhotoDriver_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -70,13 +85,6 @@
             this.label1.Size = new System.Drawing.Size(44, 17);
             this.label1.TabIndex = 47;
             this.label1.Text = "Фото";
-            // 
-            // textboxBadHabits
-            // 
-            this.textboxBadHabits.Location = new System.Drawing.Point(103, 229);
-            this.textboxBadHabits.Name = "textboxBadHabits";
-            this.textboxBadHabits.Size = new System.Drawing.Size(149, 20);
-            this.textboxBadHabits.TabIndex = 45;
             // 
             // label8
             // 
@@ -143,22 +151,43 @@
             this.buttonAddDriverBase.Text = "Добавить водителя";
             this.buttonAddDriverBase.UseVisualStyleBackColor = true;
             // 
-            // button1AddPhotoDriver
+            // checkBox1
             // 
-            this.button1AddPhotoDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1AddPhotoDriver.Location = new System.Drawing.Point(81, 63);
-            this.button1AddPhotoDriver.Name = "button1AddPhotoDriver";
-            this.button1AddPhotoDriver.Size = new System.Drawing.Size(171, 25);
-            this.button1AddPhotoDriver.TabIndex = 48;
-            this.button1AddPhotoDriver.Text = "Добавить фото";
-            this.button1AddPhotoDriver.UseVisualStyleBackColor = true;
-            this.button1AddPhotoDriver.Click += new System.EventHandler(this.button1AddPhotoDriver_Click);
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(124, 215);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(51, 17);
+            this.checkBox1.TabIndex = 49;
+            this.checkBox1.Text = "Пьёт";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(124, 231);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(55, 17);
+            this.checkBox2.TabIndex = 50;
+            this.checkBox2.Text = "Курит";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(124, 254);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(78, 17);
+            this.checkBox3.TabIndex = 51;
+            this.checkBox3.Text = "Наркоман";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // DriverInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(283, 438);
+            this.ClientSize = new System.Drawing.Size(283, 439);
             this.Controls.Add(this.panel2);
             this.MaximumSize = new System.Drawing.Size(299, 477);
             this.MinimumSize = new System.Drawing.Size(299, 477);
@@ -176,12 +205,14 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonAddDriverBase;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textboxBadHabits;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxExperience;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxFIO;
         private System.Windows.Forms.Button button1AddPhotoDriver;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -141,6 +141,14 @@ namespace GUI
             index= Int32.Parse(listBox1.SelectedIndex.ToString());
         }
 
-        
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
