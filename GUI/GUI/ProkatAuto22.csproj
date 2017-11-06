@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="Classes\AutomobileClass.cs" />
     <Compile Include="Classes\DataBaseClass.cs" />
+    <Compile Include="Classes\DriverClass.cs" />
     <Compile Include="Classes\OrderClass.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>

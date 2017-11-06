@@ -76,6 +76,12 @@ namespace GUI
         ////////////////////////////////// Водители
         private void button4AddDriver_Click(object sender, EventArgs e)
         {
+            DriverClass AddDriver = new DriverClass();
+
+            AddDriver.PhotoDriver = filename;
+            AddDriver.FIOdriver = t;
+
+            listBox2.Refresh();
 
         }
 
