@@ -8,44 +8,57 @@ namespace ProkatAuto22.Classes
 {
     class DriverClass
     {
+        public DriverClass(DataBaseClass myDB)
+        {
+            DB = myDB;
+
+        }
         
         public List<string> PhotoDriverList { get;  set; }
         public List<string>  FIOdriverList { get;  set; }
         public List<string> ExpirienceDriverList { get;  set; }
-        public List<bool>  DriverHabit1List { get; set; }
-        public List<bool> DriverHabit2List { get; set; }
-        public List<bool> DriverHabit3List { get; set; }
+        public List<bool> DriverHabitSmokeList { get; set; }
+        public List<bool> DriverHabitDrinkList { get; set; }
+        public List<bool> DriverHabitDrugsList { get; set; }
+        
 
 
 
-
-
+        public string DriverDBID { get; set; }
         public string PhotoDriver { get; set; }
         public string FIOdriver { get; set; }
         public string ExpirienceDriver { get; set; }
-        public bool DriverHabit1 { get; set; }
-        public bool DriverHabit2 { get; set; }
-        public bool DriverHabit3 { get; set; }
+        public bool DriverHabitSmoke { get; set; }
+        public bool DriverHabitDrink { get; set; }
+        public bool DriverHabitDrugs { get; set; }
+
+        private DataBaseClass DB;
 
 
-
-
-        public void InsertDriver(string PhotoDriver, string FIOdriver, string ExpirienceDriver, bool DriverHabit1, bool DriverHabit2, bool DriverHabit3)
+        public void InsertDriver()
         {
-
+            
+            DB.AddNewDriverDB(this);
         }
 
         public void ReadDriver()
-        {/*
-            NumberRequestList
-            ModelCarList
-             .........
-         */
+        {
+           
+            DB.ReadDriversDB(this);
         }
 
 
-        public void DeleteRequest(string PhotoDriver, string FIOdriver, string ExpirienceDriver, bool DriverHabit1, bool DriverHabit2, bool DriverHabit3)
+        public void DeleteDriver()
         {
+            
+            DB.DeleteDriverDB(this);
+
+        }
+
+        public void EditDriver()
+        {
+            
+            DB.EditDriverDB(this);
 
         }
     }
