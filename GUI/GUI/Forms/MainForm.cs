@@ -32,7 +32,7 @@ namespace GUI
             DriverObjectRead = new DriverClass();
             CustomerObjectRead = new CustomerClass();
 
-            DriverObjectRead.ReadDriver();
+            //DriverObjectRead.ReadDriver();
             GetDrivers();
 
             CustomerObjectRead.ReadCustomer();
