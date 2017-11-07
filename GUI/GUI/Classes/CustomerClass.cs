@@ -12,7 +12,9 @@ namespace ProkatAuto22.Classes
         public List<string> FIOcustomerList { get; set; }
         public List<string> PhoneCustomerList { get; set; }
         public List<bool> CityCustomerList { get; set; }
-        
+
+        public List<CustomerClass> AllCustomerList { get; set; }
+
         public string IDcustomer { get; set; }
         public string FIOcustomer { get; set; }
         public string PhoneCustomer { get; set; }
@@ -30,19 +32,15 @@ namespace ProkatAuto22.Classes
             //DB.AddNewCustomerDB(this);
         }
 
-        public void ReadCustomer()
+        public void ReadAllCustomers()
         {
-            //DB.ReadCustomerDB(this);
+            AllCustomerList = new List<CustomerClass>(DB.ReadAllCustomersDB());
         }
 
-        public void DeleteCustomer()
-        {
-            //DB.DeleteCustomerDB(this);
-        }
 
         public void EditCustomer()
         {
-            //DB.EditCustomerDB(this);
+            DB.EditCustomerDB(this);
         }
     }
 }

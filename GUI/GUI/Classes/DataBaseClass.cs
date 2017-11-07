@@ -219,6 +219,7 @@ namespace ProkatAuto22.Classes
         {
             List<DriverClass> ListOfDrivers = new List<DriverClass>();
 
+
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
                 DBConnection.Open();
@@ -236,8 +237,42 @@ namespace ProkatAuto22.Classes
                 }
             }
 
-            return ListOfDrivers;
+            return (ListOfDrivers);
         }
+
+
+
+
+        ///Записывает в базу нового клиента. Не протестирован.
+        public void AddNewCustomerDB(CustomerClass NewCostomer)
+        {
+
+
+            
+        }
+
+
+        ///Считывает из базы нового клиента. Не протестирован.
+        public void ReadCustomerDB(int CustomerID)
+        {
+
+        }
+
+
+        ///Редактирует в базе нового клиента. Не протестирован.
+        public void EditCustomerDB(CustomerClass EditCustomer)
+        {
+
+        }
+
+        ///Возвращает список клиентов базы. Не протестирован.
+        public List<CustomerClass> ReadAllCustomersDB()
+        {
+            List<CustomerClass> ListOfCustomers = new List<CustomerClass>();
+
+            return (ListOfCustomers);
+        }
+
 
     }
 }

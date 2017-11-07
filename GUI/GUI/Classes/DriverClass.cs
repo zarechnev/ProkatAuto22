@@ -14,6 +14,9 @@ namespace ProkatAuto22.Classes
         public List<bool> DriverHabitSmokeList { get; set; }
         public List<bool> DriverHabitDrinkList { get; set; }
         public List<bool> DriverHabitDrugsList { get; set; }
+
+
+       public List<DriverClass> AllDriversList { get; set; }
         
         public string DriverDBID { get; set; }
         public string PhotoDriver { get; set; }
@@ -40,9 +43,18 @@ namespace ProkatAuto22.Classes
             DB.EditDriverDB(this);
         }
 
+
         public override string ToString()
         {
             return "Good";
         }
+
+        public void ReadAllDrivers()
+        {
+           AllDriversList = new List<DriverClass> (DB.ReadAllDriversDB());
+        }
+
+        
+
     }
 }

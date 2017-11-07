@@ -128,7 +128,7 @@
             this.listBox1Automobile.Name = "listBox1Automobile";
             this.listBox1Automobile.Size = new System.Drawing.Size(398, 121);
             this.listBox1Automobile.TabIndex = 1;
-            this.listBox1Automobile.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            
             // 
             // comboBox2ClassType
             // 
