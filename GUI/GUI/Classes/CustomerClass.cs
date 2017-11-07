@@ -27,7 +27,7 @@ namespace ProkatAuto22.Classes
 
         public void InsertCustomer()
         {
-            DB.AddNewCustomerDB(this);
+            //DB.AddNewCustomerDB(this);
         }
 
         public void ReadCustomer()

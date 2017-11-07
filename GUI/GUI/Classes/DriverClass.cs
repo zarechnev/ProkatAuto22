@@ -39,5 +39,10 @@ namespace ProkatAuto22.Classes
         {
             DB.EditDriverDB(this);
         }
+
+        public override string ToString()
+        {
+            return "Good";
+        }
     }
 }
