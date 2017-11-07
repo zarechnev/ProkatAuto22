@@ -45,9 +45,9 @@ namespace ProkatAuto22.Classes
                 SQLiteConnection.CreateFile(DBFileName);
                 using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
                 {
+                    DBConnection.Open();
                     using (SQLiteCommand CreateCommand = new SQLiteCommand(DBConnection))
                     {
-                        DBConnection.Open();
                         CreateCommand.CommandText = CreateBDCommand;
                         CreateCommand.ExecuteNonQuery();
                     }
@@ -60,27 +60,74 @@ namespace ProkatAuto22.Classes
         }
 
         public void AddNewDriverDB(DriverClass NewDriverAdd) {
-            
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    int AddedDviverID;
+                    Command.CommandText = @"INSERT INTO drivers (name, photoFileName, experienceFrom) VALUES ('" +
+                         NewDriverAdd.FIOdriver.ToUpper() + "','" +
+                         NewDriverAdd.PhotoDriver + "','" +
+                         NewDriverAdd.ExpirienceDriver + "');";
+                    Console.WriteLine("Create driver whis SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+
+                    Command.CommandText = @"SELECT ID from drivers ORDER by ID DESC LIMIT 1;";
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        Reader.Read();
+                        AddedDviverID = Reader.GetInt32(0);
+                        Console.WriteLine("Last record Driver ID is: " + AddedDviverID);
+                    }
+
+                    if (NewDriverAdd.DriverHabitSmoke)
+                    {
+                        Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + AddedDviverID + "," + 3 + ");";
+                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+
+                    if (NewDriverAdd.DriverHabitDrink)
+                    {
+                        Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + AddedDviverID + "," + 2 + ");";
+                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+
+                    if (NewDriverAdd.DriverHabitDrugs)
+                    {
+                        Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + AddedDviverID + "," + 1 + ");";
+                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
-        public void EditDriverDB(DriverClass NewDriverEdit)
+        public void EditDriverDB(DriverClass DriverEdit)
         {
 
         }
 
-        public void ReadDriversDB(DriverClass NewDriverRead)
+        public void ReadDriversDB(DriverClass DriverRead)
         {
 
         }
 
-
-        public void DeleteDriverDB(DriverClass NewDriverDelete)
+        public void DeleteDriverDB(DriverClass DriverDelete)
         {
 
         }
 
+        public void AddNewCustomerDB(CustomerClass NewCostomer)
+        {
 
+        }
 
+        public void ReadCustomerDB(CustomerClass ReadCustomer)
+        {
 
+        }
     }
 }
