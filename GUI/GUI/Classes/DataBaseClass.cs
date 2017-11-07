@@ -92,7 +92,7 @@ namespace ProkatAuto22.Classes
                         Reader.Read();
                         ReadedDriver.FIOdriver = Reader.GetString(0);
                         ReadedDriver.PhotoDriver = Reader.GetString(1);
-                        ReadedDriver.ExpirienceDriver = Reader.GetString(2);
+                        ReadedDriver.ExpirienceDriver = Reader.GetInt32(2).ToString();
                     }
 
                     // Считываем привычки водителя
@@ -240,39 +240,39 @@ namespace ProkatAuto22.Classes
             return (ListOfDrivers);
         }
 
-
-
-
-        ///Записывает в базу нового клиента. Не протестирован.
+        /// <summary>
+        /// Записывает в базу нового клиента. Не протестирован.
+        /// </summary>
         public void AddNewCustomerDB(CustomerClass NewCostomer)
         {
-
-
             
         }
 
-
-        ///Считывает из базы нового клиента. Не протестирован.
+        /// <summary>
+        /// Считывает из базы нового клиента. Не протестирован.
+        /// </summary>
         public void ReadCustomerDB(int CustomerID)
         {
 
         }
 
-
-        ///Редактирует в базе нового клиента. Не протестирован.
+        /// <summary>
+        /// Редактирует в базе нового клиента. Не протестирован.
+        /// </summary>
         public void EditCustomerDB(CustomerClass EditCustomer)
         {
 
         }
 
-        ///Возвращает список клиентов базы. Не протестирован.
+        /// <summary>
+        /// Возвращает список клиентов базы. Не протестирован.
+        /// </summary>
+        /// <returns></returns>
         public List<CustomerClass> ReadAllCustomersDB()
         {
             List<CustomerClass> ListOfCustomers = new List<CustomerClass>();
 
             return (ListOfCustomers);
         }
-
-
     }
 }

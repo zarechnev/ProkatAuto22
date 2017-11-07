@@ -8,16 +8,6 @@ namespace ProkatAuto22.Classes
 {
     class DriverClass
     {
-        public List<string> PhotoDriverList { get;  set; }
-        public List<string>  FIOdriverList { get;  set; }
-        public List<string> ExpirienceDriverList { get;  set; }
-        public List<bool> DriverHabitSmokeList { get; set; }
-        public List<bool> DriverHabitDrinkList { get; set; }
-        public List<bool> DriverHabitDrugsList { get; set; }
-
-
-       public List<DriverClass> AllDriversList { get; set; }
-        
         public string DriverDBID { get; set; }
         public string PhotoDriver { get; set; }
         public string FIOdriver { get; set; }
@@ -27,6 +17,16 @@ namespace ProkatAuto22.Classes
         public bool DriverHabitDrugs { get; set; } = false;
 
         private DataBaseClass DB;
+
+        /// <summary>
+        /// Метод класса. Возвращает список (классов) водителей.
+        /// </summary>
+        /// <returns></returns>
+        public static List<DriverClass> ReadAllDrivers()
+        {
+            DataBaseClass DB = new DataBaseClass();
+            return DB.ReadAllDriversDB();
+        }
 
         public DriverClass()
         {
@@ -43,18 +43,9 @@ namespace ProkatAuto22.Classes
             DB.EditDriverDB(this);
         }
 
-
         public override string ToString()
         {
-            return "Good";
+            return this.DriverDBID + ", " + this.FIOdriver + ", стаж с: " + this.ExpirienceDriver + " г.";
         }
-
-        public void ReadAllDrivers()
-        {
-           AllDriversList = new List<DriverClass> (DB.ReadAllDriversDB());
-        }
-
-        
-
     }
 }

@@ -137,7 +137,6 @@
             this.comboBox2ClassType.Name = "comboBox2ClassType";
             this.comboBox2ClassType.Size = new System.Drawing.Size(64, 21);
             this.comboBox2ClassType.TabIndex = 4;
-            this.comboBox2ClassType.SelectedIndexChanged += new System.EventHandler(this.comboBox2ClassType_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -175,7 +174,6 @@
             this.button1AddAuto.TabIndex = 8;
             this.button1AddAuto.Text = "Добавить";
             this.button1AddAuto.UseVisualStyleBackColor = true;
-            this.button1AddAuto.Click += new System.EventHandler(this.button1AddAuto_Click);
             // 
             // button3RedactionAuto
             // 
@@ -186,7 +184,6 @@
             this.button3RedactionAuto.TabIndex = 11;
             this.button3RedactionAuto.Text = "Редактировать";
             this.button3RedactionAuto.UseVisualStyleBackColor = true;
-            this.button3RedactionAuto.Click += new System.EventHandler(this.button3RedactionAuto_Click);
             // 
             // panel1
             // 
@@ -270,7 +267,6 @@
             this.label8.Size = new System.Drawing.Size(135, 17);
             this.label8.TabIndex = 19;
             this.label8.Text = "Вредные привычки";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // checkBox7Drink
             // 
@@ -281,7 +277,6 @@
             this.checkBox7Drink.TabIndex = 52;
             this.checkBox7Drink.Text = "Пьёт";
             this.checkBox7Drink.UseVisualStyleBackColor = true;
-            this.checkBox7Drink.Click += new System.EventHandler(this.checkBox7Drink_Click);
             // 
             // checkBox5Drugs
             // 
@@ -292,7 +287,6 @@
             this.checkBox5Drugs.TabIndex = 54;
             this.checkBox5Drugs.Text = "Наркоман";
             this.checkBox5Drugs.UseVisualStyleBackColor = true;
-            this.checkBox5Drugs.Click += new System.EventHandler(this.checkBox5Drugs_Click);
             // 
             // checkBox6Smoke
             // 
@@ -303,7 +297,6 @@
             this.checkBox6Smoke.TabIndex = 53;
             this.checkBox6Smoke.Text = "Курит";
             this.checkBox6Smoke.UseVisualStyleBackColor = true;
-            this.checkBox6Smoke.Click += new System.EventHandler(this.checkBox6Smoke_Click);
             // 
             // listBox2Driver
             // 
@@ -494,7 +487,6 @@
             this.label23.Size = new System.Drawing.Size(51, 17);
             this.label23.TabIndex = 30;
             this.label23.Text = "Опции";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // checkBox1
             // 
@@ -604,7 +596,6 @@
             this.button7RedactionRequest.TabIndex = 23;
             this.button7RedactionRequest.Text = "Редактировать";
             this.button7RedactionRequest.UseVisualStyleBackColor = true;
-            this.button7RedactionRequest.Click += new System.EventHandler(this.button7RedactionRequest_Click);
             // 
             // button8DeleteRequest
             // 
@@ -615,7 +606,6 @@
             this.button8DeleteRequest.TabIndex = 22;
             this.button8DeleteRequest.Text = "Удалить";
             this.button8DeleteRequest.UseVisualStyleBackColor = true;
-            this.button8DeleteRequest.Click += new System.EventHandler(this.button8DeleteRequest_Click);
             // 
             // button9AddRequest
             // 
@@ -626,7 +616,6 @@
             this.button9AddRequest.TabIndex = 21;
             this.button9AddRequest.Text = "Добавить";
             this.button9AddRequest.UseVisualStyleBackColor = true;
-            this.button9AddRequest.Click += new System.EventHandler(this.button9AddRequest_Click);
             // 
             // textBox5
             // 
@@ -644,7 +633,6 @@
             this.label9.Size = new System.Drawing.Size(126, 17);
             this.label9.TabIndex = 19;
             this.label9.Text = "Время аренды (ч)";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -682,7 +670,6 @@
             this.button10RedactionCustomer.TabIndex = 23;
             this.button10RedactionCustomer.Text = "Редактировать";
             this.button10RedactionCustomer.UseVisualStyleBackColor = true;
-            this.button10RedactionCustomer.Click += new System.EventHandler(this.button10RedactionCustomer_Click);
             // 
             // button12AddCustomer
             // 
@@ -693,7 +680,6 @@
             this.button12AddCustomer.TabIndex = 21;
             this.button12AddCustomer.Text = "Добавить";
             this.button12AddCustomer.UseVisualStyleBackColor = true;
-            this.button12AddCustomer.Click += new System.EventHandler(this.button12AddCustomer_Click);
             // 
             // textBox10CityCustomer
             // 
@@ -898,7 +884,6 @@
             this.label4.Size = new System.Drawing.Size(164, 16);
             this.label4.TabIndex = 15;
             this.label4.Text = "Список автомобилей";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label21
             // 
@@ -909,7 +894,6 @@
             this.label21.Size = new System.Drawing.Size(94, 17);
             this.label21.TabIndex = 3;
             this.label21.Text = "Вместимость";
-            this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
             // panel6
             // 
