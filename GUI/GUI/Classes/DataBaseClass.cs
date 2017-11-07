@@ -59,32 +59,52 @@ namespace ProkatAuto22.Classes
             }
         }
 
-        ///<summary>
-        ///<para>int</para>
-        ///Не протестирован.
-        ///Считывает водителя из базы по ID. Не протестирован!!!
-        ///</summary>
-        ///<returns>DriverClass</returns>
-        public DriverClass ReadDriverDB(int DriverID)
+        /// <summary>
+        /// Не протестирован!!!
+        /// Считывает водителя из базы по ID.
+        /// </summary>
+        public DriverClass ReadDriverDB(string DriverID)
         {
             DriverClass ReadedDriver = new DriverClass();
+            ReadedDriver.DriverDBID = DriverID;
 
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
                 DBConnection.Open();
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
+                    // Считываем информацию о водителе
+                    Command.CommandText = @"SELECT name, photoFileName, experienceFrom FROM drivers WHERE ID = '" + ReadedDriver.DriverDBID + "';";
+                    Console.WriteLine("Select Driver by ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        Reader.Read();
+                        ReadedDriver.FIOdriver = Reader.GetString(0);
+                        ReadedDriver.PhotoDriver = Reader.GetString(1);
+                        ReadedDriver.ExpirienceDriver = Reader.GetString(2);
+                    }
+
+                    // Считываем привычки водителя
+                    Command.CommandText = @"SELECT driverHabitsID FROM driverHabitsBinding WHERE driverID = '" + ReadedDriver.DriverDBID + "';";
+                    Console.WriteLine("Select Driver habbits by Driver ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
+                            if (Reader.GetInt32(0) == 1) { ReadedDriver.DriverHabitDrugs = true; }
+                            if (Reader.GetInt32(0) == 2) { ReadedDriver.DriverHabitDrink = true; }
+                            if (Reader.GetInt32(0) == 3) { ReadedDriver.DriverHabitSmoke = true; }
+                        }
+                    }
                 }
             }
 
             return ReadedDriver;
         }
 
-        ///<summary>
-        ///<para>DriverClass</para>
-        ///Записывает в базу нового водителя. Протестирован.
-        ///</summary>
-        ///<returns>nothing</returns>
+        /// <summary>
+        /// Записывает в базу нового водителя.
+        /// </summary>
         public void AddNewDriverDB(DriverClass NewDriverAdd) {
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
@@ -131,11 +151,10 @@ namespace ProkatAuto22.Classes
             }
         }
 
-        ///<summary>
-        ///<para>DriverClass</para>
-        ///Редактирует водителя. Не протестирован!!!
-        ///</summary>
-        ///<returns>nothing</returns>
+        /// <summary>
+        /// Не протестирован!!!
+        /// Редактирует водителя.
+        /// </summary>
         public void EditDriverDB(DriverClass DriverEdit){
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
@@ -179,10 +198,10 @@ namespace ProkatAuto22.Classes
             }
         }
 
-        ///<summary>
-        ///Возвращает список всех водителей. Не протестирован!!!
-        ///</summary>
-        ///<returns>List<DriverClass></returns>
+        /// <summary>
+        /// Не протестирован!!!
+        /// Возвращает список всех водителей.
+        /// </summary>
         public List<DriverClass> ReadAllDriversDB()
         {
             List<DriverClass> ListOfDrivers = new List<DriverClass>();
