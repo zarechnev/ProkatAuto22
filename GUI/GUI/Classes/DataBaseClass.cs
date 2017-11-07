@@ -20,7 +20,7 @@ namespace ProkatAuto22.Classes
                                             INSERT INTO additionalServices (ID, service) VALUES (4, 'Детские кресла');
                                             INSERT INTO additionalServices (ID, service) VALUES (5, 'GPS-навигатор');
                                             CREATE TABLE additionalServicesBinding (orderID INTEGER REFERENCES orders (ID), additionalServicesID INTEGER REFERENCES additionalServices (ID));
-                                            CREATE TABLE cars (ID INTEGER PRIMARY KEY AUTOINCREMENT, model VARCHAR (100), priceForHour NUMERIC (5), typeID INTEGER REFERENCES carTypes (ID), photoFileName VARCHAR (100), carCapacity INTEGER (3), yearOfIssue INTEGER (4), maxSpeed INTEGER (3), carCapacityTrunc INTEGER (5));
+                                            CREATE TABLE cars (ID INTEGER PRIMARY KEY AUTOINCREMENT, model VARCHAR (100), priceForHour NUMERIC (5), typeID INTEGER REFERENCES carTypes (ID), photoFileName VARCHAR (100), carCapacity INTEGER (3), yearOfIssue INTEGER (4), gosNumber VARCHAR (9), carCapacityTrunc INTEGER (5));
                                             CREATE TABLE carTypes (ID INTEGER PRIMARY KEY AUTOINCREMENT, type VARCHAR (100));
                                             INSERT INTO carTypes (ID, type) VALUES (1, 'D');
                                             INSERT INTO carTypes (ID, type) VALUES (2, 'C');
@@ -59,6 +59,32 @@ namespace ProkatAuto22.Classes
             }
         }
 
+        ///<summary>
+        ///<para>int</para>
+        ///Не протестирован.
+        ///Считывает водителя из базы по ID. Не протестирован!!!
+        ///</summary>
+        ///<returns>DriverClass</returns>
+        public DriverClass ReadDriverDB(int DriverID)
+        {
+            DriverClass ReadedDriver = new DriverClass();
+
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                }
+            }
+
+            return ReadedDriver;
+        }
+
+        ///<summary>
+        ///<para>DriverClass</para>
+        ///Записывает в базу нового водителя. Протестирован.
+        ///</summary>
+        ///<returns>nothing</returns>
         public void AddNewDriverDB(DriverClass NewDriverAdd) {
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
@@ -105,19 +131,63 @@ namespace ProkatAuto22.Classes
             }
         }
 
-        public void EditDriverDB(DriverClass DriverEdit)
-        {
+        ///<summary>
+        ///<para>DriverClass</para>
+        ///Редактирует водителя. Не протестирован!!!
+        ///</summary>
+        ///<returns>nothing</returns>
+        public void EditDriverDB(DriverClass DriverEdit){
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"UPDATE drivers SET name = '" + DriverEdit.FIOdriver.ToUpper() +
+                        "', photoFileName ='" + DriverEdit.PhotoDriver +
+                        "', experienceFrom = '" + DriverEdit.ExpirienceDriver +
+                        "' WHERE ID = '" + DriverEdit.DriverDBID +
+                        ";";
+                    Console.WriteLine("Edit driver driver whis SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
 
+                    // Удаляем все упоминания о вредных привычках и заново их устанавливаем
+                    Command.CommandText = @"DELETE FROM drivers WHERE driverID = '" + DriverEdit.DriverDBID + ";";
+                    Console.WriteLine("Delete all habits binding SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+
+                    if (DriverEdit.DriverHabitSmoke)
+                    {
+                        Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + DriverEdit + "," + 3 + ");";
+                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+
+                    if (DriverEdit.DriverHabitDrink)
+                    {
+                        Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + DriverEdit + "," + 2 + ");";
+                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+
+                    if (DriverEdit.DriverHabitDrugs)
+                    {
+                        Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + DriverEdit + "," + 1 + ");";
+                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
-        public void ReadDriversDB(DriverClass DriverRead)
+        ///<summary>
+        ///Возвращает список всех водителей. Не протестирован!!!
+        ///</summary>
+        ///<returns>List<DriverClass></returns>
+        public List<DriverClass> ReadAllDriversDB()
         {
+            List<DriverClass> ListOfDrivers = new List<DriverClass>();
 
-        }
-
-        public void DeleteDriverDB(DriverClass DriverDelete)
-        {
-
+            return (ListOfDrivers);
         }
 
         public void AddNewCustomerDB(CustomerClass NewCostomer)

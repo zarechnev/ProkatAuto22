@@ -35,16 +35,6 @@ namespace ProkatAuto22.Classes
             DB.AddNewDriverDB(this);
         }
 
-        public void ReadDriver()
-        {
-            //DB.ReadDriversDB(this);
-        }
-
-        public void DeleteDriver()
-        {
-            DB.DeleteDriverDB(this);
-        }
-
         public void EditDriver()
         {
             DB.EditDriverDB(this);
