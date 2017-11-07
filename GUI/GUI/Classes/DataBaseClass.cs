@@ -70,7 +70,6 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Не протестирован!!!
         /// Считывает водителя из базы по ID.
         /// </summary>
         /// <param name="DriverID"></param>
@@ -212,7 +211,6 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Не протестирован!!!
         /// Возвращает список всех водителей.
         /// </summary>
         public List<DriverClass> ReadAllDriversDB()
