@@ -15,17 +15,22 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
-        DriverClass DriverObjectRead;
-        CustomerClass CustomerObjectRead;
-
-        string fileNameDriver;
-
         public Form1()
         {
             InitializeComponent();
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd.MM.yyyy; hh:mm";
+
+            UpdateDriversListbox();
+        }
+
+        /// <summary>
+        /// Обновляет содержимое лист-бокса для списка водителей.
+        /// </summary>
+        private void UpdateDriversListbox()
+        {
+            listBox2Driver.Items.Clear();
 
             List<DriverClass> AllDrivers = new List<DriverClass>();
             AllDrivers = DriverClass.ReadAllDrivers();
@@ -35,12 +40,16 @@ namespace GUI
             });
         }
 
-        /// Водители
+        /// <summary>
+        /// Добавление водителя.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4AddDriver_Click(object sender, EventArgs e)
         {
             DriverClass AddDriver = new DriverClass();
 
-            AddDriver.PhotoDriver = fileNameDriver;
+            AddDriver.PhotoDriver = "";
             AddDriver.FIOdriver = textBox2FioDriver.Text;
             AddDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
             AddDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
@@ -48,22 +57,25 @@ namespace GUI
             AddDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
 
             AddDriver.InsertDriver();
+
+            UpdateDriversListbox();
         }
 
         private void button1EditPhotoDriver_Click(object sender, EventArgs e)
         {
+            /// TODO копирование файла должно происходить при нажатии кнопки "добавить водителя" или "редактироть водителя" - надо подумать
             OpenFileDialog AddPhotoDriver = new OpenFileDialog();
             
             AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
              if (AddPhotoDriver.ShowDialog() == DialogResult.OK)
               {
-                fileNameDriver = AddPhotoDriver.SafeFileName;
+               // fileNameDriver = AddPhotoDriver.SafeFileName;
                 string sourcePath = AddPhotoDriver.FileName;
                 string targetPath = @"DriverPhoto";
                 
-                string destFile = Path.Combine(targetPath, fileNameDriver);
+               // string destFile = Path.Combine(targetPath, fileNameDriver);
                 
-                File.Copy(sourcePath, destFile, true);
+                //File.Copy(sourcePath, destFile, true);
               }
         }
  
@@ -81,9 +93,8 @@ namespace GUI
             RedactionDriver.DriverHabitDrugs = habitDrugs;
 
             RedactionDriver.EditDriver();
-
-            listBox2Driver.Refresh();
             */
+            UpdateDriversListbox();
         }
 
         /*
