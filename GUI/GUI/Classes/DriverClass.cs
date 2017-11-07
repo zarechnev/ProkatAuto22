@@ -22,9 +22,9 @@ namespace ProkatAuto22.Classes
         public string PhotoDriver { get; set; }
         public string FIOdriver { get; set; }
         public string ExpirienceDriver { get; set; }
-        public bool DriverHabitSmoke { get; set; }
-        public bool DriverHabitDrink { get; set; }
-        public bool DriverHabitDrugs { get; set; }
+        public bool DriverHabitSmoke { get; set; } = false;
+        public bool DriverHabitDrink { get; set; } = false;
+        public bool DriverHabitDrugs { get; set; } = false;
 
         private DataBaseClass DB;
 
@@ -43,11 +43,18 @@ namespace ProkatAuto22.Classes
             DB.EditDriverDB(this);
         }
 
+
+        public override string ToString()
+        {
+            return "Good";
+        }
+
         public void ReadAllDrivers()
         {
            AllDriversList = new List<DriverClass> (DB.ReadAllDriversDB());
         }
 
         
+
     }
 }

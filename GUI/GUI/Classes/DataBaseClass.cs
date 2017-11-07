@@ -10,6 +10,7 @@ namespace ProkatAuto22.Classes
 {
     class DataBaseClass
     {
+        private bool Debug = false;
         private string DBFileName = @"DBFile.sqlite3";
         private string CreateBDCommand = @"
                                             PRAGMA foreign_keys = off;
@@ -41,7 +42,7 @@ namespace ProkatAuto22.Classes
         {
             if (!System.IO.File.Exists(DBFileName)){
                 // Файла БД нет - создаём его
-                Console.WriteLine("BD-file doesn't exist.");
+                MyDBLogger("BD-file doesn't exist.");
                 SQLiteConnection.CreateFile(DBFileName);
                 using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
                 {
@@ -55,36 +56,67 @@ namespace ProkatAuto22.Classes
             }
             else{
                 // Файла БД присутствует
-                Console.WriteLine("BD-file exist.");
+                MyDBLogger("BD-file exist.");
             }
         }
 
-        ///<summary>
-        ///<para>int</para>
-        ///Не протестирован.
-        ///Считывает водителя из базы по ID. Не протестирован!!!
-        ///</summary>
-        ///<returns>DriverClass</returns>
-        public DriverClass ReadDriverDB(int DriverID)
+        /// <summary>
+        /// Локальный логгер. Вывод в стандартный вывод если (Debug == true).
+        /// </summary>
+        /// <param name="Message">Сообщение для вывода.</param>
+        private void MyDBLogger(string Message)
+        {
+            if (Debug) System.Console.WriteLine(Message);
+        }
+
+        /// <summary>
+        /// Не протестирован!!!
+        /// Считывает водителя из базы по ID.
+        /// </summary>
+        /// <param name="DriverID"></param>
+        public DriverClass ReadDriverDB(string DriverID)
         {
             DriverClass ReadedDriver = new DriverClass();
+            ReadedDriver.DriverDBID = DriverID;
 
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
                 DBConnection.Open();
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
+                    // Считываем информацию о водителе
+                    Command.CommandText = @"SELECT name, photoFileName, experienceFrom FROM drivers WHERE ID = '" + ReadedDriver.DriverDBID + "';";
+                    MyDBLogger("Select Driver by ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        Reader.Read();
+                        ReadedDriver.FIOdriver = Reader.GetString(0);
+                        ReadedDriver.PhotoDriver = Reader.GetString(1);
+                        ReadedDriver.ExpirienceDriver = Reader.GetString(2);
+                    }
+
+                    // Считываем привычки водителя
+                    Command.CommandText = @"SELECT driverHabitsID FROM driverHabitsBinding WHERE driverID = '" + ReadedDriver.DriverDBID + "';";
+                    MyDBLogger("Select Driver habbits by Driver ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
+                            if (Reader.GetInt32(0) == 1) { ReadedDriver.DriverHabitDrugs = true; }
+                            if (Reader.GetInt32(0) == 2) { ReadedDriver.DriverHabitDrink = true; }
+                            if (Reader.GetInt32(0) == 3) { ReadedDriver.DriverHabitSmoke = true; }
+                        }
+                    }
                 }
             }
 
             return ReadedDriver;
         }
 
-        ///<summary>
-        ///<para>DriverClass</para>
-        ///Записывает в базу нового водителя. Протестирован.
-        ///</summary>
-        ///<returns>nothing</returns>
+        /// <summary>
+        /// Записывает в базу нового водителя.
+        /// </summary>
+        /// <param name="NewDriverAdd"></param>
         public void AddNewDriverDB(DriverClass NewDriverAdd) {
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
@@ -96,7 +128,7 @@ namespace ProkatAuto22.Classes
                          NewDriverAdd.FIOdriver.ToUpper() + "','" +
                          NewDriverAdd.PhotoDriver + "','" +
                          NewDriverAdd.ExpirienceDriver + "');";
-                    Console.WriteLine("Create driver whis SQL-command: " + Command.CommandText);
+                    MyDBLogger("Create driver whis SQL-command: " + Command.CommandText);
                     Command.ExecuteNonQuery();
 
                     Command.CommandText = @"SELECT ID from drivers ORDER by ID DESC LIMIT 1;";
@@ -104,38 +136,38 @@ namespace ProkatAuto22.Classes
                     {
                         Reader.Read();
                         AddedDviverID = Reader.GetInt32(0);
-                        Console.WriteLine("Last record Driver ID is: " + AddedDviverID);
+                        MyDBLogger("Last record Driver ID is: " + AddedDviverID);
                     }
 
                     if (NewDriverAdd.DriverHabitSmoke)
                     {
                         Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + AddedDviverID + "," + 3 + ");";
-                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        MyDBLogger("Driver habbits (smoke) SQL-command: " + Command.CommandText);
                         Command.ExecuteNonQuery();
                     }
 
                     if (NewDriverAdd.DriverHabitDrink)
                     {
                         Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + AddedDviverID + "," + 2 + ");";
-                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        MyDBLogger("Driver habbits (smoke) SQL-command: " + Command.CommandText);
                         Command.ExecuteNonQuery();
                     }
 
                     if (NewDriverAdd.DriverHabitDrugs)
                     {
                         Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + AddedDviverID + "," + 1 + ");";
-                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        MyDBLogger("Driver habbits (smoke) SQL-command: " + Command.CommandText);
                         Command.ExecuteNonQuery();
                     }
                 }
             }
         }
 
-        ///<summary>
-        ///<para>DriverClass</para>
-        ///Редактирует водителя. Не протестирован!!!
-        ///</summary>
-        ///<returns>nothing</returns>
+        /// <summary>
+        /// Не протестирован!!!
+        /// Редактирует водителя.
+        /// </summary>
+        /// <param name="DriverEdit"></param>
         public void EditDriverDB(DriverClass DriverEdit){
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
@@ -147,45 +179,63 @@ namespace ProkatAuto22.Classes
                         "', experienceFrom = '" + DriverEdit.ExpirienceDriver +
                         "' WHERE ID = '" + DriverEdit.DriverDBID +
                         ";";
-                    Console.WriteLine("Edit driver driver whis SQL-command: " + Command.CommandText);
+                    MyDBLogger("Edit driver driver whis SQL-command: " + Command.CommandText);
                     Command.ExecuteNonQuery();
 
                     // Удаляем все упоминания о вредных привычках и заново их устанавливаем
                     Command.CommandText = @"DELETE FROM drivers WHERE driverID = '" + DriverEdit.DriverDBID + ";";
-                    Console.WriteLine("Delete all habits binding SQL-command: " + Command.CommandText);
+                    MyDBLogger("Delete all habits binding SQL-command: " + Command.CommandText);
                     Command.ExecuteNonQuery();
 
                     if (DriverEdit.DriverHabitSmoke)
                     {
                         Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + DriverEdit + "," + 3 + ");";
-                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        MyDBLogger("Driver habbits (smoke) SQL-command: " + Command.CommandText);
                         Command.ExecuteNonQuery();
                     }
 
                     if (DriverEdit.DriverHabitDrink)
                     {
                         Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + DriverEdit + "," + 2 + ");";
-                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        MyDBLogger("Driver habbits (smoke) SQL-command: " + Command.CommandText);
                         Command.ExecuteNonQuery();
                     }
 
                     if (DriverEdit.DriverHabitDrugs)
                     {
                         Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + DriverEdit + "," + 1 + ");";
-                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        MyDBLogger("Driver habbits (smoke) SQL-command: " + Command.CommandText);
                         Command.ExecuteNonQuery();
                     }
                 }
             }
         }
 
-        ///<summary>
-        ///Возвращает список всех водителей. Не протестирован!!!
-        ///</summary>
-        ///<returns>List<DriverClass></returns>
+        /// <summary>
+        /// Не протестирован!!!
+        /// Возвращает список всех водителей.
+        /// </summary>
         public List<DriverClass> ReadAllDriversDB()
         {
             List<DriverClass> ListOfDrivers = new List<DriverClass>();
+
+
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"SELECT ID FROM drivers;";
+                    MyDBLogger("Select Drivers ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
+                            ListOfDrivers.Add(this.ReadDriverDB(Reader.GetInt32(0).ToString()));
+                        }
+                    }
+                }
+            }
 
             return (ListOfDrivers);
         }
@@ -197,7 +247,10 @@ namespace ProkatAuto22.Classes
         public void AddNewCustomerDB(CustomerClass NewCostomer)
         {
 
+
+            
         }
+
 
         ///Считывает из базы нового клиента. Не протестирован.
         public void ReadCustomerDB(int CustomerID)
@@ -219,6 +272,7 @@ namespace ProkatAuto22.Classes
 
             return (ListOfCustomers);
         }
+
 
     }
 }
