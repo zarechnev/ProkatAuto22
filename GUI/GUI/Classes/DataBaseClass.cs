@@ -83,14 +83,23 @@ namespace ProkatAuto22.Classes
 
                     if (NewDriverAdd.DriverHabitSmoke)
                     {
+                        Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + AddedDviverID + "," + 3 + ");";
+                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
                     }
 
                     if (NewDriverAdd.DriverHabitDrink)
                     {
+                        Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + AddedDviverID + "," + 2 + ");";
+                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
                     }
 
                     if (NewDriverAdd.DriverHabitDrugs)
                     {
+                        Command.CommandText = @"INSERT INTO driverHabitsBinding (driverID, driverHabitsID) VALUES (" + AddedDviverID + "," + 1 + ");";
+                        Console.WriteLine("Driver habbits (smoke) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
                     }
                 }
             }
