@@ -97,9 +97,12 @@ namespace GUI
         private void button6RedactionDriver_Click(object sender, EventArgs e)
         {
             DriverClass RedactionDriver = new DriverClass();
+            RedactionDriver = (DriverClass)listBox2Driver.SelectedItem;
 
             RedactionDriver.DriverDBID = textBox2IdDriver.Text;
-            RedactionDriver.PhotoDriver = destFile;
+            if (destFile != "")
+            { RedactionDriver.PhotoDriver = destFile; }
+
             RedactionDriver.FIOdriver = textBox2FioDriver.Text;
             RedactionDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
             RedactionDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
@@ -147,6 +150,9 @@ namespace GUI
                 pictureBox2.Load(CheckedDriver.PhotoDriver);
 
         }
+
+
+        
 
 
         /*
