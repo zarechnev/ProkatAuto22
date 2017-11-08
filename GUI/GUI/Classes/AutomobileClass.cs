@@ -8,62 +8,64 @@ namespace ProkatAuto22.Classes
 {
     class AutomobileClass
     {
-        // для вывода информ. по каждой машине
-        public List<string> ModelCarList { get;  set; } 
-        public List<string> YearIssueList { get;  set; }
-        public List<string> MaxSpeedList { get;  set; }
-        public List<string> CapacityCarList { get;  set; }
-        public List<string> CapacityTrunkList { get;  set; }
-        public List<string> ClassCarList { get;  set; }
-        public List<string> TypeCarList { get;  set; }
-        public List<string> PriceHourList { get;  set; }
-        public List<string> PhotoCarList { get;  set; }
-        public List<string> DriverCarList { get;  set; }
-
-
-        public string ModelCar { get; set; }
-        public string ClassCar { get; set; }
-        public string TypeCar { get; set; }
-        public string PriceHour { get; set; }
+        public string IDCar { get; set; }
         public string PhotoCar { get; set; }
-        public string DriverCar { get; set; }
-        public string YearIssue{ get; set; }
-        public string MaxSpeed { get; set; }
+        public string ModelCar { get; set; }
+        public string PriceHourCar { get; set; }
+        public string TypeCar { get; set; }
         public string CapacityCar { get; set; }
-        public string CapacityTrunk { get; set; }
+        public string YearIssueCar { get; set; }
+        public string GosNumberCar { get; set; }
+        public string CarryingCar { get; set; }
+
+        private DataBaseClass DB;
+
+        /// <summary>
+        /// Конструктор класса.
+        /// </summary>
+        public AutomobileClass()
+        {
+            DB = new DataBaseClass();
+        }
+
+        /// <summary>
+        /// Метод класса. Возвращает список (классов) автомобилей.
+        /// </summary>
+        /// <returns></returns>
+        public static List<AutomobileClass> ReadAllCars()
+        {
+            DataBaseClass DB = new DataBaseClass();
+            return DB.ReadAllCarsDB();
+        }
+
+        /// <summary>
+        /// Добавление автомобиля.
+        /// </summary>
+        public void InsertCar()
+        {
+            DB.AddNewCarDB(this);
+        }
+
+        /// <summary>
+        /// Редактирование автомобиля.
+        /// </summary>
+        public void EditCar()
+        {
+            DB.EditCarDB(this);
+        }
+
+        /// <summary>
+        /// Выводит информацию о экземпляре в читаемом виде.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.IDCar + ", " + this.ModelCar + ", " + this.PriceHourCar + " р., ";
+        }
+
+
         
 
-
-        public void InsertCar(string ModelCar, string ClassCar, string TypeCar, string PriceHour, string PhotoCar, string DriverCar, string YearIssue, string MaxSpeed, string CapacityCar, string CapacityTrunk)
-        {
-
-        }
-
-        public void ReadCar()
-        {/*
-            ModelCarList...
-            YearIssueList...
-             MaxSpeedList....
-             CapacityCarList..
-             CapacityTrunkList..
-             .........
-          */
-        }
-
-        public void DeleteCar(string ModelCar, string ClassCar, string TypeCar, string PriceHour, string PhotoCar, string DriverCar, string YearIssue, string MaxSpeed, string CapacityCar, string CapacityTrunk)
-        {
-
-        }
-
-
-        public void GetCarType(string CarType)
-        {
-
-        }
-
-        public void GetCarClass(string CarClass)
-        {
-
-        }
+        
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.listBox1Automobile = new System.Windows.Forms.ListBox();
-            this.comboBox2ClassType = new System.Windows.Forms.ComboBox();
+            this.comboBox2CarType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox1MarkCar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1AddAuto = new System.Windows.Forms.Button();
             this.button3RedactionAuto = new System.Windows.Forms.Button();
@@ -92,18 +92,18 @@
             this.textBox12FioCustomer = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox3IDCar = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox14CarryingCar = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.AutoGosNumberTextBox = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox9CapacityCar = new System.Windows.Forms.TextBox();
+            this.textBox7YearIssueCar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox4PriceForHourCar = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button2ChangePhotoCar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -129,13 +129,13 @@
             this.listBox1Automobile.Size = new System.Drawing.Size(398, 121);
             this.listBox1Automobile.TabIndex = 1;
             // 
-            // comboBox2ClassType
+            // comboBox2CarType
             // 
-            this.comboBox2ClassType.FormattingEnabled = true;
-            this.comboBox2ClassType.Location = new System.Drawing.Point(343, 252);
-            this.comboBox2ClassType.Name = "comboBox2ClassType";
-            this.comboBox2ClassType.Size = new System.Drawing.Size(64, 21);
-            this.comboBox2ClassType.TabIndex = 4;
+            this.comboBox2CarType.FormattingEnabled = true;
+            this.comboBox2CarType.Location = new System.Drawing.Point(343, 252);
+            this.comboBox2CarType.Name = "comboBox2CarType";
+            this.comboBox2CarType.Size = new System.Drawing.Size(64, 21);
+            this.comboBox2CarType.TabIndex = 4;
             // 
             // label2
             // 
@@ -147,12 +147,12 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Категория ТС";
             // 
-            // textBox1
+            // textBox1MarkCar
             // 
-            this.textBox1.Location = new System.Drawing.Point(207, 203);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 6;
+            this.textBox1MarkCar.Location = new System.Drawing.Point(207, 203);
+            this.textBox1MarkCar.Name = "textBox1MarkCar";
+            this.textBox1MarkCar.Size = new System.Drawing.Size(200, 20);
+            this.textBox1MarkCar.TabIndex = 6;
             // 
             // label3
             // 
@@ -746,40 +746,40 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel5.Controls.Add(this.textBox3);
+            this.panel5.Controls.Add(this.textBox3IDCar);
             this.panel5.Controls.Add(this.label30);
-            this.panel5.Controls.Add(this.textBox14);
+            this.panel5.Controls.Add(this.textBox14CarryingCar);
             this.panel5.Controls.Add(this.label24);
             this.panel5.Controls.Add(this.AutoGosNumberTextBox);
             this.panel5.Controls.Add(this.label22);
-            this.panel5.Controls.Add(this.textBox9);
-            this.panel5.Controls.Add(this.textBox7);
+            this.panel5.Controls.Add(this.textBox9CapacityCar);
+            this.panel5.Controls.Add(this.textBox7YearIssueCar);
             this.panel5.Controls.Add(this.label1);
-            this.panel5.Controls.Add(this.textBox4);
+            this.panel5.Controls.Add(this.textBox4PriceForHourCar);
             this.panel5.Controls.Add(this.label20);
-            this.panel5.Controls.Add(this.button2);
+            this.panel5.Controls.Add(this.button2ChangePhotoCar);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.pictureBox1);
             this.panel5.Controls.Add(this.listBox1Automobile);
             this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.comboBox2ClassType);
+            this.panel5.Controls.Add(this.comboBox2CarType);
             this.panel5.Controls.Add(this.button1AddAuto);
             this.panel5.Controls.Add(this.button3RedactionAuto);
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.textBox1MarkCar);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Location = new System.Drawing.Point(360, 9);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(419, 432);
             this.panel5.TabIndex = 17;
             // 
-            // textBox3
+            // textBox3IDCar
             // 
-            this.textBox3.Location = new System.Drawing.Point(343, 160);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(64, 20);
-            this.textBox3.TabIndex = 68;
+            this.textBox3IDCar.Location = new System.Drawing.Point(343, 160);
+            this.textBox3IDCar.Name = "textBox3IDCar";
+            this.textBox3IDCar.ReadOnly = true;
+            this.textBox3IDCar.Size = new System.Drawing.Size(64, 20);
+            this.textBox3IDCar.TabIndex = 68;
             // 
             // label30
             // 
@@ -791,12 +791,12 @@
             this.label30.TabIndex = 67;
             this.label30.Text = "ID Авто";
             // 
-            // textBox14
+            // textBox14CarryingCar
             // 
-            this.textBox14.Location = new System.Drawing.Point(343, 357);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(64, 20);
-            this.textBox14.TabIndex = 66;
+            this.textBox14CarryingCar.Location = new System.Drawing.Point(343, 357);
+            this.textBox14CarryingCar.Name = "textBox14CarryingCar";
+            this.textBox14CarryingCar.Size = new System.Drawing.Size(64, 20);
+            this.textBox14CarryingCar.TabIndex = 66;
             // 
             // label24
             // 
@@ -825,19 +825,19 @@
             this.label22.TabIndex = 63;
             this.label22.Text = "Гос. номер";
             // 
-            // textBox9
+            // textBox9CapacityCar
             // 
-            this.textBox9.Location = new System.Drawing.Point(343, 279);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(64, 20);
-            this.textBox9.TabIndex = 62;
+            this.textBox9CapacityCar.Location = new System.Drawing.Point(343, 279);
+            this.textBox9CapacityCar.Name = "textBox9CapacityCar";
+            this.textBox9CapacityCar.Size = new System.Drawing.Size(64, 20);
+            this.textBox9CapacityCar.TabIndex = 62;
             // 
-            // textBox7
+            // textBox7YearIssueCar
             // 
-            this.textBox7.Location = new System.Drawing.Point(343, 305);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(64, 20);
-            this.textBox7.TabIndex = 61;
+            this.textBox7YearIssueCar.Location = new System.Drawing.Point(343, 305);
+            this.textBox7YearIssueCar.Name = "textBox7YearIssueCar";
+            this.textBox7YearIssueCar.Size = new System.Drawing.Size(64, 20);
+            this.textBox7YearIssueCar.TabIndex = 61;
             // 
             // label1
             // 
@@ -849,12 +849,12 @@
             this.label1.TabIndex = 60;
             this.label1.Text = "Год выпуска";
             // 
-            // textBox4
+            // textBox4PriceForHourCar
             // 
-            this.textBox4.Location = new System.Drawing.Point(343, 227);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(64, 20);
-            this.textBox4.TabIndex = 59;
+            this.textBox4PriceForHourCar.Location = new System.Drawing.Point(343, 227);
+            this.textBox4PriceForHourCar.Name = "textBox4PriceForHourCar";
+            this.textBox4PriceForHourCar.Size = new System.Drawing.Size(64, 20);
+            this.textBox4PriceForHourCar.TabIndex = 59;
             // 
             // label20
             // 
@@ -866,15 +866,15 @@
             this.label20.TabIndex = 58;
             this.label20.Text = "Марка и модель авто";
             // 
-            // button2
+            // button2ChangePhotoCar
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(9, 280);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 26);
-            this.button2.TabIndex = 57;
-            this.button2.Text = "Изменить фото";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2ChangePhotoCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2ChangePhotoCar.Location = new System.Drawing.Point(9, 280);
+            this.button2ChangePhotoCar.Name = "button2ChangePhotoCar";
+            this.button2ChangePhotoCar.Size = new System.Drawing.Size(128, 26);
+            this.button2ChangePhotoCar.TabIndex = 57;
+            this.button2ChangePhotoCar.Text = "Изменить фото";
+            this.button2ChangePhotoCar.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -990,9 +990,9 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ListBox listBox1Automobile;
-        private System.Windows.Forms.ComboBox comboBox2ClassType;
+        private System.Windows.Forms.ComboBox comboBox2CarType;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox1MarkCar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1AddAuto;
         private System.Windows.Forms.Button button3RedactionAuto;
@@ -1043,14 +1043,14 @@
         private System.Windows.Forms.Button button1EditPhotoDriver;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox4PriceForHourCar;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button2ChangePhotoCar;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox9CapacityCar;
+        private System.Windows.Forms.TextBox textBox7YearIssueCar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox14CarryingCar;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox AutoGosNumberTextBox;
         private System.Windows.Forms.Label label22;
@@ -1069,7 +1069,7 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox3IDCar;
         private System.Windows.Forms.Label label30;
     }
 }

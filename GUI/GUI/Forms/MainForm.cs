@@ -163,16 +163,7 @@ namespace GUI
 
         }
 
-
-        
-
-
-
-
-
         ////////////////////////////////// Клиенты
-
-
 
         /// <summary>
         /// Обновляет содержимое лист-бокса для списка клиентов.
@@ -188,7 +179,6 @@ namespace GUI
                 listBox3Customers.Items.Add(Customer);
             });
         }
-
 
         /// <summary>
         /// Добавление клиента.
@@ -210,8 +200,6 @@ namespace GUI
 
         }
 
-
-
         /// <summary>
         /// Сохранение клиента (редактирование).
         /// </summary>
@@ -231,8 +219,6 @@ namespace GUI
             UpdateCustomersListbox();
         }
 
-        
-
         /// <summary>
         /// Метод срабатывает при клике на клиента из списка.
         /// </summary>
@@ -248,5 +234,21 @@ namespace GUI
             textBox10CityCustomer.Text = CheckedCustomer.CityCustomer.ToString();
         }
 
-}
+        //////////////////////////////////////// Автомобили
+        /// <summary>
+        /// Обновляет содержимое лист-бокса для списка автомобилей.
+        /// </summary>
+        private void UpdateCarsListbox()
+        {
+            listBox1Automobile.Items.Clear();
+
+            List<AutomobileClass> AllCars = new List<AutomobileClass>();
+            AllCars = AutomobileClass.ReadAllCars();
+            AllCars.ForEach(delegate (AutomobileClass Car)
+            {
+                listBox3Customers.Items.Add(Car);
+            });
+        }
+
+    }
 }

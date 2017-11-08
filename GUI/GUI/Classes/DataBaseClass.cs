@@ -276,5 +276,51 @@ namespace ProkatAuto22.Classes
 
             return (ListOfCustomers);
         }
+
+        /// <summary>
+        /// Записывает в базу новый автомобиль. Не протестирован.
+        /// </summary>
+        public void AddNewCarDB(AutomobileClass NewCarAdd)
+        {
+
+        }
+
+        /// <summary>
+        /// Считывает из базы новый автомобиль. Не протестирован.
+        /// </summary>
+        public AutomobileClass ReadCarDB(string CarID)
+        {
+            AutomobileClass ReadedCar = new AutomobileClass();
+
+            return ReadedCar;
+        }
+
+        /// <summary>
+        /// Редактирует в базе новый автомобиль. Не протестирован.
+        /// </summary>
+        public void EditCarDB(AutomobileClass EditCar)
+        {
+
+        }
+
+        /// <summary>
+        /// Возвращает список автомобилей базы. Не протестирован.
+        /// </summary>
+        /// <returns></returns>
+        public List<AutomobileClass> ReadAllCarsDB()
+        {
+            List<AutomobileClass> ListOfCars = new List<AutomobileClass>();
+
+            return (ListOfCars);
+        }
+
+        /// <summary>
+        /// Возвращает список автомобилей базы отсортированный по категории. Возможна доработка.
+        /// </summary>
+        /// <returns></returns>
+        public void GetCarCategory(string CarType)
+        {
+
+        }
     }
 }
