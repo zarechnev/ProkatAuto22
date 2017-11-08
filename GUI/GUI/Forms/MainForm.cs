@@ -33,6 +33,7 @@ namespace GUI
             dateTimePicker1.CustomFormat = "dd.MM.yyyy; hh:mm";
 
             UpdateDriversListbox();
+            UpdateCarsListbox();
         }
 
 
@@ -183,16 +184,6 @@ namespace GUI
         }
 
         /// <summary>
-        /// Добавление клиента.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button12AddCustomer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
         /// Сохранение клиента (редактирование).
         /// </summary>
         /// <param name="sender"></param>
@@ -242,6 +233,136 @@ namespace GUI
             AddCustomer.InsertCustomer();
 
             UpdateCustomersListbox();
+        }
+
+        //////////////////////////////////////// Автомобили
+        /// <summary>
+        /// Обновляет содержимое лист-бокса для списка автомобилей. Не протестировано
+        /// </summary>
+        private void UpdateCarsListbox()
+        {
+            listBox1Automobile.Items.Clear();
+
+            List<AutomobileClass> AllCars = new List<AutomobileClass>();
+            AllCars = AutomobileClass.ReadAllCars();
+            AllCars.ForEach(delegate (AutomobileClass Car)
+            {
+                listBox3Customers.Items.Add(Car);
+            });
+        }
+
+        /// <summary>
+        /// Добавление автомобиля. Не протестировано
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1AddAuto_Click(object sender, EventArgs e)
+        {
+            AutomobileClass AddCar = new AutomobileClass();
+
+            AddCar.PhotoCar = destFile;
+            AddCar.ModelCar = textBox1ModelCar.Text;
+            AddCar.PriceHourCar = textBox4PriceForHourCar.Text;
+            AddCar.TypeCar = comboBox2CarType.Text;                    //Combo-box надо подумать.
+            AddCar.CapacityCar = textBox9CapacityCar.Text;
+            AddCar.YearIssueCar = textBox7YearIssueCar.Text;
+            AddCar.GosNumberCar = AutoGosNumberTextBox.Text;
+            AddCar.CarryingCar = textBox14CarryingCar.Text;
+
+            if (FlagCopy)
+            {
+                File.Copy(sourcePath, destFile, true);
+                destFile = "";
+            }
+            AddCar.InsertCar();
+
+            UpdateCarsListbox();
+            FlagCopy = false;
+        }
+
+        /// <summary>
+        /// Смена фотографии автомобиля(запускает диалог для выбора фото и сохраняет итоговый путь destFile). Не протестировано.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2ChangePhotoCar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog AddPhotoCar = new OpenFileDialog();
+
+            AddPhotoCar.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
+            if (AddPhotoCar.ShowDialog() == DialogResult.OK)
+            {
+                string fileNameCar = AddPhotoCar.SafeFileName;
+                sourcePath = AddPhotoCar.FileName;
+                string targetPath = @"DriverPhoto";
+
+                destFile = Path.Combine(targetPath, fileNameCar);
+
+                pictureBox2.Load(sourcePath);
+
+                FlagCopy = true;
+            }
+        }
+
+        /// <summary>
+        /// Сохранение автомобиля (редактирование).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3RedactionAuto_Click(object sender, EventArgs e)
+        {
+            AutomobileClass RedactionCar = new AutomobileClass();
+
+            RedactionCar = (AutomobileClass)listBox1Automobile.SelectedItem;
+            RedactionCar.IDCar = textBox2IdDriver.Text;
+            RedactionCar.ModelCar = textBox1ModelCar.Text;
+            RedactionCar.PriceHourCar = textBox4PriceForHourCar.Text;
+            RedactionCar.TypeCar = comboBox2CarType.Text;                    //Combo-box надо подумать.
+            RedactionCar.CapacityCar = textBox9CapacityCar.Text;
+            RedactionCar.YearIssueCar = textBox7YearIssueCar.Text;
+            RedactionCar.GosNumberCar = AutoGosNumberTextBox.Text;
+            RedactionCar.CarryingCar = textBox14CarryingCar.Text;
+
+            if (destFile != "")
+            { RedactionCar.PhotoCar = destFile; }
+
+            if (FlagCopy)
+            {
+                File.Copy(sourcePath, destFile, true);
+                destFile = "";
+            }
+            RedactionCar.EditCar();
+
+
+            UpdateCarsListbox();
+            FlagCopy = false;
+        }
+
+        /// <summary>
+        /// Метод срабатывает при клике на автомобиль из списка.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listBox1Automobile_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AutomobileClass CheckedCar = new AutomobileClass();
+            CheckedCar = (AutomobileClass)listBox1Automobile.SelectedItem;
+            textBox3IDCar.Text = CheckedCar.IDCar.ToString();
+            textBox1ModelCar.Text = CheckedCar.ModelCar.ToString();
+            textBox4PriceForHourCar.Text = CheckedCar.PriceHourCar.ToString();
+            comboBox2CarType.Text = CheckedCar.TypeCar.ToString();                    //Combo-box надо подумать.
+            textBox9CapacityCar.Text = CheckedCar.CapacityCar.ToString();
+            textBox7YearIssueCar.Text = CheckedCar.YearIssueCar.ToString();
+            AutoGosNumberTextBox.Text = CheckedCar.GosNumberCar.ToString();
+            textBox14CarryingCar.Text = CheckedCar.CarryingCar.ToString();
+
+            if (CheckedCar.PhotoCar == "")
+            {
+                pictureBox2.Image = null;
+                pictureBox2.BackColor = Color.Gray;
+            }
+            else
+                pictureBox2.Load(CheckedCar.PhotoCar);
         }
     }
 }

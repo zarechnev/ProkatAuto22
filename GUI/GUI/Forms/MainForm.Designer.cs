@@ -31,7 +31,7 @@
             this.listBox1Automobile = new System.Windows.Forms.ListBox();
             this.comboBox2CarType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1MarkCar = new System.Windows.Forms.TextBox();
+            this.textBox1ModelCar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1AddAuto = new System.Windows.Forms.Button();
             this.button3RedactionAuto = new System.Windows.Forms.Button();
@@ -128,6 +128,7 @@
             this.listBox1Automobile.Name = "listBox1Automobile";
             this.listBox1Automobile.Size = new System.Drawing.Size(398, 121);
             this.listBox1Automobile.TabIndex = 1;
+            this.listBox1Automobile.SelectedIndexChanged += new System.EventHandler(this.listBox1Automobile_SelectedIndexChanged);
             // 
             // comboBox2CarType
             // 
@@ -147,12 +148,12 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Категория ТС";
             // 
-            // textBox1MarkCar
+            // textBox1ModelCar
             // 
-            this.textBox1MarkCar.Location = new System.Drawing.Point(207, 203);
-            this.textBox1MarkCar.Name = "textBox1MarkCar";
-            this.textBox1MarkCar.Size = new System.Drawing.Size(200, 20);
-            this.textBox1MarkCar.TabIndex = 6;
+            this.textBox1ModelCar.Location = new System.Drawing.Point(207, 203);
+            this.textBox1ModelCar.Name = "textBox1ModelCar";
+            this.textBox1ModelCar.Size = new System.Drawing.Size(200, 20);
+            this.textBox1ModelCar.TabIndex = 6;
             // 
             // label3
             // 
@@ -173,6 +174,7 @@
             this.button1AddAuto.TabIndex = 8;
             this.button1AddAuto.Text = "Добавить";
             this.button1AddAuto.UseVisualStyleBackColor = true;
+            this.button1AddAuto.Click += new System.EventHandler(this.button1AddAuto_Click);
             // 
             // button3RedactionAuto
             // 
@@ -183,6 +185,7 @@
             this.button3RedactionAuto.TabIndex = 11;
             this.button3RedactionAuto.Text = "Редактировать";
             this.button3RedactionAuto.UseVisualStyleBackColor = true;
+            this.button3RedactionAuto.Click += new System.EventHandler(this.button3RedactionAuto_Click);
             // 
             // panel1
             // 
@@ -767,7 +770,7 @@
             this.panel5.Controls.Add(this.comboBox2CarType);
             this.panel5.Controls.Add(this.button1AddAuto);
             this.panel5.Controls.Add(this.button3RedactionAuto);
-            this.panel5.Controls.Add(this.textBox1MarkCar);
+            this.panel5.Controls.Add(this.textBox1ModelCar);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Location = new System.Drawing.Point(360, 9);
             this.panel5.Name = "panel5";
@@ -876,6 +879,7 @@
             this.button2ChangePhotoCar.TabIndex = 57;
             this.button2ChangePhotoCar.Text = "Изменить фото";
             this.button2ChangePhotoCar.UseVisualStyleBackColor = true;
+            this.button2ChangePhotoCar.Click += new System.EventHandler(this.button2ChangePhotoCar_Click);
             // 
             // label4
             // 
@@ -993,7 +997,7 @@
         private System.Windows.Forms.ListBox listBox1Automobile;
         private System.Windows.Forms.ComboBox comboBox2CarType;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1MarkCar;
+        private System.Windows.Forms.TextBox textBox1ModelCar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1AddAuto;
         private System.Windows.Forms.Button button3RedactionAuto;
