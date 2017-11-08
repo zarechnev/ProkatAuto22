@@ -18,23 +18,6 @@ namespace ProkatAuto22.Classes
 
         private DataBaseClass DB;
 
-/*
-        /// <summary>
-        /// Конструктор для клонирования класса. Создает не ссылочную копию класса.
-        /// </summary>
-        /// <returns></returns>
-        public DriverClass(DriverClass Clone)
-        {
-            this.DriverDBID = Clone.DriverDBID;
-            this.PhotoDriver = Clone.PhotoDriver;
-            this.FIOdriver = Clone.FIOdriver;
-            this.ExpirienceDriver = Clone.ExpirienceDriver;
-            this.DriverHabitSmoke = Clone.DriverHabitSmoke;
-            this.DriverHabitDrink = Clone.DriverHabitDrink;
-            this.DriverHabitDrugs = Clone.DriverHabitDrugs;
-        }
-        */
-
         /// <summary>
         /// Метод класса. Возвращает список (классов) водителей.
         /// </summary>

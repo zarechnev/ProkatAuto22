@@ -19,6 +19,10 @@ namespace GUI
         string sourcePath;
 
         bool FlagCopy = false;
+
+        /// <summary>
+        /// Конструктор класса.
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -30,6 +34,9 @@ namespace GUI
 
             UpdateDriversListbox();
         }
+
+        
+        ////////////////////////////////// Водители
 
         /// <summary>
         /// Обновляет содержимое лист-бокса для списка водителей.
@@ -73,8 +80,6 @@ namespace GUI
             FlagCopy = false;
         }
 
-
-
         /// <summary>
         /// Смена фотографии водителя(запускает диалог для выбора фото и сохраняет итоговый путь destFile).
         /// </summary>
@@ -82,7 +87,6 @@ namespace GUI
         /// <param name="e"></param>
         private void button1EditPhotoDriver_Click(object sender, EventArgs e)
         {
-            /// TODO копирование файла должно происходить при нажатии кнопки "добавить водителя" или "редактироть водителя" - Доделано
             OpenFileDialog AddPhotoDriver = new OpenFileDialog();
             
             AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
@@ -91,7 +95,6 @@ namespace GUI
                 string fileNameDriver = AddPhotoDriver.SafeFileName;
                 sourcePath = AddPhotoDriver.FileName;
                 string targetPath = @"DriverPhoto";
-                
                 
                 destFile = Path.Combine(targetPath, fileNameDriver);
 
@@ -152,7 +155,6 @@ namespace GUI
             if (CheckedDriver.DriverHabitSmoke) checkBox6Smoke.Checked = true;
             if (CheckedDriver.DriverHabitDrugs) checkBox5Drugs.Checked = true;
 
-
             if (CheckedDriver.PhotoDriver == "")
             {
                 pictureBox2.Image = null;
@@ -160,7 +162,6 @@ namespace GUI
             }
             else
                 pictureBox2.Load(CheckedDriver.PhotoDriver);
-
         }
 
         ////////////////////////////////// Клиенты
@@ -185,18 +186,8 @@ namespace GUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         private void button12AddCustomer_Click(object sender, EventArgs e)
         {
-            CustomerClass AddCustomer = new CustomerClass();
-
-            AddCustomer.FIOcustomer = textBox12FioCustomer.Text;
-            AddCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
-            AddCustomer.CityCustomer = textBox10CityCustomer.Text;
-
-            AddCustomer.InsertCustomer();
-
-            UpdateCustomersListbox();
 
         }
 
@@ -224,7 +215,7 @@ namespace GUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-       private void listBox3Customers_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox3Customers_SelectedIndexChanged(object sender, EventArgs e)
         {
             CustomerClass CheckedCustomer = new CustomerClass();
             CheckedCustomer = (CustomerClass)listBox3Customers.SelectedItem;
@@ -234,21 +225,22 @@ namespace GUI
             textBox10CityCustomer.Text = CheckedCustomer.CityCustomer.ToString();
         }
 
-        //////////////////////////////////////// Автомобили
         /// <summary>
-        /// Обновляет содержимое лист-бокса для списка автомобилей.
+        /// Метод добавляет клиента в базу.
         /// </summary>
-        private void UpdateCarsListbox()
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button12AddCustomer_Click_1(object sender, EventArgs e)
         {
-            listBox1Automobile.Items.Clear();
+            CustomerClass AddCustomer = new CustomerClass();
 
-            List<AutomobileClass> AllCars = new List<AutomobileClass>();
-            AllCars = AutomobileClass.ReadAllCars();
-            AllCars.ForEach(delegate (AutomobileClass Car)
-            {
-                listBox3Customers.Items.Add(Car);
-            });
+            AddCustomer.FIOcustomer = textBox12FioCustomer.Text;
+            AddCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
+            AddCustomer.CityCustomer = textBox10CityCustomer.Text;
+
+            AddCustomer.InsertCustomer();
+
+            UpdateCustomersListbox();
         }
-
     }
 }
