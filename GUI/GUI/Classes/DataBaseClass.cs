@@ -119,7 +119,8 @@ namespace ProkatAuto22.Classes
         /// Записывает в базу нового водителя.
         /// </summary>
         /// <param name="NewDriverAdd"></param>
-        public void AddNewDriverDB(DriverClass NewDriverAdd) {
+        public void AddNewDriverDB(DriverClass NewDriverAdd)
+        {
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
                 DBConnection.Open();
@@ -170,7 +171,8 @@ namespace ProkatAuto22.Classes
         /// Редактирует водителя.
         /// </summary>
         /// <param name="DriverEdit"></param>
-        public void EditDriverDB(DriverClass DriverEdit){
+        public void EditDriverDB(DriverClass DriverEdit)
+        {
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
                 DBConnection.Open();
@@ -243,13 +245,26 @@ namespace ProkatAuto22.Classes
         /// <summary>
         /// Записывает в базу нового клиента. Не протестирован.
         /// </summary>
+        /// <param name="NewCostomer"></param>
         public void AddNewCustomerDB(CustomerClass NewCostomer)
         {
-            
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"INSERT INTO client (name, phoneNumber, city) VALUES ('" +
+                         NewCostomer.FIOcustomer.ToUpper() + "','" +
+                         NewCostomer.PhoneCustomer + "','" +
+                         NewCostomer.CityCustomer.ToUpper() + "');";
+                    MyDBLogger("Create client with SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
-        /// Считывает из базы нового клиента. Не протестирован.
+        /// Считывает из базы клиента. Не протестирован.
         /// </summary>
         public CustomerClass ReadCustomerDB(string CustomerID)
         {
@@ -259,7 +274,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Редактирует в базе нового клиента. Не протестирован.
+        /// Редактирует в базе клиента. Не протестирован.
         /// </summary>
         public void EditCustomerDB(CustomerClass EditCustomer)
         {
@@ -267,7 +282,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Возвращает список клиентов базы. Не протестирован.
+        /// Возвращает список клиентов. Не протестирован.
         /// </summary>
         /// <returns></returns>
         public List<CustomerClass> ReadAllCustomersDB()
@@ -278,49 +293,44 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Записывает в базу новый автомобиль. Не протестирован.
+        /// Добавляет новый автомобиль.
         /// </summary>
-        public void AddNewCarDB(AutomobileClass NewCarAdd)
+        /// <param name="NewCar"></param>
+        public void AddNewCarDB(AutomobileClass NewCar)
         {
 
         }
 
         /// <summary>
-        /// Считывает из базы новый автомобиль. Не протестирован.
+        /// Возвращает экземпляр автомобиля по ID.
         /// </summary>
+        /// <param name="CarID"></param>
+        /// <returns></returns>
         public AutomobileClass ReadCarDB(string CarID)
         {
-            AutomobileClass ReadedCar = new AutomobileClass();
+            AutomobileClass ReadCarDB = new AutomobileClass();
 
-            return ReadedCar;
+            return ReadCarDB;
         }
 
         /// <summary>
-        /// Редактирует в базе новый автомобиль. Не протестирован.
+        /// Метод для редактирования автомобиля.
         /// </summary>
-        public void EditCarDB(AutomobileClass EditCar)
+        /// <param name="CarToEdit"></param>
+        public void EditCarDB(AutomobileClass CarToEdit)
         {
 
         }
 
         /// <summary>
-        /// Возвращает список автомобилей базы. Не протестирован.
-        /// </summary>
-        /// <returns></returns>
-        public List<AutomobileClass> ReadAllCarsDB()
-        {
-            List<AutomobileClass> ListOfCars = new List<AutomobileClass>();
-
-            return (ListOfCars);
-        }
-
-        /// <summary>
-        /// Возвращает список автомобилей базы отсортированный по категории. Возможна доработка.
+        /// Возвращает список автомобилей.
         /// </summary>
         /// <returns></returns>
-        public void GetCarCategory(string CarType)
+        public List<AutomobileClass> ReadAllCars()
         {
+            List<AutomobileClass> AllCars = new List<AutomobileClass>();
 
+            return AllCars;
         }
     }
 }
