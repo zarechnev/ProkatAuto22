@@ -15,191 +15,114 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
-        DataBaseClass DataBase;
-        DriverClass DriverObjectRead;
-        CustomerClass CustomerObjectRead;
-        AutomobileClass CarObject;
-        OrderClass RequestObject;
-        
-
-        string fileNameDriver;
-
-        bool habitSmoke, habitDrink, habitDrugs;
-
         public Form1()
         {
             InitializeComponent();
-            DriverObjectRead = new DriverClass();
-            CustomerObjectRead = new CustomerClass();
-
-            DriverObjectRead.ReadAllDrivers();
-            GetDrivers();
-
-            CustomerObjectRead.ReadAllCustomers();
-            GetCustomers();
-
-         //   CarObject = new AutomobileClass();
-         //   RequestObject = new OrderClass();
-
-            //   GetCar(CarObject);
-            //  GetRequest(RequestObject);
-
-            //  comboBox2ClassType.DataSource = CarObject.ClassCarList;
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd.MM.yyyy; hh:mm";
+
+            UpdateDriversListbox();
         }
 
-        ///////////////////////////////////////// Авто
-
-        private void button1AddAuto_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Обновляет содержимое лист-бокса для списка водителей.
+        /// </summary>
+        private void UpdateDriversListbox()
         {
-            
+            listBox2Driver.Items.Clear();
+
+            List<DriverClass> AllDrivers = new List<DriverClass>();
+            AllDrivers = DriverClass.ReadAllDrivers();
+            AllDrivers.ForEach(delegate (DriverClass Driver)
+            {
+                listBox2Driver.Items.Add(Driver);
+            });
         }
 
-        private void button3RedactionAuto_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Добавление водителя.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button4AddDriver_Click(object sender, EventArgs e)
         {
+            DriverClass AddDriver = new DriverClass();
 
+            AddDriver.PhotoDriver = "";
+            AddDriver.FIOdriver = textBox2FioDriver.Text;
+            AddDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
+            AddDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
+            AddDriver.DriverHabitDrink = checkBox7Drink.Checked;
+            AddDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
+
+            AddDriver.InsertDriver();
+
+            UpdateDriversListbox();
         }
-
-        //вывод данных на форму
-        private void GetCar(AutomobileClass CarObject)
-        {
-            CarObject.ReadCar();
-
-            /*
-            for (int i = 0; i < CarObject.ModelCarList.Count; i++)
-                listBox1.Items.Add(CarObject.ModelCarList[i]);
-                */
-        }
-
-        private void button2DeleteCar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void comboBox2ClassType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CarObject.GetCarClass(comboBox2ClassType.SelectedText);
-        }
-
-        private void comboBox1CarType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        ////////////////////////////////// Водители
 
         private void button1EditPhotoDriver_Click(object sender, EventArgs e)
         {
+            /// TODO копирование файла должно происходить при нажатии кнопки "добавить водителя" или "редактироть водителя" - надо подумать
             OpenFileDialog AddPhotoDriver = new OpenFileDialog();
             
             AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
              if (AddPhotoDriver.ShowDialog() == DialogResult.OK)
               {
-                fileNameDriver = AddPhotoDriver.SafeFileName;
+               // fileNameDriver = AddPhotoDriver.SafeFileName;
                 string sourcePath = AddPhotoDriver.FileName;
                 string targetPath = @"DriverPhoto";
                 
-                string destFile = Path.Combine(targetPath, fileNameDriver);
+               // string destFile = Path.Combine(targetPath, fileNameDriver);
                 
-                File.Copy(sourcePath, destFile, true);
+                //File.Copy(sourcePath, destFile, true);
               }
         }
- 
-        private void button4AddDriver_Click(object sender, EventArgs e)
-        {
-            DriverClass AddDriver = new DriverClass();
 
-            AddDriver.DriverDBID = textBox2IdDriver.Text;
-            AddDriver.PhotoDriver = fileNameDriver;
-            AddDriver.FIOdriver = textBox2FioDriver.Text;
-            AddDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
-            AddDriver.DriverHabitSmoke = habitSmoke;
-            AddDriver.DriverHabitDrink = habitDrink;
-            AddDriver.DriverHabitDrugs = habitDrugs;
-
-            AddDriver.InsertDriver();
-        }
-
+        /// <summary>
+        /// Сохранение водителя (редактирование).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button6RedactionDriver_Click(object sender, EventArgs e)
         {
-            DriverClass RedactionDriver;
-            // string idDriver;
-            /*
-            RedactionDriver= DataBase.ReadDriverDB(Int32.Parse(DriverObjectRead.AllDriversList[listBox2Driver.SelectedIndex].DriverDBID));
-            RedactionDriver.PhotoDriver = fileNameDriver;
+            DriverClass RedactionDriver = new DriverClass();
+
+            RedactionDriver.DriverDBID = textBox2IdDriver.Text;
+            RedactionDriver.PhotoDriver = "";
             RedactionDriver.FIOdriver = textBox2FioDriver.Text;
             RedactionDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
-            RedactionDriver.DriverHabitSmoke = habitSmoke;
-            RedactionDriver.DriverHabitDrink = habitDrink;
-            RedactionDriver.DriverHabitDrugs = habitDrugs;
+            RedactionDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
+            RedactionDriver.DriverHabitDrink = checkBox7Drink.Checked;
+            RedactionDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
 
             RedactionDriver.EditDriver();
 
-            listBox2Driver.Refresh();
-            */
+            UpdateDriversListbox();
         }
 
-        
-
-        private void GetDrivers()
+        /// <summary>
+        /// Метод срабатывает при клике на водителе из списка.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listBox2Driver_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //    for (int i = 0; i < DriverObjectRead.AllDriversList.Count; i++)
-            //      listBox2Driver.Items.Add(DriverObjectRead.AllDriversList[i].FIOdriver);
-
-            
+            DriverClass CheckedDriver = new DriverClass();
+            CheckedDriver = (DriverClass)listBox2Driver.SelectedItem;
+            textBox2IdDriver.Text = CheckedDriver.DriverDBID.ToString();
+            textBox2FioDriver.Text = CheckedDriver.FIOdriver.ToString();
+            textBox3ExpirienceDriver.Text = CheckedDriver.ExpirienceDriver.ToString();
+            checkBox7Drink.Checked = false;
+            checkBox6Smoke.Checked = false;
+            checkBox5Drugs.Checked = false;
+            if (CheckedDriver.DriverHabitDrink) checkBox7Drink.Checked = true;
+            if (CheckedDriver.DriverHabitSmoke) checkBox6Smoke.Checked = true;
+            if (CheckedDriver.DriverHabitDrugs) checkBox5Drugs.Checked = true;
         }
 
-        private void checkBox6Smoke_Click(object sender, EventArgs e)
-        {
-            if (checkBox6Smoke.Checked)
-                habitSmoke = true;
-            else
-                habitSmoke = false;
-        }
 
-        private void checkBox7Drink_Click(object sender, EventArgs e)
-        {
-            if (checkBox7Drink.Checked)
-                habitDrink = true;
-            else
-                habitDrink = false;
-        }
-
-        private void checkBox5Drugs_Click(object sender, EventArgs e)
-        {
-            if (checkBox5Drugs.Checked)
-                habitDrugs = true;
-            else
-                habitDrugs = false;
-        }
-
-        //////////////////////////// Заявки
-        private void button9AddRequest_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7RedactionRequest_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GetRequest (OrderClass RequestObject)
-        {
-            RequestObject.ReadRequest();
-
-            /*
-            textBox7RequestCar.Text = RequestObject.ModelCarList[index];
-            */
-
-        }
-
-        private void button8DeleteRequest_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        /*
         ////////////////////////////////// Клиенты
         private void button12AddCustomer_Click(object sender, EventArgs e)
         {
@@ -219,7 +142,6 @@ namespace GUI
         {
             CustomerClass RedactionCustomer = new CustomerClass();
             // string idDriver;
-            /*
             RedactionCustomer = DataBase.ReadCustomerDB(Int32.Parse(CustomerObjectRead.AllCustomerList[listBox3Customers.SelectedIndex].IDcustomer));
             RedactionCustomer.FIOcustomer = textBox12FioCustomer.Text;
             RedactionCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
@@ -228,43 +150,13 @@ namespace GUI
             RedactionCustomer.EditCustomer();
 
             listBox3Customers.Refresh();
-            */
         }
-
-       
 
         private void GetCustomers()
         {
          //   for (int i = 0; i < CustomerObjectRead.AllCustomerList.Count; i++)
           //      listBox3Customers.Items.Add(CustomerObjectRead.AllCustomerList[i].FIOcustomer);
         }
-
-       
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label21_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        */
     }
 }
