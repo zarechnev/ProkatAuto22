@@ -95,6 +95,8 @@ namespace GUI
                 
                 destFile = Path.Combine(targetPath, fileNameDriver);
 
+                pictureBox2.Load(sourcePath);
+
                 FlagCopy = true;
               }
         }
