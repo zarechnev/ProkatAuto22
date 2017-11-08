@@ -8,19 +8,6 @@ namespace ProkatAuto22.Classes
 {
     class AutomobileClass
     {
-        // для вывода информ. по каждой машине
-        public List<string> ModelCarList { get;  set; } 
-        public List<string> YearIssueList { get;  set; }
-        public List<string> MaxSpeedList { get;  set; }
-        public List<string> CapacityCarList { get;  set; }
-        public List<string> CapacityTrunkList { get;  set; }
-        public List<string> ClassCarList { get;  set; }
-        public List<string> TypeCarList { get;  set; }
-        public List<string> PriceHourList { get;  set; }
-        public List<string> PhotoCarList { get;  set; }
-        public List<string> DriverCarList { get;  set; }
-
-
         public string ModelCar { get; set; }
         public string ClassCar { get; set; }
         public string TypeCar { get; set; }
@@ -31,10 +18,8 @@ namespace ProkatAuto22.Classes
         public string MaxSpeed { get; set; }
         public string CapacityCar { get; set; }
         public string CapacityTrunk { get; set; }
-        
 
-
-        public void InsertCar(string ModelCar, string ClassCar, string TypeCar, string PriceHour, string PhotoCar, string DriverCar, string YearIssue, string MaxSpeed, string CapacityCar, string CapacityTrunk)
+        public void InsertCar()
         {
 
         }
@@ -50,11 +35,10 @@ namespace ProkatAuto22.Classes
           */
         }
 
-        public void DeleteCar(string ModelCar, string ClassCar, string TypeCar, string PriceHour, string PhotoCar, string DriverCar, string YearIssue, string MaxSpeed, string CapacityCar, string CapacityTrunk)
+        public void DeleteCar()
         {
 
         }
-
 
         public void GetCarType(string CarType)
         {
