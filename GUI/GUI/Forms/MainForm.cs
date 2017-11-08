@@ -35,6 +35,9 @@ namespace GUI
             UpdateDriversListbox();
         }
 
+        
+        ////////////////////////////////// Водители
+
         /// <summary>
         /// Обновляет содержимое лист-бокса для списка водителей.
         /// </summary>
@@ -159,19 +162,10 @@ namespace GUI
             }
             else
                 pictureBox2.Load(CheckedDriver.PhotoDriver);
-
         }
 
 
-        
-
-
-
-
-
         ////////////////////////////////// Клиенты
-
-
 
         /// <summary>
         /// Обновляет содержимое лист-бокса для списка клиентов.
@@ -188,7 +182,6 @@ namespace GUI
             });
         }
 
-
         /// <summary>
         /// Добавление клиента.
         /// </summary>
@@ -196,19 +189,8 @@ namespace GUI
         /// <param name="e"></param>
         private void button12AddCustomer_Click(object sender, EventArgs e)
         {
-            CustomerClass AddCustomer = new CustomerClass();
-
-            AddCustomer.FIOcustomer = textBox12FioCustomer.Text;
-            AddCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
-            AddCustomer.CityCustomer = textBox10CityCustomer.Text;
-
-            AddCustomer.InsertCustomer();
-
-            UpdateCustomersListbox();
 
         }
-
-
 
         /// <summary>
         /// Сохранение клиента (редактирование).
@@ -229,14 +211,12 @@ namespace GUI
             UpdateCustomersListbox();
         }
 
-        
-
         /// <summary>
         /// Метод срабатывает при клике на клиента из списка.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-       private void listBox3Customers_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox3Customers_SelectedIndexChanged(object sender, EventArgs e)
         {
             CustomerClass CheckedCustomer = new CustomerClass();
             CheckedCustomer = (CustomerClass)listBox3Customers.SelectedItem;
@@ -244,6 +224,24 @@ namespace GUI
             textBox12FioCustomer.Text = CheckedCustomer.FIOcustomer.ToString();
             textBox11PhoneCustomer.Text = CheckedCustomer.PhoneCustomer.ToString();
             textBox10CityCustomer.Text = CheckedCustomer.CityCustomer.ToString();
+        }
+
+        /// <summary>
+        /// Метод добавляет клиента в базу.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button12AddCustomer_Click_1(object sender, EventArgs e)
+        {
+            CustomerClass AddCustomer = new CustomerClass();
+
+            AddCustomer.FIOcustomer = textBox12FioCustomer.Text;
+            AddCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
+            AddCustomer.CityCustomer = textBox10CityCustomer.Text;
+
+            AddCustomer.InsertCustomer();
+
+            UpdateCustomersListbox();
         }
     }
 }
