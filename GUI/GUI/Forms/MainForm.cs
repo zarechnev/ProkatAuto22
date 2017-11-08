@@ -15,8 +15,10 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
-        string destFile;
+        string destFile = "";
         string sourcePath;
+
+        bool FlagCopy = false;
         public Form1()
         {
             InitializeComponent();
@@ -58,10 +60,15 @@ namespace GUI
             AddDriver.DriverHabitDrink = checkBox7Drink.Checked;
             AddDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
 
-            File.Copy(sourcePath, destFile, true);
+            if (FlagCopy)
+            {
+                File.Copy(sourcePath, destFile, true);
+                destFile = "";
+            }
             AddDriver.InsertDriver();
 
             UpdateDriversListbox();
+            FlagCopy = false;
         }
 
         private void button1EditPhotoDriver_Click(object sender, EventArgs e)
@@ -77,8 +84,8 @@ namespace GUI
                 string targetPath = @"DriverPhoto";
                 
                 destFile = Path.Combine(targetPath, fileNameDriver);
-                
-               
+
+                FlagCopy = true;
               }
         }
 
@@ -99,11 +106,16 @@ namespace GUI
             RedactionDriver.DriverHabitDrink = checkBox7Drink.Checked;
             RedactionDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
 
-            File.Copy(sourcePath, destFile, true);
+            if (FlagCopy)
+            {
+                File.Copy(sourcePath, destFile, true);
+                destFile = "";
+            }
             RedactionDriver.EditDriver();
 
 
             UpdateDriversListbox();
+            FlagCopy = false;
         }
 
         /// <summary>
