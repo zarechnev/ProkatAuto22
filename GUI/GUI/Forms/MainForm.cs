@@ -15,9 +15,15 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
+        string destFile = "";
+        string sourcePath;
+
+        bool FlagCopy = false;
         public Form1()
         {
             InitializeComponent();
+
+            Directory.CreateDirectory(@"DriverPhoto");
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd.MM.yyyy; hh:mm";
@@ -49,33 +55,49 @@ namespace GUI
         {
             DriverClass AddDriver = new DriverClass();
 
-            AddDriver.PhotoDriver = "";
+            AddDriver.PhotoDriver = destFile;
             AddDriver.FIOdriver = textBox2FioDriver.Text;
             AddDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
             AddDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
             AddDriver.DriverHabitDrink = checkBox7Drink.Checked;
             AddDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
 
+            if (FlagCopy)
+            {
+                File.Copy(sourcePath, destFile, true);
+                destFile = "";
+            }
             AddDriver.InsertDriver();
 
             UpdateDriversListbox();
+            FlagCopy = false;
         }
 
+
+
+        /// <summary>
+        /// Смена фотографии водителя(запускает диалог для выбора фото и сохраняет итоговый путь destFile).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1EditPhotoDriver_Click(object sender, EventArgs e)
         {
-            /// TODO копирование файла должно происходить при нажатии кнопки "добавить водителя" или "редактироть водителя" - надо подумать
+            /// TODO копирование файла должно происходить при нажатии кнопки "добавить водителя" или "редактироть водителя" - Доделано
             OpenFileDialog AddPhotoDriver = new OpenFileDialog();
             
             AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
              if (AddPhotoDriver.ShowDialog() == DialogResult.OK)
               {
-               // fileNameDriver = AddPhotoDriver.SafeFileName;
-                string sourcePath = AddPhotoDriver.FileName;
+                string fileNameDriver = AddPhotoDriver.SafeFileName;
+                sourcePath = AddPhotoDriver.FileName;
                 string targetPath = @"DriverPhoto";
                 
-               // string destFile = Path.Combine(targetPath, fileNameDriver);
                 
-                //File.Copy(sourcePath, destFile, true);
+                destFile = Path.Combine(targetPath, fileNameDriver);
+
+                pictureBox2.Load(sourcePath);
+
+                FlagCopy = true;
               }
         }
 
@@ -88,17 +110,27 @@ namespace GUI
         {
             DriverClass RedactionDriver = new DriverClass();
 
-            RedactionDriver.DriverDBID = textBox2IdDriver.Text;
-            RedactionDriver.PhotoDriver = "";
+            RedactionDriver = (DriverClass)listBox2Driver.SelectedItem;
+            RedactionDriver.DriverDBID = textBox2IdDriver.Text;         
             RedactionDriver.FIOdriver = textBox2FioDriver.Text;
             RedactionDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
             RedactionDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
             RedactionDriver.DriverHabitDrink = checkBox7Drink.Checked;
             RedactionDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
 
+            if (destFile != "")
+            { RedactionDriver.PhotoDriver = destFile; }
+
+            if (FlagCopy)
+            {
+                File.Copy(sourcePath, destFile, true);
+                destFile = "";
+            }
             RedactionDriver.EditDriver();
 
+
             UpdateDriversListbox();
+            FlagCopy = false;
         }
 
         /// <summary>
@@ -119,11 +151,51 @@ namespace GUI
             if (CheckedDriver.DriverHabitDrink) checkBox7Drink.Checked = true;
             if (CheckedDriver.DriverHabitSmoke) checkBox6Smoke.Checked = true;
             if (CheckedDriver.DriverHabitDrugs) checkBox5Drugs.Checked = true;
+
+
+            if (CheckedDriver.PhotoDriver == "")
+            {
+                pictureBox2.Image = null;
+                pictureBox2.BackColor = Color.Gray;
+            }
+            else
+                pictureBox2.Load(CheckedDriver.PhotoDriver);
+
         }
 
 
-        /*
+        
+
+
+
+
+
         ////////////////////////////////// Клиенты
+
+
+
+        /// <summary>
+        /// Обновляет содержимое лист-бокса для списка клиентов.
+        /// </summary>
+        private void UpdateCustomersListbox()
+        {
+            listBox3Customers.Items.Clear();
+
+            List<CustomerClass> AllCustomers = new List<CustomerClass>();
+            AllCustomers = CustomerClass.ReadAllCustomers();
+            AllCustomers.ForEach(delegate (CustomerClass Customer)
+            {
+                listBox3Customers.Items.Add(Customer);
+            });
+        }
+
+
+        /// <summary>
+        /// Добавление клиента.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void button12AddCustomer_Click(object sender, EventArgs e)
         {
             CustomerClass AddCustomer = new CustomerClass();
@@ -134,29 +206,47 @@ namespace GUI
 
             AddCustomer.InsertCustomer();
 
-            listBox3Customers.Refresh();
+            UpdateCustomersListbox();
 
         }
 
+
+
+        /// <summary>
+        /// Сохранение клиента (редактирование).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button10RedactionCustomer_Click(object sender, EventArgs e)
         {
             CustomerClass RedactionCustomer = new CustomerClass();
-            // string idDriver;
-            RedactionCustomer = DataBase.ReadCustomerDB(Int32.Parse(CustomerObjectRead.AllCustomerList[listBox3Customers.SelectedIndex].IDcustomer));
+            
+            RedactionCustomer.IDcustomer = textBox2IdCustomer.Text;
             RedactionCustomer.FIOcustomer = textBox12FioCustomer.Text;
             RedactionCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
             RedactionCustomer.CityCustomer = textBox10CityCustomer.Text;
 
             RedactionCustomer.EditCustomer();
 
-            listBox3Customers.Refresh();
+            UpdateCustomersListbox();
         }
 
-        private void GetCustomers()
+        
+
+        /// <summary>
+        /// Метод срабатывает при клике на клиента из списка.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+       private void listBox3Customers_SelectedIndexChanged(object sender, EventArgs e)
         {
-         //   for (int i = 0; i < CustomerObjectRead.AllCustomerList.Count; i++)
-          //      listBox3Customers.Items.Add(CustomerObjectRead.AllCustomerList[i].FIOcustomer);
+            CustomerClass CheckedCustomer = new CustomerClass();
+            CheckedCustomer = (CustomerClass)listBox3Customers.SelectedItem;
+            textBox2IdCustomer.Text = CheckedCustomer.IDcustomer.ToString();
+            textBox12FioCustomer.Text = CheckedCustomer.FIOcustomer.ToString();
+            textBox11PhoneCustomer.Text = CheckedCustomer.PhoneCustomer.ToString();
+            textBox10CityCustomer.Text = CheckedCustomer.CityCustomer.ToString();
         }
-        */
-    }
+
+}
 }
