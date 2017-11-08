@@ -8,7 +8,6 @@ namespace ProkatAuto22.Classes
 {
     class CustomerClass
     {
-
         public string IDcustomer { get; set; }
         public string FIOcustomer { get; set; }
         public string PhoneCustomer { get; set; }
@@ -16,6 +15,13 @@ namespace ProkatAuto22.Classes
 
         private DataBaseClass DB;
 
+        /// <summary>
+        /// Конструктор класса.
+        /// </summary>
+        public CustomerClass()
+        {
+            DB = new DataBaseClass();
+        }
 
         /// <summary>
         /// Метод класса. Возвращает список (классов) клиентов.
@@ -27,16 +33,6 @@ namespace ProkatAuto22.Classes
             return DB.ReadAllCustomersDB();
         }
 
-
-        /// <summary>
-        /// Конструктор класса.
-        /// </summary>
-        public CustomerClass()
-        {
-            DB = new DataBaseClass();
-        }
-
-
         /// <summary>
         /// Добавление клиента.
         /// </summary>
@@ -45,7 +41,6 @@ namespace ProkatAuto22.Classes
             DB.AddNewCustomerDB(this);
         }
 
-
         /// <summary>
         /// Редактирование клиента.
         /// </summary>
@@ -53,7 +48,6 @@ namespace ProkatAuto22.Classes
         {
             DB.EditCustomerDB(this);
         }
-
 
         /// <summary>
         /// Выводит информацию о экземпляре в читаемом виде.

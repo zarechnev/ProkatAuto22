@@ -19,6 +19,10 @@ namespace GUI
         string sourcePath;
 
         bool FlagCopy = false;
+
+        /// <summary>
+        /// Конструктор класса.
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -73,8 +77,6 @@ namespace GUI
             FlagCopy = false;
         }
 
-
-
         /// <summary>
         /// Смена фотографии водителя(запускает диалог для выбора фото и сохраняет итоговый путь destFile).
         /// </summary>
@@ -82,7 +84,6 @@ namespace GUI
         /// <param name="e"></param>
         private void button1EditPhotoDriver_Click(object sender, EventArgs e)
         {
-            /// TODO копирование файла должно происходить при нажатии кнопки "добавить водителя" или "редактироть водителя" - Доделано
             OpenFileDialog AddPhotoDriver = new OpenFileDialog();
             
             AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
@@ -91,7 +92,6 @@ namespace GUI
                 string fileNameDriver = AddPhotoDriver.SafeFileName;
                 sourcePath = AddPhotoDriver.FileName;
                 string targetPath = @"DriverPhoto";
-                
                 
                 destFile = Path.Combine(targetPath, fileNameDriver);
 
@@ -152,7 +152,6 @@ namespace GUI
             if (CheckedDriver.DriverHabitSmoke) checkBox6Smoke.Checked = true;
             if (CheckedDriver.DriverHabitDrugs) checkBox5Drugs.Checked = true;
 
-
             if (CheckedDriver.PhotoDriver == "")
             {
                 pictureBox2.Image = null;
@@ -195,7 +194,6 @@ namespace GUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         private void button12AddCustomer_Click(object sender, EventArgs e)
         {
             CustomerClass AddCustomer = new CustomerClass();
@@ -247,6 +245,5 @@ namespace GUI
             textBox11PhoneCustomer.Text = CheckedCustomer.PhoneCustomer.ToString();
             textBox10CityCustomer.Text = CheckedCustomer.CityCustomer.ToString();
         }
-
-}
+    }
 }
