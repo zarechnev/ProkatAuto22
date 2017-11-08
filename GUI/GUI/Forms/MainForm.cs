@@ -78,24 +78,49 @@ namespace GUI
                 //File.Copy(sourcePath, destFile, true);
               }
         }
- 
+
+        /// <summary>
+        /// Сохранение водителя (редактирование).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button6RedactionDriver_Click(object sender, EventArgs e)
         {
             DriverClass RedactionDriver = new DriverClass();
-            // string idDriver;
-            /*
-            RedactionDriver= DataBase.ReadDriverDB(Int32.Parse(DriverObjectRead.AllDriversList[listBox2Driver.SelectedIndex].DriverDBID));
-            RedactionDriver.PhotoDriver = fileNameDriver;
+
+            RedactionDriver.DriverDBID = textBox2IdDriver.Text;
+            RedactionDriver.PhotoDriver = "";
             RedactionDriver.FIOdriver = textBox2FioDriver.Text;
             RedactionDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
-            RedactionDriver.DriverHabitSmoke = habitSmoke;
-            RedactionDriver.DriverHabitDrink = habitDrink;
-            RedactionDriver.DriverHabitDrugs = habitDrugs;
+            RedactionDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
+            RedactionDriver.DriverHabitDrink = checkBox7Drink.Checked;
+            RedactionDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
 
             RedactionDriver.EditDriver();
-            */
+
             UpdateDriversListbox();
         }
+
+        /// <summary>
+        /// Метод срабатывает при клике на водителе из списка.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listBox2Driver_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DriverClass CheckedDriver = new DriverClass();
+            CheckedDriver = (DriverClass)listBox2Driver.SelectedItem;
+            textBox2IdDriver.Text = CheckedDriver.DriverDBID.ToString();
+            textBox2FioDriver.Text = CheckedDriver.FIOdriver.ToString();
+            textBox3ExpirienceDriver.Text = CheckedDriver.ExpirienceDriver.ToString();
+            checkBox7Drink.Checked = false;
+            checkBox6Smoke.Checked = false;
+            checkBox5Drugs.Checked = false;
+            if (CheckedDriver.DriverHabitDrink) checkBox7Drink.Checked = true;
+            if (CheckedDriver.DriverHabitSmoke) checkBox6Smoke.Checked = true;
+            if (CheckedDriver.DriverHabitDrugs) checkBox5Drugs.Checked = true;
+        }
+
 
         /*
         ////////////////////////////////// Клиенты

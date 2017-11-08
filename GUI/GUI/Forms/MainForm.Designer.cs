@@ -304,6 +304,7 @@
             this.listBox2Driver.Name = "listBox2Driver";
             this.listBox2Driver.Size = new System.Drawing.Size(314, 147);
             this.listBox2Driver.TabIndex = 24;
+            this.listBox2Driver.SelectedIndexChanged += new System.EventHandler(this.listBox2Driver_SelectedIndexChanged);
             // 
             // button6RedactionDriver
             // 
