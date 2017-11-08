@@ -119,7 +119,8 @@ namespace ProkatAuto22.Classes
         /// Записывает в базу нового водителя.
         /// </summary>
         /// <param name="NewDriverAdd"></param>
-        public void AddNewDriverDB(DriverClass NewDriverAdd) {
+        public void AddNewDriverDB(DriverClass NewDriverAdd)
+        {
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
                 DBConnection.Open();
@@ -170,7 +171,8 @@ namespace ProkatAuto22.Classes
         /// Редактирует водителя.
         /// </summary>
         /// <param name="DriverEdit"></param>
-        public void EditDriverDB(DriverClass DriverEdit){
+        public void EditDriverDB(DriverClass DriverEdit)
+        {
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
                 DBConnection.Open();
@@ -243,9 +245,22 @@ namespace ProkatAuto22.Classes
         /// <summary>
         /// Записывает в базу нового клиента. Не протестирован.
         /// </summary>
+        /// <param name="NewCostomer"></param>
         public void AddNewCustomerDB(CustomerClass NewCostomer)
         {
-            
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"INSERT INTO client (name, phoneNumber, city) VALUES ('" +
+                         NewCostomer.FIOcustomer.ToUpper() + "','" +
+                         NewCostomer.PhoneCustomer + "','" +
+                         NewCostomer.CityCustomer.ToUpper() + "');";
+                    MyDBLogger("Create client with SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
