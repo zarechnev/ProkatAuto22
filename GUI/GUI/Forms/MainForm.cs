@@ -35,7 +35,7 @@ namespace GUI
             UpdateDriversListbox();
         }
 
-        
+
         ////////////////////////////////// Водители
 
         /// <summary>
@@ -88,20 +88,20 @@ namespace GUI
         private void button1EditPhotoDriver_Click(object sender, EventArgs e)
         {
             OpenFileDialog AddPhotoDriver = new OpenFileDialog();
-            
+
             AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
-             if (AddPhotoDriver.ShowDialog() == DialogResult.OK)
-              {
+            if (AddPhotoDriver.ShowDialog() == DialogResult.OK)
+            {
                 string fileNameDriver = AddPhotoDriver.SafeFileName;
                 sourcePath = AddPhotoDriver.FileName;
                 string targetPath = @"DriverPhoto";
-                
+
                 destFile = Path.Combine(targetPath, fileNameDriver);
 
                 pictureBox2.Load(sourcePath);
 
                 FlagCopy = true;
-              }
+            }
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace GUI
             DriverClass RedactionDriver = new DriverClass();
 
             RedactionDriver = (DriverClass)listBox2Driver.SelectedItem;
-            RedactionDriver.DriverDBID = textBox2IdDriver.Text;         
+            RedactionDriver.DriverDBID = textBox2IdDriver.Text;
             RedactionDriver.FIOdriver = textBox2FioDriver.Text;
             RedactionDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
             RedactionDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
@@ -164,6 +164,7 @@ namespace GUI
                 pictureBox2.Load(CheckedDriver.PhotoDriver);
         }
 
+
         ////////////////////////////////// Клиенты
 
         /// <summary>
@@ -199,7 +200,7 @@ namespace GUI
         private void button10RedactionCustomer_Click(object sender, EventArgs e)
         {
             CustomerClass RedactionCustomer = new CustomerClass();
-            
+
             RedactionCustomer.IDcustomer = textBox2IdCustomer.Text;
             RedactionCustomer.FIOcustomer = textBox12FioCustomer.Text;
             RedactionCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;

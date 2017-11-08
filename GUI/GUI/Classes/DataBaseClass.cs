@@ -43,7 +43,8 @@ namespace ProkatAuto22.Classes
         /// </summary>
         public DataBaseClass()
         {
-            if (!System.IO.File.Exists(DBFileName)){
+            if (!System.IO.File.Exists(DBFileName))
+            {
                 // Файла БД нет - создаём его
                 MyDBLogger("BD-file doesn't exist.");
                 SQLiteConnection.CreateFile(DBFileName);
@@ -57,7 +58,8 @@ namespace ProkatAuto22.Classes
                     }
                 }
             }
-            else{
+            else
+            {
                 // Файла БД присутствует
                 MyDBLogger("BD-file exist.");
             }
@@ -178,7 +180,7 @@ namespace ProkatAuto22.Classes
                 DBConnection.Open();
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
-                    Command.CommandText = @"UPDATE drivers SET name = '" + DriverEdit.FIOdriver.ToUpper() + "', " + 
+                    Command.CommandText = @"UPDATE drivers SET name = '" + DriverEdit.FIOdriver.ToUpper() + "', " +
                         "photoFileName ='" + DriverEdit.PhotoDriver + "', " +
                         "experienceFrom = '" + DriverEdit.ExpirienceDriver + "' " +
                         "WHERE ID = '" + DriverEdit.DriverDBID + "';";
