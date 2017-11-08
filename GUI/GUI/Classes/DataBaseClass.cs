@@ -264,7 +264,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Считывает из базы нового клиента. Не протестирован.
+        /// Считывает из базы клиента. Не протестирован.
         /// </summary>
         public CustomerClass ReadCustomerDB(string CustomerID)
         {
@@ -274,7 +274,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Редактирует в базе нового клиента. Не протестирован.
+        /// Редактирует в базе клиента. Не протестирован.
         /// </summary>
         public void EditCustomerDB(CustomerClass EditCustomer)
         {
@@ -282,7 +282,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Возвращает список клиентов базы. Не протестирован.
+        /// Возвращает список клиентов. Не протестирован.
         /// </summary>
         /// <returns></returns>
         public List<CustomerClass> ReadAllCustomersDB()
@@ -290,6 +290,47 @@ namespace ProkatAuto22.Classes
             List<CustomerClass> ListOfCustomers = new List<CustomerClass>();
 
             return (ListOfCustomers);
+        }
+
+        /// <summary>
+        /// Добавляет новый автомобиль.
+        /// </summary>
+        /// <param name="NewCar"></param>
+        public void AddNewCarDB(AutomobileClass NewCar)
+        {
+
+        }
+
+        /// <summary>
+        /// Возвращает экземпляр автомобиля по ID.
+        /// </summary>
+        /// <param name="CarID"></param>
+        /// <returns></returns>
+        public AutomobileClass ReadCarDB(string CarID)
+        {
+            AutomobileClass ReadCarDB = new AutomobileClass();
+
+            return ReadCarDB;
+        }
+
+        /// <summary>
+        /// Метод для редактирования автомобиля.
+        /// </summary>
+        /// <param name="CarToEdit"></param>
+        public void EditCarDB(AutomobileClass CarToEdit)
+        {
+
+        }
+
+        /// <summary>
+        /// Возвращает список автомобилей.
+        /// </summary>
+        /// <returns></returns>
+        public List<AutomobileClass> ReadAllCars()
+        {
+            List<AutomobileClass> AllCars = new List<AutomobileClass>();
+
+            return AllCars;
         }
     }
 }

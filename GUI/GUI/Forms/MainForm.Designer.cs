@@ -681,6 +681,7 @@
             this.button12AddCustomer.TabIndex = 21;
             this.button12AddCustomer.Text = "Добавить";
             this.button12AddCustomer.UseVisualStyleBackColor = true;
+            this.button12AddCustomer.Click += new System.EventHandler(this.button12AddCustomer_Click_1);
             // 
             // textBox10CityCustomer
             // 

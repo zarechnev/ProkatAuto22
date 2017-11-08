@@ -19,35 +19,16 @@ namespace ProkatAuto22.Classes
         public string CapacityCar { get; set; }
         public string CapacityTrunk { get; set; }
 
+        private DataBaseClass DB;
+
+        public AutomobileClass()
+        {
+            DB = new DataBaseClass();
+        }
+
         public void InsertCar()
         {
-
-        }
-
-        public void ReadCar()
-        {/*
-            ModelCarList...
-            YearIssueList...
-             MaxSpeedList....
-             CapacityCarList..
-             CapacityTrunkList..
-             .........
-          */
-        }
-
-        public void DeleteCar()
-        {
-
-        }
-
-        public void GetCarType(string CarType)
-        {
-
-        }
-
-        public void GetCarClass(string CarClass)
-        {
-
+            DB.AddNewCarDB(this);
         }
     }
 }
