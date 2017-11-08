@@ -8,12 +8,6 @@ namespace ProkatAuto22.Classes
 {
     class CustomerClass
     {
-        public List<string> IDcustomerList { get; set; }
-        public List<string> FIOcustomerList { get; set; }
-        public List<string> PhoneCustomerList { get; set; }
-        public List<bool> CityCustomerList { get; set; }
-
-        public List<CustomerClass> AllCustomerList { get; set; }
 
         public string IDcustomer { get; set; }
         public string FIOcustomer { get; set; }
@@ -22,25 +16,52 @@ namespace ProkatAuto22.Classes
 
         private DataBaseClass DB;
 
+
+        /// <summary>
+        /// Метод класса. Возвращает список (классов) клиентов.
+        /// </summary>
+        /// <returns></returns>
+        public static List<CustomerClass> ReadAllCustomers()
+        {
+            DataBaseClass DB = new DataBaseClass();
+            return DB.ReadAllCustomersDB();
+        }
+
+
+        /// <summary>
+        /// Конструктор класса.
+        /// </summary>
         public CustomerClass()
         {
             DB = new DataBaseClass();
         }
 
+
+        /// <summary>
+        /// Добавление клиента.
+        /// </summary>
         public void InsertCustomer()
         {
-            //DB.AddNewCustomerDB(this);
-        }
-
-        public void ReadAllCustomers()
-        {
-            AllCustomerList = new List<CustomerClass>(DB.ReadAllCustomersDB());
+            DB.AddNewCustomerDB(this);
         }
 
 
+        /// <summary>
+        /// Редактирование клиента.
+        /// </summary>
         public void EditCustomer()
         {
             DB.EditCustomerDB(this);
+        }
+
+
+        /// <summary>
+        /// Выводит информацию о экземпляре в читаемом виде.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.IDcustomer + ", " + this.FIOcustomer + ", телефон: " + this.PhoneCustomer;
         }
     }
 }

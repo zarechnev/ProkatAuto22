@@ -940,6 +940,7 @@
             this.listBox3Customers.Name = "listBox3Customers";
             this.listBox3Customers.Size = new System.Drawing.Size(411, 186);
             this.listBox3Customers.TabIndex = 24;
+            this.listBox3Customers.SelectedIndexChanged += new System.EventHandler(this.listBox3Customers_SelectedIndexChanged);
             // 
             // label25
             // 

@@ -251,9 +251,11 @@ namespace ProkatAuto22.Classes
         /// <summary>
         /// Считывает из базы нового клиента. Не протестирован.
         /// </summary>
-        public void ReadCustomerDB(int CustomerID)
+        public CustomerClass ReadCustomerDB(string CustomerID)
         {
+            CustomerClass ReadedCustomer = new CustomerClass();
 
+            return ReadedCustomer;
         }
 
         /// <summary>
