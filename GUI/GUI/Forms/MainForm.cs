@@ -15,6 +15,8 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
+        string destFile;
+        string sourcePath;
         public Form1()
         {
             InitializeComponent();
@@ -49,13 +51,14 @@ namespace GUI
         {
             DriverClass AddDriver = new DriverClass();
 
-            AddDriver.PhotoDriver = "";
+            AddDriver.PhotoDriver = destFile;
             AddDriver.FIOdriver = textBox2FioDriver.Text;
             AddDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
             AddDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
             AddDriver.DriverHabitDrink = checkBox7Drink.Checked;
             AddDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
 
+            File.Copy(sourcePath, destFile, true);
             AddDriver.InsertDriver();
 
             UpdateDriversListbox();
@@ -63,19 +66,19 @@ namespace GUI
 
         private void button1EditPhotoDriver_Click(object sender, EventArgs e)
         {
-            /// TODO копирование файла должно происходить при нажатии кнопки "добавить водителя" или "редактироть водителя" - надо подумать
+            /// TODO копирование файла должно происходить при нажатии кнопки "добавить водителя" или "редактироть водителя" - Доделано
             OpenFileDialog AddPhotoDriver = new OpenFileDialog();
             
             AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
              if (AddPhotoDriver.ShowDialog() == DialogResult.OK)
               {
-               // fileNameDriver = AddPhotoDriver.SafeFileName;
-                string sourcePath = AddPhotoDriver.FileName;
+                string fileNameDriver = AddPhotoDriver.SafeFileName;
+                sourcePath = AddPhotoDriver.FileName;
                 string targetPath = @"DriverPhoto";
                 
-               // string destFile = Path.Combine(targetPath, fileNameDriver);
+                destFile = Path.Combine(targetPath, fileNameDriver);
                 
-                //File.Copy(sourcePath, destFile, true);
+               
               }
         }
 
@@ -89,14 +92,16 @@ namespace GUI
             DriverClass RedactionDriver = new DriverClass();
 
             RedactionDriver.DriverDBID = textBox2IdDriver.Text;
-            RedactionDriver.PhotoDriver = "";
+            RedactionDriver.PhotoDriver = destFile;
             RedactionDriver.FIOdriver = textBox2FioDriver.Text;
             RedactionDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
             RedactionDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
             RedactionDriver.DriverHabitDrink = checkBox7Drink.Checked;
             RedactionDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
 
+            File.Copy(sourcePath, destFile, true);
             RedactionDriver.EditDriver();
+
 
             UpdateDriversListbox();
         }
@@ -119,6 +124,16 @@ namespace GUI
             if (CheckedDriver.DriverHabitDrink) checkBox7Drink.Checked = true;
             if (CheckedDriver.DriverHabitSmoke) checkBox6Smoke.Checked = true;
             if (CheckedDriver.DriverHabitDrugs) checkBox5Drugs.Checked = true;
+
+
+            if (CheckedDriver.PhotoDriver == "")
+            {
+                pictureBox2.Image = null;
+                pictureBox2.BackColor = Color.Gray;
+            }
+            else
+                pictureBox2.Load(CheckedDriver.PhotoDriver);
+
         }
 
 
