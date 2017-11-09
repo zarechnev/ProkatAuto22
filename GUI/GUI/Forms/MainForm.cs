@@ -227,6 +227,10 @@ namespace GUI
             textBox12FioCustomer.Text = CheckedCustomer.FIOcustomer.ToString();
             textBox11PhoneCustomer.Text = CheckedCustomer.PhoneCustomer.ToString();
             textBox10CityCustomer.Text = CheckedCustomer.CityCustomer.ToString();
+
+            /// Выбираем клиента для оформления заказа
+            listBox2CustomerForOrder.Items.Clear();
+            listBox2CustomerForOrder.Items.Add(CheckedCustomer);
         }
 
         /// <summary>
@@ -245,6 +249,12 @@ namespace GUI
             AddCustomer.InsertCustomer();
 
             UpdateCustomersListbox();
+
+            /// Очищаем форму добавления клиентов
+            textBox12FioCustomer.Text = "";
+            textBox11PhoneCustomer.Text = "";
+            textBox10CityCustomer.Text = "";
+            
         }
 
         //////////////////////////////////////// Автомобили
@@ -290,6 +300,15 @@ namespace GUI
 
             UpdateCarsListbox();
             FlagCopy = false;
+
+            // Очищаем форму добавления автомобилей
+            textBox1ModelCar.Text = "";
+            textBox4PriceForHourCar.Text = "";
+            comboBox2CarType.Text = "";                  //Combo-box надо подумать.
+            textBox9CapacityCar.Text = "";
+            textBox7YearIssueCar.Text = "";
+            AutoGosNumberTextBox.Text = "";
+            textBox14CarryingCar.Text = "";
         }
 
         /// <summary>
@@ -375,6 +394,10 @@ namespace GUI
             }
             else
                 pictureBox2.Load(CheckedCar.PhotoCar);
+
+            /// Выбираем автомрбиль для оформления заказа
+            listBox1CarForOrder.Items.Clear();
+            listBox1CarForOrder.Items.Add(CheckedCar);
         }
 
     }
