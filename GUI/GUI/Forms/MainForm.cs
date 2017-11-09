@@ -79,6 +79,14 @@ namespace GUI
 
             UpdateDriversListbox();
             FlagCopy = false;
+
+            /// Очищаем форму добавления водителей
+            textBox2IdDriver.Text = "";
+            textBox2FioDriver.Text = "";
+            textBox3ExpirienceDriver.Text = "";
+            checkBox6Smoke.Checked = false;
+            checkBox5Drugs.Checked = false;
+            checkBox7Drink.Checked = false;
         }
 
         /// <summary>
@@ -163,6 +171,10 @@ namespace GUI
             }
             else
                 pictureBox2.Load(CheckedDriver.PhotoDriver);
+
+            /// Выбераем водителя для оформления заказа
+            listBox1DriverForOrder.Items.Clear();
+            listBox1DriverForOrder.Items.Add(CheckedDriver);
         }
 
 
@@ -364,5 +376,6 @@ namespace GUI
             else
                 pictureBox2.Load(CheckedCar.PhotoCar);
         }
+
     }
 }
