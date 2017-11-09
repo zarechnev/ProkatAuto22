@@ -245,7 +245,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Записывает в базу нового клиента. Не протестирован.
+        /// Записывает в базу нового клиента.
         /// </summary>
         /// <param name="NewCostomer"></param>
         public void AddNewCustomerDB(CustomerClass NewCostomer)
@@ -266,12 +266,29 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Считывает из базы клиента. Не протестирован.
+        /// Считывает из базы клиента. Не протестирован. Автор: Марина.
         /// </summary>
         public CustomerClass ReadCustomerDB(string CustomerID)
         {
             CustomerClass ReadedCustomer = new CustomerClass();
-
+            ReadedCustomer.IDcustomer = CustomerID;
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    // Считываем информацию о водителе
+                    Command.CommandText = @"SELECT name, phoneNumber, city FROM client WHERE ID = '" + ReadedCustomer.IDcustomer + "';";
+                    MyDBLogger("Select Client by ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        Reader.Read();
+                        ReadedCustomer.FIOcustomer = Reader.GetString(0);
+                        ReadedCustomer.PhoneCustomer = Reader.GetValue(1).ToString();
+                        ReadedCustomer.CityCustomer = Reader.GetString(2);
+                    }
+                }
+            }
             return ReadedCustomer;
         }
 
@@ -284,13 +301,28 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Возвращает список клиентов. Не протестирован.
+        /// Возвращает список клиентов. Не протестирован. Автор: Марина.
         /// </summary>
         /// <returns></returns>
         public List<CustomerClass> ReadAllCustomersDB()
         {
             List<CustomerClass> ListOfCustomers = new List<CustomerClass>();
-
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"SELECT ID FROM client;";
+                    MyDBLogger("Select Client ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
+                            ListOfCustomers.Add(this.ReadCustomerDB(Reader.GetValue(0).ToString()));
+                        }
+                    }
+                }
+            }
             return (ListOfCustomers);
         }
 
