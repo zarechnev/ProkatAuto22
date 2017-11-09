@@ -266,7 +266,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Считывает из базы клиента. Не протестирован. Автор: Марина.
+        /// Считывает из базы клиента. Автор: Марина.
         /// </summary>
         public CustomerClass ReadCustomerDB(string CustomerID)
         {
@@ -293,15 +293,27 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Редактирует в базе клиента. Не протестирован.
+        /// Редактирует в базе клиента. Автор: Марина.
         /// </summary>
         public void EditCustomerDB(CustomerClass EditCustomer)
         {
-
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"UPDATE client SET name = '" + EditCustomer.FIOcustomer.ToUpper() + "', " +
+                        "phoneNumber ='" + EditCustomer.PhoneCustomer + "', " +
+                        "city = '" + EditCustomer.CityCustomer + "' " +
+                        "WHERE ID = '" + EditCustomer.IDcustomer + "';";
+                    MyDBLogger("Edit client whis SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
-        /// Возвращает список клиентов. Не протестирован. Автор: Марина.
+        /// Возвращает список клиентов. Автор: Марина.
         /// </summary>
         /// <returns></returns>
         public List<CustomerClass> ReadAllCustomersDB()
