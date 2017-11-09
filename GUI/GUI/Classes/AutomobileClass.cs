@@ -18,7 +18,6 @@ namespace ProkatAuto22.Classes
         public string GosNumberCar { get; set; }
         public string CarryingCar { get; set; }
 
-
         private DataBaseClass DB;
 
         /// <summary>
@@ -39,7 +38,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Метод класса. Возвращает список (классов) автомобилей.
+        /// Метод класса. Возвращает список (экземпляров) автомобилей.
         /// </summary>
         /// <returns></returns>
         public static List<AutomobileClass> ReadAllCars()
