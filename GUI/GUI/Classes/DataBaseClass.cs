@@ -339,24 +339,64 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Добавляет новый автомобиль.
+        /// Добавляет новый автомобиль. Не протестировано. Автор: Марина.
         /// </summary>
         /// <param name="NewCar"></param>
         public void AddNewCarDB(AutomobileClass NewCar)
         {
-
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    int AddedCarID;
+                    Command.CommandText = @"INSERT INTO cars (model, priceForHour, photoFileName, carCapacity, yearOfIssue, gosNumber, carCapacityTrunc) VALUES ('" +
+                        NewCar.ModelCar + "','" +
+                        NewCar.PriceHourCar + "','" +
+                        NewCar.PhotoCar + "','" +
+                        NewCar.CapacityCar + "','" +
+                        NewCar.YearIssueCar + "','" +
+                        NewCar.GosNumberCar + "','" +
+                        NewCar.CarryingCar + "');";
+                    MyDBLogger("Create car with SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
-        /// Возвращает экземпляр автомобиля по ID.
+        /// Возвращает экземпляр автомобиля по ID. Не протестировано. Автор: Марина.
         /// </summary>
         /// <param name="CarID"></param>
         /// <returns></returns>
         public AutomobileClass ReadCarDB(string CarID)
         {
-            AutomobileClass ReadCar = new AutomobileClass();
+            AutomobileClass ReadCarDB = new AutomobileClass();
 
-            return ReadCar;
+            ReadCarDB.IDCar = CarID;
+
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    // Считываем информацию о водителе
+                    Command.CommandText = @"SELECT model, priceForHour, photoFileName, carCapacity, yearOfIssue, gosNumber, carCapacityTrunc FROM cars WHERE ID = '" + ReadCarDB.IDCar + "';";
+                    MyDBLogger("Select Car by ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        Reader.Read();
+                        ReadCarDB.ModelCar = Reader.GetString(0);
+                        ReadCarDB.PriceHourCar = Reader.GetValue(1).ToString();
+                        ReadCarDB.PhotoCar = Reader.GetString(2);
+                        ReadCarDB.CapacityCar = Reader.GetValue(3).ToString();
+                        ReadCarDB.YearIssueCar = Reader.GetValue(4).ToString();
+                        ReadCarDB.GosNumberCar = Reader.GetValue(5).ToString();
+                        ReadCarDB.CarryingCar = Reader.GetValue(6).ToString();
+                    }
+                }
+            }
+            return ReadCarDB;
         }
 
         /// <summary>
@@ -369,13 +409,29 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Возвращает список автомобилей.
+        /// Возвращает список автомобилей. Не протестировано. Автор: Марина.
         /// </summary>
         /// <returns></returns>
         public List<AutomobileClass> ReadAllCars()
         {
             List<AutomobileClass> AllCars = new List<AutomobileClass>();
 
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"SELECT ID FROM cars;";
+                    MyDBLogger("Select Cars ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
+                            AllCars.Add(this.ReadCarDB(Reader.GetInt32(0).ToString()));
+                        }
+                    }
+                }
+            }
             return AllCars;
         }
 
@@ -428,6 +484,6 @@ namespace ProkatAuto22.Classes
 
             return AllOrders;
         }
-        
     }
 }
+ 

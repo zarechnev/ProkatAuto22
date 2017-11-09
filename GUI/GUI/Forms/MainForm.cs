@@ -259,6 +259,7 @@ namespace GUI
             textBox2IdCustomer.Text = "";            
         }
 
+
         //////////////////////////////////////// Автомобили
         /// <summary>
         /// Обновляет содержимое лист-бокса для списка автомобилей. Не протестировано
@@ -271,7 +272,7 @@ namespace GUI
             AllCars = AutomobileClass.ReadAllCars();
             AllCars.ForEach(delegate (AutomobileClass Car)
             {
-                listBox3Customers.Items.Add(Car);
+                listBox1Automobile.Items.Add(Car);
             });
         }
 
@@ -383,7 +384,7 @@ namespace GUI
             textBox3IDCar.Text = CheckedCar.IDCar.ToString();
             textBox1ModelCar.Text = CheckedCar.ModelCar.ToString();
             textBox4PriceForHourCar.Text = CheckedCar.PriceHourCar.ToString();
-            comboBox2CarType.Text = CheckedCar.TypeCar.ToString();                   
+            //comboBox2CarType.Text = CheckedCar.TypeCar.ToString();                   
             textBox9CapacityCar.Text = CheckedCar.CapacityCar.ToString();
             textBox7YearIssueCar.Text = CheckedCar.YearIssueCar.ToString();
             AutoGosNumberTextBox.Text = CheckedCar.GosNumberCar.ToString();
