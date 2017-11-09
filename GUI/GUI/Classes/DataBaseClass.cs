@@ -354,9 +354,9 @@ namespace ProkatAuto22.Classes
         /// <returns></returns>
         public AutomobileClass ReadCarDB(string CarID)
         {
-            AutomobileClass ReadCarDB = new AutomobileClass();
+            AutomobileClass ReadCar = new AutomobileClass();
 
-            return ReadCarDB;
+            return ReadCar;
         }
 
         /// <summary>
@@ -378,5 +378,56 @@ namespace ProkatAuto22.Classes
 
             return AllCars;
         }
+
+        /// <summary>
+        /// Добавляет новый заказ.
+        /// </summary>
+        /// <param name="NewOrder"></param>
+        public void AddNewOrderDB(OrderClass NewOrder)
+        {
+
+        }
+
+        /// <summary>
+        /// Возвращает экземпляр заказа по ID.
+        /// </summary>
+        /// <param name="OrderID"></param>
+        /// <returns></returns>
+        public OrderClass ReadOrderDB(string OrderID)
+        {
+            OrderClass ReadOrder= new OrderClass();
+
+            return ReadOrder;
+        }
+
+        /// <summary>
+        /// Метод для редактирования заказов.
+        /// </summary>
+        /// <param name="OrderToEdit"></param>
+        public void EditOrderDB(OrderClass OrderToEdit)
+        {
+
+        }
+
+        /// <summary>
+        /// Метод для удаления заказов.
+        /// </summary>
+        /// <param name="OrderToEdit"></param>
+        public void DeleteOrderDB(OrderClass OrderToDelete)
+        {
+
+        }
+
+        /// <summary>
+        /// Возвращает список заказов.
+        /// </summary>
+        /// <returns></returns>
+        public List<OrderClass> ReadAllOrdersDB()
+        {
+            List<OrderClass> AllOrders = new List<OrderClass>();
+
+            return AllOrders;
+        }
+        
     }
 }
