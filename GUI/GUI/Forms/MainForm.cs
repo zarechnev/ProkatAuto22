@@ -425,89 +425,89 @@ namespace GUI
         private void comboBox2CarType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-           switch(comboBox2CarType.SelectedIndex)
-            {
-                case 0:
-                    UpdateAutomobileCategoryA();
-                    break;
-                case 1:
-                    UpdateAutomobileCategoryB();
-                    break;
-                case 2:
-                    UpdateAutomobileCategoryC();
-                    break;
-                case 3:
-                    UpdateAutomobileCategoryM();
-                    break;
-            }
-                
-            
+            /*       switch(comboBox2CarType.SelectedIndex)
+                    {
+                        case 0:
+                            UpdateAutomobileCategoryA();
+                            break;
+                        case 1:
+                            UpdateAutomobileCategoryB();
+                            break;
+                        case 2:
+                            UpdateAutomobileCategoryC();
+                            break;
+                        case 3:
+                            UpdateAutomobileCategoryM();
+                            break;
+                    }
+           */
+
         }
+        /*
+                /// <summary>
+                /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории А.
+                /// </summary>
+                private void UpdateAutomobileCategoryA()
+                {
+                    listBox1Automobile.Items.Clear();
 
-        /// <summary>
-        /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории А.
-        /// </summary>
-        private void UpdateAutomobileCategoryA()
-        {
-            listBox1Automobile.Items.Clear();
+                    List<AutomobileClass> AllCars = new List<AutomobileClass>();
+                    AllCars = AutomobileClass.ReadAllCars();
+                    AllCars.ForEach(delegate (AutomobileClass Car)
+                    {
+                        if (Car.TypeCar.ToString() == "A")
+                            listBox1Automobile.Items.Add(Car);
+                    });
+                }
 
-            List<AutomobileClass> AllCars = new List<AutomobileClass>();
-            AllCars = AutomobileClass.ReadAllCars();
-            AllCars.ForEach(delegate (AutomobileClass Car)
-            {
-                if (Car.TypeCar.ToString() == "A")
-                    listBox1Automobile.Items.Add(Car);
-            });
-        }
+                /// <summary>
+                /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории B.
+                /// </summary>
+                private void UpdateAutomobileCategoryB()
+                {
+                    listBox1Automobile.Items.Clear();
 
-        /// <summary>
-        /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории B.
-        /// </summary>
-        private void UpdateAutomobileCategoryB()
-        {
-            listBox1Automobile.Items.Clear();
+                    List<AutomobileClass> AllCars = new List<AutomobileClass>();
+                    AllCars = AutomobileClass.ReadAllCars();
+                    AllCars.ForEach(delegate (AutomobileClass Car)
+                    {
+                        if (Car.TypeCar.ToString() == "B")
+                            listBox1Automobile.Items.Add(Car);
+                    });
+                }
 
-            List<AutomobileClass> AllCars = new List<AutomobileClass>();
-            AllCars = AutomobileClass.ReadAllCars();
-            AllCars.ForEach(delegate (AutomobileClass Car)
-            {
-                if (Car.TypeCar.ToString() == "B")
-                    listBox1Automobile.Items.Add(Car);
-            });
-        }
+                /// <summary>
+                /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории C.
+                /// </summary>
+                private void UpdateAutomobileCategoryC()
+                {
+                    listBox1Automobile.Items.Clear();
 
-        /// <summary>
-        /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории C.
-        /// </summary>
-        private void UpdateAutomobileCategoryC()
-        {
-            listBox1Automobile.Items.Clear();
+                    List<AutomobileClass> AllCars = new List<AutomobileClass>();
+                    AllCars = AutomobileClass.ReadAllCars();
+                    AllCars.ForEach(delegate (AutomobileClass Car)
+                    {
+                        if (Car.TypeCar.ToString() == "C")
+                            listBox1Automobile.Items.Add(Car);
+                    });
+                }
 
-            List<AutomobileClass> AllCars = new List<AutomobileClass>();
-            AllCars = AutomobileClass.ReadAllCars();
-            AllCars.ForEach(delegate (AutomobileClass Car)
-            {
-                if (Car.TypeCar.ToString() == "C")
-                    listBox1Automobile.Items.Add(Car);
-            });
-        }
+                /// <summary>
+                /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории M.
+                /// </summary>
+                private void UpdateAutomobileCategoryM()
+                {
+                    listBox1Automobile.Items.Clear();
 
-        /// <summary>
-        /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории M.
-        /// </summary>
-        private void UpdateAutomobileCategoryM()
-        {
-            listBox1Automobile.Items.Clear();
+                    List<AutomobileClass> AllCars = new List<AutomobileClass>();
+                    AllCars = AutomobileClass.ReadAllCars();
+                    AllCars.ForEach(delegate (AutomobileClass Car)
+                    {
+                        if (Car.TypeCar.ToString() == "M")
+                            listBox1Automobile.Items.Add(Car);
+                    });
+                }
 
-            List<AutomobileClass> AllCars = new List<AutomobileClass>();
-            AllCars = AutomobileClass.ReadAllCars();
-            AllCars.ForEach(delegate (AutomobileClass Car)
-            {
-                if (Car.TypeCar.ToString() == "M")
-                    listBox1Automobile.Items.Add(Car);
-            });
-        }
-
-
+            */
     }
 }
