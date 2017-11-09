@@ -679,6 +679,7 @@
             this.button10RedactionCustomer.TabIndex = 23;
             this.button10RedactionCustomer.Text = "Редактировать";
             this.button10RedactionCustomer.UseVisualStyleBackColor = true;
+            this.button10RedactionCustomer.Click += new System.EventHandler(this.button10RedactionCustomer_Click);
             // 
             // button12AddCustomer
             // 
