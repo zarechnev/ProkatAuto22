@@ -69,7 +69,6 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.listBox4Order = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox9RequestDriver = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -111,6 +110,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.listBox3Customers = new System.Windows.Forms.ListBox();
             this.label25 = new System.Windows.Forms.Label();
+            this.listBox1DriverForOrder = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -389,6 +389,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel2.Controls.Add(this.listBox1DriverForOrder);
             this.panel2.Controls.Add(this.textBox2);
             this.panel2.Controls.Add(this.label29);
             this.panel2.Controls.Add(this.textBox15);
@@ -398,7 +399,6 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.listBox4Order);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.textBox9RequestDriver);
             this.panel2.Controls.Add(this.textBox8);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.textBox6);
@@ -436,7 +436,7 @@
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(165, 561);
+            this.textBox15.Location = new System.Drawing.Point(165, 509);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(204, 20);
             this.textBox15.TabIndex = 61;
@@ -445,7 +445,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label26.Location = new System.Drawing.Point(14, 562);
+            this.label26.Location = new System.Drawing.Point(14, 510);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(48, 17);
             this.label26.TabIndex = 60;
@@ -550,16 +550,9 @@
             this.label12.TabIndex = 16;
             this.label12.Text = "Список заявок";
             // 
-            // textBox9RequestDriver
-            // 
-            this.textBox9RequestDriver.Location = new System.Drawing.Point(165, 457);
-            this.textBox9RequestDriver.Name = "textBox9RequestDriver";
-            this.textBox9RequestDriver.Size = new System.Drawing.Size(204, 20);
-            this.textBox9RequestDriver.TabIndex = 29;
-            // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(165, 535);
+            this.textBox8.Location = new System.Drawing.Point(165, 483);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(204, 20);
             this.textBox8.TabIndex = 28;
@@ -568,15 +561,15 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(14, 536);
+            this.label14.Location = new System.Drawing.Point(14, 484);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(81, 17);
+            this.label14.Size = new System.Drawing.Size(56, 17);
             this.label14.TabIndex = 27;
-            this.label14.Text = "Клиент (id)";
+            this.label14.Text = "Клиент";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(211, 509);
+            this.textBox6.Location = new System.Drawing.Point(211, 561);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(158, 20);
             this.textBox6.TabIndex = 26;
@@ -585,7 +578,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(14, 510);
+            this.label13.Location = new System.Drawing.Point(14, 562);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(43, 17);
             this.label13.TabIndex = 25;
@@ -623,7 +616,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(313, 483);
+            this.textBox5.Location = new System.Drawing.Point(313, 535);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(56, 20);
             this.textBox5.TabIndex = 20;
@@ -632,7 +625,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(14, 484);
+            this.label9.Location = new System.Drawing.Point(14, 536);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(126, 17);
             this.label9.TabIndex = 19;
@@ -958,6 +951,14 @@
             this.label25.TabIndex = 16;
             this.label25.Text = "Список клиентов";
             // 
+            // listBox1DriverForOrder
+            // 
+            this.listBox1DriverForOrder.FormattingEnabled = true;
+            this.listBox1DriverForOrder.Location = new System.Drawing.Point(165, 457);
+            this.listBox1DriverForOrder.Name = "listBox1DriverForOrder";
+            this.listBox1DriverForOrder.Size = new System.Drawing.Size(204, 17);
+            this.listBox1DriverForOrder.TabIndex = 60;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1012,7 +1013,6 @@
         private System.Windows.Forms.Button button6RedactionDriver;
         private System.Windows.Forms.Button button4AddDriver;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox9RequestDriver;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox6;
@@ -1076,6 +1076,7 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox textBox3IDCar;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ListBox listBox1DriverForOrder;
     }
 }
 
