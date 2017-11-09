@@ -28,6 +28,9 @@ namespace GUI
             InitializeComponent();
 
             Directory.CreateDirectory(@"DriverPhoto");
+            Directory.CreateDirectory(@"AutomobilePhoto");
+
+            ComboboxRealization();
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd.MM.yyyy; hh:mm";
@@ -50,6 +53,7 @@ namespace GUI
             AllDrivers = DriverClass.ReadAllDrivers();
             AllDrivers.ForEach(delegate (DriverClass Driver)
             {
+                if (Driver.ExpirienceDriver.ToString() == "0")
                 listBox2Driver.Items.Add(Driver);
             });
         }
@@ -304,7 +308,7 @@ namespace GUI
             // Очищаем форму добавления автомобилей
             textBox1ModelCar.Text = "";
             textBox4PriceForHourCar.Text = "";
-            comboBox2CarType.Text = "";                  //Combo-box надо подумать.
+            comboBox2CarType.SelectedIndex = -1;                  
             textBox9CapacityCar.Text = "";
             textBox7YearIssueCar.Text = "";
             AutoGosNumberTextBox.Text = "";
@@ -325,7 +329,7 @@ namespace GUI
             {
                 string fileNameCar = AddPhotoCar.SafeFileName;
                 sourcePath = AddPhotoCar.FileName;
-                string targetPath = @"DriverPhoto";
+                string targetPath = @"AutomobilePhoto";
 
                 destFile = Path.Combine(targetPath, fileNameCar);
 
@@ -348,7 +352,7 @@ namespace GUI
             RedactionCar.IDCar = textBox2IdDriver.Text;
             RedactionCar.ModelCar = textBox1ModelCar.Text;
             RedactionCar.PriceHourCar = textBox4PriceForHourCar.Text;
-            RedactionCar.TypeCar = comboBox2CarType.Text;                    //Combo-box надо подумать.
+            RedactionCar.TypeCar = comboBox2CarType.Text;                    
             RedactionCar.CapacityCar = textBox9CapacityCar.Text;
             RedactionCar.YearIssueCar = textBox7YearIssueCar.Text;
             RedactionCar.GosNumberCar = AutoGosNumberTextBox.Text;
@@ -381,7 +385,7 @@ namespace GUI
             textBox3IDCar.Text = CheckedCar.IDCar.ToString();
             textBox1ModelCar.Text = CheckedCar.ModelCar.ToString();
             textBox4PriceForHourCar.Text = CheckedCar.PriceHourCar.ToString();
-            comboBox2CarType.Text = CheckedCar.TypeCar.ToString();                    //Combo-box надо подумать.
+            comboBox2CarType.Text = CheckedCar.TypeCar.ToString();                   
             textBox9CapacityCar.Text = CheckedCar.CapacityCar.ToString();
             textBox7YearIssueCar.Text = CheckedCar.YearIssueCar.ToString();
             AutoGosNumberTextBox.Text = CheckedCar.GosNumberCar.ToString();
@@ -400,5 +404,110 @@ namespace GUI
             listBox1CarForOrder.Items.Add(CheckedCar);
         }
 
+        /// <summary>
+        /// Метод управляет работой комбо-бокса.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ComboboxRealization()
+        {
+            comboBox2CarType.Items.Add("A");
+            comboBox2CarType.Items.Add("B");
+            comboBox2CarType.Items.Add("C");
+            comboBox2CarType.Items.Add("М");
+        }
+
+        /// <summary>
+        /// Метод срабатывает при клике на класс авто из combobox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBox2CarType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            /*       switch(comboBox2CarType.SelectedIndex)
+                    {
+                        case 0:
+                            UpdateAutomobileCategoryA();
+                            break;
+                        case 1:
+                            UpdateAutomobileCategoryB();
+                            break;
+                        case 2:
+                            UpdateAutomobileCategoryC();
+                            break;
+                        case 3:
+                            UpdateAutomobileCategoryM();
+                            break;
+                    }
+           */
+
+        }
+        /*
+                /// <summary>
+                /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории А.
+                /// </summary>
+                private void UpdateAutomobileCategoryA()
+                {
+                    listBox1Automobile.Items.Clear();
+
+                    List<AutomobileClass> AllCars = new List<AutomobileClass>();
+                    AllCars = AutomobileClass.ReadAllCars();
+                    AllCars.ForEach(delegate (AutomobileClass Car)
+                    {
+                        if (Car.TypeCar.ToString() == "A")
+                            listBox1Automobile.Items.Add(Car);
+                    });
+                }
+
+                /// <summary>
+                /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории B.
+                /// </summary>
+                private void UpdateAutomobileCategoryB()
+                {
+                    listBox1Automobile.Items.Clear();
+
+                    List<AutomobileClass> AllCars = new List<AutomobileClass>();
+                    AllCars = AutomobileClass.ReadAllCars();
+                    AllCars.ForEach(delegate (AutomobileClass Car)
+                    {
+                        if (Car.TypeCar.ToString() == "B")
+                            listBox1Automobile.Items.Add(Car);
+                    });
+                }
+
+                /// <summary>
+                /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории C.
+                /// </summary>
+                private void UpdateAutomobileCategoryC()
+                {
+                    listBox1Automobile.Items.Clear();
+
+                    List<AutomobileClass> AllCars = new List<AutomobileClass>();
+                    AllCars = AutomobileClass.ReadAllCars();
+                    AllCars.ForEach(delegate (AutomobileClass Car)
+                    {
+                        if (Car.TypeCar.ToString() == "C")
+                            listBox1Automobile.Items.Add(Car);
+                    });
+                }
+
+                /// <summary>
+                /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории M.
+                /// </summary>
+                private void UpdateAutomobileCategoryM()
+                {
+                    listBox1Automobile.Items.Clear();
+
+                    List<AutomobileClass> AllCars = new List<AutomobileClass>();
+                    AllCars = AutomobileClass.ReadAllCars();
+                    AllCars.ForEach(delegate (AutomobileClass Car)
+                    {
+                        if (Car.TypeCar.ToString() == "M")
+                            listBox1Automobile.Items.Add(Car);
+                    });
+                }
+
+            */
     }
 }
