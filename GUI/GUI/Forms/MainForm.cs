@@ -37,6 +37,7 @@ namespace GUI
 
             UpdateDriversListbox();
             UpdateCarsListbox();
+            UpdateCustomersListbox();
         }
 
 
@@ -53,7 +54,6 @@ namespace GUI
             AllDrivers = DriverClass.ReadAllDrivers();
             AllDrivers.ForEach(delegate (DriverClass Driver)
             {
-                if (Driver.ExpirienceDriver.ToString() == "0")
                 listBox2Driver.Items.Add(Driver);
             });
         }
@@ -258,7 +258,7 @@ namespace GUI
             textBox12FioCustomer.Text = "";
             textBox11PhoneCustomer.Text = "";
             textBox10CityCustomer.Text = "";
-            
+            textBox2IdCustomer.Text = "";            
         }
 
         //////////////////////////////////////// Автомобили
