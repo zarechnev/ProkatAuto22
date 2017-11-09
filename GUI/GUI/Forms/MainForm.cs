@@ -409,10 +409,9 @@ namespace GUI
         /// <param name="e"></param>
         private void ComboboxRealization()
         {
-            comboBox2CarType.Items.Add("A");
             comboBox2CarType.Items.Add("B");
             comboBox2CarType.Items.Add("C");
-            comboBox2CarType.Items.Add("М");
+            comboBox2CarType.Items.Add("D");
         }
 
         /// <summary>
@@ -426,40 +425,20 @@ namespace GUI
             /*       switch(comboBox2CarType.SelectedIndex)
                     {
                         case 0:
-                            UpdateAutomobileCategoryA();
-                            break;
-                        case 1:
                             UpdateAutomobileCategoryB();
                             break;
-                        case 2:
+                        case 1:
                             UpdateAutomobileCategoryC();
                             break;
-                        case 3:
-                            UpdateAutomobileCategoryM();
+                        case 2:
+                            UpdateAutomobileCategoryD();
                             break;
                     }
            */
 
         }
-
-
+        
         /*
-       /// <summary>
-       /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории А.
-       /// </summary>
-       private void UpdateAutomobileCategoryA()
-       {
-           listBox1Automobile.Items.Clear();
-
-           List<AutomobileClass> AllCars = new List<AutomobileClass>();
-           AllCars = AutomobileClass.ReadAllCars();
-           AllCars.ForEach(delegate (AutomobileClass Car)
-           {
-               if (Car.TypeCar.ToString() == "A")
-                   listBox1Automobile.Items.Add(Car);
-           });
-       }
-
        /// <summary>
        /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории B.
        /// </summary>
@@ -493,9 +472,9 @@ namespace GUI
        }
 
        /// <summary>
-       /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории M.
+       /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории D.
        /// </summary>
-       private void UpdateAutomobileCategoryM()
+       private void UpdateAutomobileCategoryD()
        {
            listBox1Automobile.Items.Clear();
 
@@ -503,7 +482,7 @@ namespace GUI
            AllCars = AutomobileClass.ReadAllCars();
            AllCars.ForEach(delegate (AutomobileClass Car)
            {
-               if (Car.TypeCar.ToString() == "M")
+               if (Car.TypeCar.ToString() == "D")
                    listBox1Automobile.Items.Add(Car);
            });
        }
