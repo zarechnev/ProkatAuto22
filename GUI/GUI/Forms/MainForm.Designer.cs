@@ -55,6 +55,8 @@
             this.textBox2FioDriver = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.listBox2CustomerForOrder = new System.Windows.Forms.ListBox();
+            this.listBox1CarForOrder = new System.Windows.Forms.ListBox();
             this.listBox1DriverForOrder = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -109,8 +111,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.listBox3Customers = new System.Windows.Forms.ListBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.listBox1CarForOrder = new System.Windows.Forms.ListBox();
-            this.listBox2CustomerForOrder = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -132,11 +132,13 @@
             // 
             // comboBox2CarType
             // 
+            this.comboBox2CarType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2CarType.FormattingEnabled = true;
             this.comboBox2CarType.Location = new System.Drawing.Point(343, 252);
             this.comboBox2CarType.Name = "comboBox2CarType";
             this.comboBox2CarType.Size = new System.Drawing.Size(64, 21);
             this.comboBox2CarType.TabIndex = 4;
+            this.comboBox2CarType.SelectedIndexChanged += new System.EventHandler(this.comboBox2CarType_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -415,6 +417,22 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(558, 659);
             this.panel2.TabIndex = 15;
+            // 
+            // listBox2CustomerForOrder
+            // 
+            this.listBox2CustomerForOrder.FormattingEnabled = true;
+            this.listBox2CustomerForOrder.Location = new System.Drawing.Point(165, 484);
+            this.listBox2CustomerForOrder.Name = "listBox2CustomerForOrder";
+            this.listBox2CustomerForOrder.Size = new System.Drawing.Size(204, 17);
+            this.listBox2CustomerForOrder.TabIndex = 65;
+            // 
+            // listBox1CarForOrder
+            // 
+            this.listBox1CarForOrder.FormattingEnabled = true;
+            this.listBox1CarForOrder.Location = new System.Drawing.Point(165, 433);
+            this.listBox1CarForOrder.Name = "listBox1CarForOrder";
+            this.listBox1CarForOrder.Size = new System.Drawing.Size(204, 17);
+            this.listBox1CarForOrder.TabIndex = 64;
             // 
             // listBox1DriverForOrder
             // 
@@ -944,22 +962,6 @@
             this.label25.Size = new System.Drawing.Size(135, 16);
             this.label25.TabIndex = 16;
             this.label25.Text = "Список клиентов";
-            // 
-            // listBox1CarForOrder
-            // 
-            this.listBox1CarForOrder.FormattingEnabled = true;
-            this.listBox1CarForOrder.Location = new System.Drawing.Point(165, 433);
-            this.listBox1CarForOrder.Name = "listBox1CarForOrder";
-            this.listBox1CarForOrder.Size = new System.Drawing.Size(204, 17);
-            this.listBox1CarForOrder.TabIndex = 64;
-            // 
-            // listBox2CustomerForOrder
-            // 
-            this.listBox2CustomerForOrder.FormattingEnabled = true;
-            this.listBox2CustomerForOrder.Location = new System.Drawing.Point(165, 484);
-            this.listBox2CustomerForOrder.Name = "listBox2CustomerForOrder";
-            this.listBox2CustomerForOrder.Size = new System.Drawing.Size(204, 17);
-            this.listBox2CustomerForOrder.TabIndex = 65;
             // 
             // Form1
             // 
