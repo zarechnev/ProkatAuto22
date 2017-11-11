@@ -58,27 +58,27 @@
             this.listBox2CustomerForOrder = new System.Windows.Forms.ListBox();
             this.listBox1CarForOrder = new System.Windows.Forms.ListBox();
             this.listBox1DriverForOrder = new System.Windows.Forms.ListBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox2IDOrder = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox15AddressOrder = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox1KidsChair = new System.Windows.Forms.CheckBox();
+            this.checkBox4GPS = new System.Windows.Forms.CheckBox();
+            this.checkBox2WinterTyres = new System.Windows.Forms.CheckBox();
+            this.checkBox3SportFastenings = new System.Windows.Forms.CheckBox();
             this.listBox4Order = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox6PriceOrder = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.button7RedactionRequest = new System.Windows.Forms.Button();
             this.button8DeleteRequest = new System.Windows.Forms.Button();
             this.button9AddRequest = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox5TimeOrder = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -127,7 +127,7 @@
             this.listBox1Automobile.Location = new System.Drawing.Point(9, 23);
             this.listBox1Automobile.Name = "listBox1Automobile";
             this.listBox1Automobile.Size = new System.Drawing.Size(398, 121);
-            this.listBox1Automobile.TabIndex = 1;
+            this.listBox1Automobile.TabIndex = 21;
             this.listBox1Automobile.SelectedIndexChanged += new System.EventHandler(this.listBox1Automobile_SelectedIndexChanged);
             // 
             // comboBox2CarType
@@ -137,7 +137,7 @@
             this.comboBox2CarType.Location = new System.Drawing.Point(343, 252);
             this.comboBox2CarType.Name = "comboBox2CarType";
             this.comboBox2CarType.Size = new System.Drawing.Size(64, 21);
-            this.comboBox2CarType.TabIndex = 4;
+            this.comboBox2CarType.TabIndex = 24;
             this.comboBox2CarType.SelectedIndexChanged += new System.EventHandler(this.comboBox2CarType_SelectedIndexChanged);
             // 
             // label2
@@ -155,7 +155,7 @@
             this.textBox1ModelCar.Location = new System.Drawing.Point(207, 203);
             this.textBox1ModelCar.Name = "textBox1ModelCar";
             this.textBox1ModelCar.Size = new System.Drawing.Size(200, 20);
-            this.textBox1ModelCar.TabIndex = 6;
+            this.textBox1ModelCar.TabIndex = 22;
             // 
             // label3
             // 
@@ -173,7 +173,7 @@
             this.button1AddAuto.Location = new System.Drawing.Point(9, 391);
             this.button1AddAuto.Name = "button1AddAuto";
             this.button1AddAuto.Size = new System.Drawing.Size(83, 32);
-            this.button1AddAuto.TabIndex = 8;
+            this.button1AddAuto.TabIndex = 30;
             this.button1AddAuto.Text = "Добавить";
             this.button1AddAuto.UseVisualStyleBackColor = true;
             this.button1AddAuto.Click += new System.EventHandler(this.button1AddAuto_Click);
@@ -184,7 +184,7 @@
             this.button3RedactionAuto.Location = new System.Drawing.Point(284, 391);
             this.button3RedactionAuto.Name = "button3RedactionAuto";
             this.button3RedactionAuto.Size = new System.Drawing.Size(123, 32);
-            this.button3RedactionAuto.TabIndex = 11;
+            this.button3RedactionAuto.TabIndex = 31;
             this.button3RedactionAuto.Text = "Редактировать";
             this.button3RedactionAuto.UseVisualStyleBackColor = true;
             this.button3RedactionAuto.Click += new System.EventHandler(this.button3RedactionAuto_Click);
@@ -209,7 +209,7 @@
             this.panel1.Location = new System.Drawing.Point(12, 9);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(342, 432);
-            this.panel1.TabIndex = 14;
+            this.panel1.TabIndex = 1;
             // 
             // textBox2IdDriver
             // 
@@ -245,7 +245,7 @@
             this.button1EditPhotoDriver.Location = new System.Drawing.Point(14, 322);
             this.button1EditPhotoDriver.Name = "button1EditPhotoDriver";
             this.button1EditPhotoDriver.Size = new System.Drawing.Size(128, 26);
-            this.button1EditPhotoDriver.TabIndex = 56;
+            this.button1EditPhotoDriver.TabIndex = 10;
             this.button1EditPhotoDriver.Text = "Изменить фото";
             this.button1EditPhotoDriver.UseVisualStyleBackColor = true;
             this.button1EditPhotoDriver.Click += new System.EventHandler(this.button1EditPhotoDriver_Click);
@@ -260,7 +260,7 @@
             this.panel4.Location = new System.Drawing.Point(151, 271);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(176, 93);
-            this.panel4.TabIndex = 55;
+            this.panel4.TabIndex = 6;
             // 
             // label8
             // 
@@ -278,7 +278,7 @@
             this.checkBox7Drink.Location = new System.Drawing.Point(6, 46);
             this.checkBox7Drink.Name = "checkBox7Drink";
             this.checkBox7Drink.Size = new System.Drawing.Size(51, 17);
-            this.checkBox7Drink.TabIndex = 52;
+            this.checkBox7Drink.TabIndex = 8;
             this.checkBox7Drink.Text = "Пьёт";
             this.checkBox7Drink.UseVisualStyleBackColor = true;
             // 
@@ -288,7 +288,7 @@
             this.checkBox5Drugs.Location = new System.Drawing.Point(6, 69);
             this.checkBox5Drugs.Name = "checkBox5Drugs";
             this.checkBox5Drugs.Size = new System.Drawing.Size(78, 17);
-            this.checkBox5Drugs.TabIndex = 54;
+            this.checkBox5Drugs.TabIndex = 9;
             this.checkBox5Drugs.Text = "Наркоман";
             this.checkBox5Drugs.UseVisualStyleBackColor = true;
             // 
@@ -298,7 +298,7 @@
             this.checkBox6Smoke.Location = new System.Drawing.Point(6, 23);
             this.checkBox6Smoke.Name = "checkBox6Smoke";
             this.checkBox6Smoke.Size = new System.Drawing.Size(55, 17);
-            this.checkBox6Smoke.TabIndex = 53;
+            this.checkBox6Smoke.TabIndex = 7;
             this.checkBox6Smoke.Text = "Курит";
             this.checkBox6Smoke.UseVisualStyleBackColor = true;
             // 
@@ -308,7 +308,7 @@
             this.listBox2Driver.Location = new System.Drawing.Point(14, 23);
             this.listBox2Driver.Name = "listBox2Driver";
             this.listBox2Driver.Size = new System.Drawing.Size(314, 147);
-            this.listBox2Driver.TabIndex = 24;
+            this.listBox2Driver.TabIndex = 3;
             this.listBox2Driver.SelectedIndexChanged += new System.EventHandler(this.listBox2Driver_SelectedIndexChanged);
             // 
             // button6RedactionDriver
@@ -317,7 +317,7 @@
             this.button6RedactionDriver.Location = new System.Drawing.Point(206, 389);
             this.button6RedactionDriver.Name = "button6RedactionDriver";
             this.button6RedactionDriver.Size = new System.Drawing.Size(124, 32);
-            this.button6RedactionDriver.TabIndex = 23;
+            this.button6RedactionDriver.TabIndex = 12;
             this.button6RedactionDriver.Text = "Редактировать";
             this.button6RedactionDriver.UseVisualStyleBackColor = true;
             this.button6RedactionDriver.Click += new System.EventHandler(this.button6RedactionDriver_Click);
@@ -328,7 +328,7 @@
             this.button4AddDriver.Location = new System.Drawing.Point(14, 391);
             this.button4AddDriver.Name = "button4AddDriver";
             this.button4AddDriver.Size = new System.Drawing.Size(81, 32);
-            this.button4AddDriver.TabIndex = 21;
+            this.button4AddDriver.TabIndex = 11;
             this.button4AddDriver.Text = "Добавить";
             this.button4AddDriver.UseVisualStyleBackColor = true;
             this.button4AddDriver.Click += new System.EventHandler(this.button4AddDriver_Click);
@@ -348,7 +348,7 @@
             this.textBox3ExpirienceDriver.Location = new System.Drawing.Point(206, 245);
             this.textBox3ExpirienceDriver.Name = "textBox3ExpirienceDriver";
             this.textBox3ExpirienceDriver.Size = new System.Drawing.Size(70, 20);
-            this.textBox3ExpirienceDriver.TabIndex = 18;
+            this.textBox3ExpirienceDriver.TabIndex = 5;
             // 
             // label7
             // 
@@ -375,7 +375,7 @@
             this.textBox2FioDriver.Location = new System.Drawing.Point(148, 219);
             this.textBox2FioDriver.Name = "textBox2FioDriver";
             this.textBox2FioDriver.Size = new System.Drawing.Size(180, 20);
-            this.textBox2FioDriver.TabIndex = 15;
+            this.textBox2FioDriver.TabIndex = 4;
             // 
             // pictureBox2
             // 
@@ -394,9 +394,9 @@
             this.panel2.Controls.Add(this.listBox2CustomerForOrder);
             this.panel2.Controls.Add(this.listBox1CarForOrder);
             this.panel2.Controls.Add(this.listBox1DriverForOrder);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.textBox2IDOrder);
             this.panel2.Controls.Add(this.label29);
-            this.panel2.Controls.Add(this.textBox15);
+            this.panel2.Controls.Add(this.textBox15AddressOrder);
             this.panel2.Controls.Add(this.label26);
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Controls.Add(this.label18);
@@ -404,19 +404,19 @@
             this.panel2.Controls.Add(this.listBox4Order);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.textBox6);
+            this.panel2.Controls.Add(this.textBox6PriceOrder);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.button7RedactionRequest);
             this.panel2.Controls.Add(this.button8DeleteRequest);
             this.panel2.Controls.Add(this.button9AddRequest);
-            this.panel2.Controls.Add(this.textBox5);
+            this.panel2.Controls.Add(this.textBox5TimeOrder);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Location = new System.Drawing.Point(785, 9);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(558, 659);
-            this.panel2.TabIndex = 15;
+            this.panel2.TabIndex = 32;
             // 
             // listBox2CustomerForOrder
             // 
@@ -442,13 +442,13 @@
             this.listBox1DriverForOrder.Size = new System.Drawing.Size(204, 17);
             this.listBox1DriverForOrder.TabIndex = 60;
             // 
-            // textBox2
+            // textBox2IDOrder
             // 
-            this.textBox2.Location = new System.Drawing.Point(211, 379);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(158, 20);
-            this.textBox2.TabIndex = 63;
+            this.textBox2IDOrder.Location = new System.Drawing.Point(211, 379);
+            this.textBox2IDOrder.Name = "textBox2IDOrder";
+            this.textBox2IDOrder.ReadOnly = true;
+            this.textBox2IDOrder.Size = new System.Drawing.Size(158, 20);
+            this.textBox2IDOrder.TabIndex = 63;
             // 
             // label29
             // 
@@ -460,12 +460,12 @@
             this.label29.TabIndex = 62;
             this.label29.Text = "ID Заказа";
             // 
-            // textBox15
+            // textBox15AddressOrder
             // 
-            this.textBox15.Location = new System.Drawing.Point(165, 509);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(204, 20);
-            this.textBox15.TabIndex = 61;
+            this.textBox15AddressOrder.Location = new System.Drawing.Point(165, 509);
+            this.textBox15AddressOrder.Name = "textBox15AddressOrder";
+            this.textBox15AddressOrder.Size = new System.Drawing.Size(204, 20);
+            this.textBox15AddressOrder.TabIndex = 35;
             // 
             // label26
             // 
@@ -482,7 +482,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(172, 405);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
-            this.dateTimePicker1.TabIndex = 59;
+            this.dateTimePicker1.TabIndex = 34;
             this.dateTimePicker1.Value = new System.DateTime(2017, 11, 6, 13, 19, 27, 0);
             // 
             // label18
@@ -499,14 +499,14 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel3.Controls.Add(this.label23);
-            this.panel3.Controls.Add(this.checkBox1);
-            this.panel3.Controls.Add(this.checkBox4);
-            this.panel3.Controls.Add(this.checkBox2);
-            this.panel3.Controls.Add(this.checkBox3);
+            this.panel3.Controls.Add(this.checkBox1KidsChair);
+            this.panel3.Controls.Add(this.checkBox4GPS);
+            this.panel3.Controls.Add(this.checkBox2WinterTyres);
+            this.panel3.Controls.Add(this.checkBox3SportFastenings);
             this.panel3.Location = new System.Drawing.Point(387, 380);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(159, 124);
-            this.panel3.TabIndex = 56;
+            this.panel3.TabIndex = 38;
             // 
             // label23
             // 
@@ -518,45 +518,45 @@
             this.label23.TabIndex = 30;
             this.label23.Text = "Опции";
             // 
-            // checkBox1
+            // checkBox1KidsChair
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(4, 24);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(109, 17);
-            this.checkBox1.TabIndex = 31;
-            this.checkBox1.Text = "Детские кресла";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1KidsChair.AutoSize = true;
+            this.checkBox1KidsChair.Location = new System.Drawing.Point(4, 24);
+            this.checkBox1KidsChair.Name = "checkBox1KidsChair";
+            this.checkBox1KidsChair.Size = new System.Drawing.Size(109, 17);
+            this.checkBox1KidsChair.TabIndex = 39;
+            this.checkBox1KidsChair.Text = "Детские кресла";
+            this.checkBox1KidsChair.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkBox4GPS
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(4, 93);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(106, 17);
-            this.checkBox4.TabIndex = 34;
-            this.checkBox4.Text = "GPS- навигатор";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4GPS.AutoSize = true;
+            this.checkBox4GPS.Location = new System.Drawing.Point(4, 93);
+            this.checkBox4GPS.Name = "checkBox4GPS";
+            this.checkBox4GPS.Size = new System.Drawing.Size(106, 17);
+            this.checkBox4GPS.TabIndex = 42;
+            this.checkBox4GPS.Text = "GPS- навигатор";
+            this.checkBox4GPS.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBox2WinterTyres
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(4, 47);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(96, 17);
-            this.checkBox2.TabIndex = 32;
-            this.checkBox2.Text = "Зимние шины";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2WinterTyres.AutoSize = true;
+            this.checkBox2WinterTyres.Location = new System.Drawing.Point(4, 47);
+            this.checkBox2WinterTyres.Name = "checkBox2WinterTyres";
+            this.checkBox2WinterTyres.Size = new System.Drawing.Size(96, 17);
+            this.checkBox2WinterTyres.TabIndex = 40;
+            this.checkBox2WinterTyres.Text = "Зимние шины";
+            this.checkBox2WinterTyres.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkBox3SportFastenings
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(4, 70);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(145, 17);
-            this.checkBox3.TabIndex = 33;
-            this.checkBox3.Text = "Спортивные крепления";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3SportFastenings.AutoSize = true;
+            this.checkBox3SportFastenings.Location = new System.Drawing.Point(4, 70);
+            this.checkBox3SportFastenings.Name = "checkBox3SportFastenings";
+            this.checkBox3SportFastenings.Size = new System.Drawing.Size(145, 17);
+            this.checkBox3SportFastenings.TabIndex = 41;
+            this.checkBox3SportFastenings.Text = "Спортивные крепления";
+            this.checkBox3SportFastenings.UseVisualStyleBackColor = true;
             // 
             // listBox4Order
             // 
@@ -564,7 +564,8 @@
             this.listBox4Order.Location = new System.Drawing.Point(17, 23);
             this.listBox4Order.Name = "listBox4Order";
             this.listBox4Order.Size = new System.Drawing.Size(529, 342);
-            this.listBox4Order.TabIndex = 35;
+            this.listBox4Order.TabIndex = 33;
+            this.listBox4Order.SelectedIndexChanged += new System.EventHandler(this.listBox4Order_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -586,12 +587,12 @@
             this.label14.TabIndex = 27;
             this.label14.Text = "Клиент";
             // 
-            // textBox6
+            // textBox6PriceOrder
             // 
-            this.textBox6.Location = new System.Drawing.Point(211, 561);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(158, 20);
-            this.textBox6.TabIndex = 26;
+            this.textBox6PriceOrder.Location = new System.Drawing.Point(211, 561);
+            this.textBox6PriceOrder.Name = "textBox6PriceOrder";
+            this.textBox6PriceOrder.Size = new System.Drawing.Size(158, 20);
+            this.textBox6PriceOrder.TabIndex = 37;
             // 
             // label13
             // 
@@ -609,9 +610,10 @@
             this.button7RedactionRequest.Location = new System.Drawing.Point(107, 616);
             this.button7RedactionRequest.Name = "button7RedactionRequest";
             this.button7RedactionRequest.Size = new System.Drawing.Size(125, 32);
-            this.button7RedactionRequest.TabIndex = 23;
+            this.button7RedactionRequest.TabIndex = 44;
             this.button7RedactionRequest.Text = "Редактировать";
             this.button7RedactionRequest.UseVisualStyleBackColor = true;
+            this.button7RedactionRequest.Click += new System.EventHandler(this.button7RedactionRequest_Click);
             // 
             // button8DeleteRequest
             // 
@@ -619,7 +621,7 @@
             this.button8DeleteRequest.Location = new System.Drawing.Point(474, 616);
             this.button8DeleteRequest.Name = "button8DeleteRequest";
             this.button8DeleteRequest.Size = new System.Drawing.Size(72, 32);
-            this.button8DeleteRequest.TabIndex = 22;
+            this.button8DeleteRequest.TabIndex = 45;
             this.button8DeleteRequest.Text = "Удалить";
             this.button8DeleteRequest.UseVisualStyleBackColor = true;
             // 
@@ -629,16 +631,17 @@
             this.button9AddRequest.Location = new System.Drawing.Point(17, 616);
             this.button9AddRequest.Name = "button9AddRequest";
             this.button9AddRequest.Size = new System.Drawing.Size(84, 32);
-            this.button9AddRequest.TabIndex = 21;
+            this.button9AddRequest.TabIndex = 43;
             this.button9AddRequest.Text = "Добавить";
             this.button9AddRequest.UseVisualStyleBackColor = true;
+            this.button9AddRequest.Click += new System.EventHandler(this.button9AddRequest_Click);
             // 
-            // textBox5
+            // textBox5TimeOrder
             // 
-            this.textBox5.Location = new System.Drawing.Point(313, 535);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(56, 20);
-            this.textBox5.TabIndex = 20;
+            this.textBox5TimeOrder.Location = new System.Drawing.Point(313, 535);
+            this.textBox5TimeOrder.Name = "textBox5TimeOrder";
+            this.textBox5TimeOrder.Size = new System.Drawing.Size(56, 20);
+            this.textBox5TimeOrder.TabIndex = 36;
             // 
             // label9
             // 
@@ -676,7 +679,7 @@
             this.button10RedactionCustomer.Location = new System.Drawing.Point(632, 178);
             this.button10RedactionCustomer.Name = "button10RedactionCustomer";
             this.button10RedactionCustomer.Size = new System.Drawing.Size(123, 32);
-            this.button10RedactionCustomer.TabIndex = 23;
+            this.button10RedactionCustomer.TabIndex = 19;
             this.button10RedactionCustomer.Text = "Редактировать";
             this.button10RedactionCustomer.UseVisualStyleBackColor = true;
             this.button10RedactionCustomer.Click += new System.EventHandler(this.button10RedactionCustomer_Click);
@@ -687,7 +690,7 @@
             this.button12AddCustomer.Location = new System.Drawing.Point(431, 178);
             this.button12AddCustomer.Name = "button12AddCustomer";
             this.button12AddCustomer.Size = new System.Drawing.Size(81, 32);
-            this.button12AddCustomer.TabIndex = 21;
+            this.button12AddCustomer.TabIndex = 18;
             this.button12AddCustomer.Text = "Добавить";
             this.button12AddCustomer.UseVisualStyleBackColor = true;
             this.button12AddCustomer.Click += new System.EventHandler(this.button12AddCustomer_Click_1);
@@ -697,7 +700,7 @@
             this.textBox10CityCustomer.Location = new System.Drawing.Point(518, 101);
             this.textBox10CityCustomer.Name = "textBox10CityCustomer";
             this.textBox10CityCustomer.Size = new System.Drawing.Size(161, 20);
-            this.textBox10CityCustomer.TabIndex = 20;
+            this.textBox10CityCustomer.TabIndex = 17;
             // 
             // label15
             // 
@@ -714,7 +717,7 @@
             this.textBox11PhoneCustomer.Location = new System.Drawing.Point(518, 75);
             this.textBox11PhoneCustomer.Name = "textBox11PhoneCustomer";
             this.textBox11PhoneCustomer.Size = new System.Drawing.Size(161, 20);
-            this.textBox11PhoneCustomer.TabIndex = 18;
+            this.textBox11PhoneCustomer.TabIndex = 16;
             // 
             // label16
             // 
@@ -781,7 +784,7 @@
             this.panel5.Location = new System.Drawing.Point(360, 9);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(419, 432);
-            this.panel5.TabIndex = 17;
+            this.panel5.TabIndex = 20;
             // 
             // textBox3IDCar
             // 
@@ -806,7 +809,7 @@
             this.textBox14CarryingCar.Location = new System.Drawing.Point(343, 357);
             this.textBox14CarryingCar.Name = "textBox14CarryingCar";
             this.textBox14CarryingCar.Size = new System.Drawing.Size(64, 20);
-            this.textBox14CarryingCar.TabIndex = 66;
+            this.textBox14CarryingCar.TabIndex = 28;
             // 
             // label24
             // 
@@ -823,7 +826,7 @@
             this.AutoGosNumberTextBox.Location = new System.Drawing.Point(343, 331);
             this.AutoGosNumberTextBox.Name = "AutoGosNumberTextBox";
             this.AutoGosNumberTextBox.Size = new System.Drawing.Size(64, 20);
-            this.AutoGosNumberTextBox.TabIndex = 64;
+            this.AutoGosNumberTextBox.TabIndex = 27;
             // 
             // label22
             // 
@@ -840,14 +843,14 @@
             this.textBox9CapacityCar.Location = new System.Drawing.Point(343, 279);
             this.textBox9CapacityCar.Name = "textBox9CapacityCar";
             this.textBox9CapacityCar.Size = new System.Drawing.Size(64, 20);
-            this.textBox9CapacityCar.TabIndex = 62;
+            this.textBox9CapacityCar.TabIndex = 25;
             // 
             // textBox7YearIssueCar
             // 
             this.textBox7YearIssueCar.Location = new System.Drawing.Point(343, 305);
             this.textBox7YearIssueCar.Name = "textBox7YearIssueCar";
             this.textBox7YearIssueCar.Size = new System.Drawing.Size(64, 20);
-            this.textBox7YearIssueCar.TabIndex = 61;
+            this.textBox7YearIssueCar.TabIndex = 26;
             // 
             // label1
             // 
@@ -864,7 +867,7 @@
             this.textBox4PriceForHourCar.Location = new System.Drawing.Point(343, 227);
             this.textBox4PriceForHourCar.Name = "textBox4PriceForHourCar";
             this.textBox4PriceForHourCar.Size = new System.Drawing.Size(64, 20);
-            this.textBox4PriceForHourCar.TabIndex = 59;
+            this.textBox4PriceForHourCar.TabIndex = 23;
             // 
             // label20
             // 
@@ -882,7 +885,7 @@
             this.button2ChangePhotoCar.Location = new System.Drawing.Point(9, 280);
             this.button2ChangePhotoCar.Name = "button2ChangePhotoCar";
             this.button2ChangePhotoCar.Size = new System.Drawing.Size(128, 26);
-            this.button2ChangePhotoCar.TabIndex = 57;
+            this.button2ChangePhotoCar.TabIndex = 29;
             this.button2ChangePhotoCar.Text = "Изменить фото";
             this.button2ChangePhotoCar.UseVisualStyleBackColor = true;
             this.button2ChangePhotoCar.Click += new System.EventHandler(this.button2ChangePhotoCar_Click);
@@ -925,7 +928,7 @@
             this.panel6.Location = new System.Drawing.Point(12, 447);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(767, 221);
-            this.panel6.TabIndex = 18;
+            this.panel6.TabIndex = 13;
             // 
             // textBox2IdCustomer
             // 
@@ -951,7 +954,7 @@
             this.listBox3Customers.Location = new System.Drawing.Point(14, 24);
             this.listBox3Customers.Name = "listBox3Customers";
             this.listBox3Customers.Size = new System.Drawing.Size(411, 186);
-            this.listBox3Customers.TabIndex = 24;
+            this.listBox3Customers.TabIndex = 14;
             this.listBox3Customers.SelectedIndexChanged += new System.EventHandler(this.listBox3Customers_SelectedIndexChanged);
             // 
             // label25
@@ -1019,12 +1022,12 @@
         private System.Windows.Forms.Button button4AddDriver;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox6PriceOrder;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button7RedactionRequest;
         private System.Windows.Forms.Button button8DeleteRequest;
         private System.Windows.Forms.Button button9AddRequest;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox5TimeOrder;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -1038,10 +1041,10 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox12FioCustomer;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox4GPS;
+        private System.Windows.Forms.CheckBox checkBox3SportFastenings;
+        private System.Windows.Forms.CheckBox checkBox2WinterTyres;
+        private System.Windows.Forms.CheckBox checkBox1KidsChair;
         private System.Windows.Forms.ListBox listBox2Driver;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.CheckBox checkBox7Drink;
@@ -1069,13 +1072,13 @@
         private System.Windows.Forms.ListBox listBox4Order;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox15AddressOrder;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox textBox2IdDriver;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox textBox2IdCustomer;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox2IDOrder;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox textBox3IDCar;
         private System.Windows.Forms.Label label30;
