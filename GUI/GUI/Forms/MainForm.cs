@@ -90,6 +90,8 @@ namespace GUI
             checkBox6Smoke.Checked = false;
             checkBox5Drugs.Checked = false;
             checkBox7Drink.Checked = false;
+            pictureBox2.Image = null;
+            pictureBox2.BackColor = Color.Gray;
         }
 
         /// <summary>
@@ -104,7 +106,7 @@ namespace GUI
             AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
             if (AddPhotoDriver.ShowDialog() == DialogResult.OK)
             {
-                string fileNameDriver = AddPhotoDriver.SafeFileName;
+                string fileNameDriver = AddPhotoDriver.SafeFileName.GetHashCode().ToString();
                 sourcePath = AddPhotoDriver.FileName;
                 string targetPath = @"DriverPhoto";
 
@@ -155,6 +157,10 @@ namespace GUI
         /// <param name="e"></param>
         private void listBox2Driver_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // проверка на пустой индекс
+            if (listBox2Driver.SelectedItem == null)
+            { return; }
+
             DriverClass CheckedDriver = new DriverClass();
             CheckedDriver = (DriverClass)listBox2Driver.SelectedItem;
             textBox2IdDriver.Text = CheckedDriver.DriverDBID.ToString();
@@ -223,6 +229,10 @@ namespace GUI
         /// <param name="e"></param>
         private void listBox3Customers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // проверка на пустой индекс
+            if (listBox3Customers.SelectedItem == null)
+            { return; }
+
             CustomerClass CheckedCustomer = new CustomerClass();
             CheckedCustomer = (CustomerClass)listBox3Customers.SelectedItem;
             textBox2IdCustomer.Text = CheckedCustomer.IDcustomer.ToString();
@@ -288,7 +298,7 @@ namespace GUI
             AddCar.PhotoCar = destFile;
             AddCar.ModelCar = textBox1ModelCar.Text;
             AddCar.PriceHourCar = textBox4PriceForHourCar.Text;
-            AddCar.TypeCar = comboBox2CarType.Text;                    //Combo-box надо подумать.
+            AddCar.TypeCar = comboBox2CarType.SelectedItem.ToString();                    //Combo-box надо подумать.
             AddCar.CapacityCar = textBox9CapacityCar.Text;
             AddCar.YearIssueCar = textBox7YearIssueCar.Text;
             AddCar.GosNumberCar = AutoGosNumberTextBox.Text;
@@ -312,6 +322,8 @@ namespace GUI
             textBox7YearIssueCar.Text = "";
             AutoGosNumberTextBox.Text = "";
             textBox14CarryingCar.Text = "";
+            pictureBox1.Image = null;
+            pictureBox1.BackColor = Color.Gray;
         }
 
         /// <summary>
@@ -326,13 +338,13 @@ namespace GUI
             AddPhotoCar.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
             if (AddPhotoCar.ShowDialog() == DialogResult.OK)
             {
-                string fileNameCar = AddPhotoCar.SafeFileName;
+                string fileNameCar = AddPhotoCar.SafeFileName.GetHashCode().ToString();
                 sourcePath = AddPhotoCar.FileName;
                 string targetPath = @"AutomobilePhoto";
 
                 destFile = Path.Combine(targetPath, fileNameCar);
 
-                pictureBox2.Load(sourcePath);
+                pictureBox1.Load(sourcePath);
 
                 FlagCopy = true;
             }
@@ -351,7 +363,7 @@ namespace GUI
             RedactionCar.IDCar = textBox2IdDriver.Text;
             RedactionCar.ModelCar = textBox1ModelCar.Text;
             RedactionCar.PriceHourCar = textBox4PriceForHourCar.Text;
-            RedactionCar.TypeCar = comboBox2CarType.Text;                    
+      //    RedactionCar.TypeCar = comboBox2CarType.Text;                    // Пока не работает, в базу не добавляется категория.
             RedactionCar.CapacityCar = textBox9CapacityCar.Text;
             RedactionCar.YearIssueCar = textBox7YearIssueCar.Text;
             RedactionCar.GosNumberCar = AutoGosNumberTextBox.Text;
@@ -379,24 +391,36 @@ namespace GUI
         /// <param name="e"></param>
         private void listBox1Automobile_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // проверка на пустой индекс
+            if (listBox1Automobile.SelectedItem == null)
+            { return; }
+
             AutomobileClass CheckedCar = new AutomobileClass();
             CheckedCar = (AutomobileClass)listBox1Automobile.SelectedItem;
             textBox3IDCar.Text = CheckedCar.IDCar.ToString();
             textBox1ModelCar.Text = CheckedCar.ModelCar.ToString();
             textBox4PriceForHourCar.Text = CheckedCar.PriceHourCar.ToString();
-            //comboBox2CarType.Text = CheckedCar.TypeCar.ToString();                   
-            textBox9CapacityCar.Text = CheckedCar.CapacityCar.ToString();
+/*
+            if(CheckedCar.TypeCar.ToString() == "B")    // Пока не работает, в базу не добавляется категория.
+            { comboBox2CarType.SelectedIndex = 0;}
+            if (CheckedCar.TypeCar.ToString() == "C")
+            { comboBox2CarType.SelectedIndex = 1; }
+            if (CheckedCar.TypeCar.ToString() == "D")
+            { comboBox2CarType.SelectedIndex = 2; }
+
+             comboBox2CarType.Text = CheckedCar.TypeCar.ToString();                   
+       */   textBox9CapacityCar.Text = CheckedCar.CapacityCar.ToString();
             textBox7YearIssueCar.Text = CheckedCar.YearIssueCar.ToString();
             AutoGosNumberTextBox.Text = CheckedCar.GosNumberCar.ToString();
             textBox14CarryingCar.Text = CheckedCar.CarryingCar.ToString();
 
             if (CheckedCar.PhotoCar == "")
             {
-                pictureBox2.Image = null;
-                pictureBox2.BackColor = Color.Gray;
+                pictureBox1.Image = null;
+                pictureBox1.BackColor = Color.Gray;
             }
             else
-                pictureBox2.Load(CheckedCar.PhotoCar);
+                pictureBox1.Load(CheckedCar.PhotoCar);
 
             /// Выбираем автомрбиль для оформления заказа
             listBox1CarForOrder.Items.Clear();
@@ -438,7 +462,7 @@ namespace GUI
            */
 
         }
-        
+
         /*
        /// <summary>
        /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории B.
@@ -487,7 +511,121 @@ namespace GUI
                    listBox1Automobile.Items.Add(Car);
            });
        }
-
    */
+
+        /////////////////////////////////////////// Заказы
+        /// <summary>
+        /// Обновляет содержимое лист-бокса для списка заказов.
+        /// </summary>
+        private void UpdateOrdersListbox()
+        {
+            listBox4Order.Items.Clear();
+
+            List<OrderClass> AllOrders = new List<OrderClass>();
+            AllOrders = OrderClass.ReadAllOrders();
+            AllOrders.ForEach(delegate (OrderClass Order)
+            {
+                listBox4Order.Items.Add(Order);
+            });
+        }
+
+        /// <summary>
+        /// Добавление заказа. Не протестировано
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button9AddRequest_Click(object sender, EventArgs e)
+        {
+            OrderClass AddOrder = new OrderClass();
+
+            AddOrder.DataRequest = dateTimePicker1.Text.ToString();
+            AddOrder.CarRequest = listBox1CarForOrder.SelectedItem.ToString();
+            AddOrder.DriverRequest = listBox1DriverForOrder.SelectedItem.ToString();
+            AddOrder.CustomerRequest = listBox2CustomerForOrder.SelectedItem.ToString();
+            AddOrder.AddressRequest = textBox15AddressOrder.Text;
+            AddOrder.TimeRequest = textBox5TimeOrder.Text;
+            AddOrder.PriceRequest = textBox6PriceOrder.Text;
+            AddOrder.KidsChair = checkBox1KidsChair.Checked;
+            AddOrder.WinterTires = checkBox2WinterTyres.Checked;
+            AddOrder.SportFastenings = checkBox3SportFastenings.Checked;
+            AddOrder.Gps = checkBox4GPS.Checked;
+
+            AddOrder.InsertOrder();
+            UpdateOrdersListbox();
+
+            // Очищаем форму добавления заказов                 // Не протестировано
+            dateTimePicker1.Text = "";                      
+            listBox1CarForOrder.SelectedIndex = -1;      
+            listBox1DriverForOrder.SelectedIndex = -1;    
+            listBox2CustomerForOrder.SelectedIndex = -1;
+            textBox15AddressOrder.Text = "";
+            textBox5TimeOrder.Text = "";
+            textBox6PriceOrder.Text = "";
+            checkBox1KidsChair.Checked = false;
+            checkBox2WinterTyres.Checked = false;
+            checkBox3SportFastenings.Checked = false;
+            checkBox4GPS.Checked = false;
+        }
+
+        /// <summary>
+        /// Сохранение заказа (редактирование).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button7RedactionRequest_Click(object sender, EventArgs e)
+        {
+            OrderClass RedactionOrder = new OrderClass();
+
+            RedactionOrder = (OrderClass)listBox4Order.SelectedItem;
+            RedactionOrder.IDRequest = textBox2IDOrder.Text;
+            RedactionOrder.DataRequest = dateTimePicker1.Text.ToString();
+            RedactionOrder.CarRequest = listBox1CarForOrder.SelectedItem.ToString();
+            RedactionOrder.DriverRequest = listBox1DriverForOrder.SelectedItem.ToString();
+            RedactionOrder.CustomerRequest = listBox2CustomerForOrder.SelectedItem.ToString();
+            RedactionOrder.AddressRequest = textBox15AddressOrder.Text;
+            RedactionOrder.TimeRequest = textBox5TimeOrder.Text;
+            RedactionOrder.PriceRequest = textBox6PriceOrder.Text;
+            RedactionOrder.KidsChair = checkBox1KidsChair.Checked;
+            RedactionOrder.WinterTires = checkBox2WinterTyres.Checked;
+            RedactionOrder.SportFastenings = checkBox3SportFastenings.Checked;
+            RedactionOrder.Gps = checkBox4GPS.Checked;
+
+            RedactionOrder.EditOrder();
+            UpdateOrdersListbox();      
+        }
+
+        /// <summary>
+        /// Метод срабатывает при клике на заказ из списка.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listBox4Order_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // проверка на пустой индекс
+            if (listBox4Order.SelectedItem == null)
+            { return; }
+
+            OrderClass CheckedOrder = new OrderClass();
+            CheckedOrder = (OrderClass)listBox4Order.SelectedItem;
+            textBox2IDOrder.Text = CheckedOrder.IDRequest.ToString();
+            dateTimePicker1.Text = CheckedOrder.DataRequest.ToString();
+            listBox1CarForOrder.Items.Clear();
+            listBox1CarForOrder.Items.Add(CheckedOrder.CarRequest.ToString());
+            listBox1DriverForOrder.Items.Clear();
+            listBox1DriverForOrder.Items.Add(CheckedOrder.DriverRequest.ToString());
+            listBox2CustomerForOrder.Items.Clear();
+            listBox2CustomerForOrder.Items.Add(CheckedOrder.CustomerRequest.ToString());
+            textBox15AddressOrder.Text = CheckedOrder.AddressRequest.ToString();
+            textBox5TimeOrder.Text = CheckedOrder.TimeRequest.ToString();
+            textBox6PriceOrder.Text = CheckedOrder.PriceRequest.ToString();
+            checkBox1KidsChair.Checked = false;
+            checkBox2WinterTyres.Checked = false;
+            checkBox3SportFastenings.Checked = false;
+            checkBox4GPS.Checked = false;
+            if (CheckedOrder.KidsChair) checkBox1KidsChair.Checked = true;
+            if (CheckedOrder.WinterTires) checkBox2WinterTyres.Checked = true;
+            if (CheckedOrder.SportFastenings) checkBox3SportFastenings.Checked = true;
+            if (CheckedOrder.Gps) checkBox4GPS.Checked = true;
+        }
     }
 }
