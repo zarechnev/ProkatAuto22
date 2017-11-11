@@ -14,7 +14,7 @@ namespace ProkatAuto22.Classes
         public string DriverRequest { get; set; }
         public string CustomerRequest { get; set; }
         public string AddressRequest { get; set; }
-        public string TimeRequest { get; set; }
+        public string TimeRequest { get; set; }          // формат даты, не протестировано.
         public string PriceRequest { get; set; }
         public bool KidsChair { get; set; }
         public bool WinterTires { get; set; }
