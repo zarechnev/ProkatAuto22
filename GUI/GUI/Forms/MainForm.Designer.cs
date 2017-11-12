@@ -90,8 +90,6 @@
             this.textBox12FioCustomer = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox3IDCar = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.textBox14CarryingCar = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.AutoGosNumberTextBox = new System.Windows.Forms.TextBox();
@@ -105,8 +103,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox2IdCustomer = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
             this.listBox3Customers = new System.Windows.Forms.ListBox();
             this.label25 = new System.Windows.Forms.Label();
             this.button1DelDriver = new System.Windows.Forms.Button();
@@ -125,7 +121,7 @@
             this.listBox1Automobile.FormattingEnabled = true;
             this.listBox1Automobile.Location = new System.Drawing.Point(9, 23);
             this.listBox1Automobile.Name = "listBox1Automobile";
-            this.listBox1Automobile.Size = new System.Drawing.Size(398, 121);
+            this.listBox1Automobile.Size = new System.Drawing.Size(398, 147);
             this.listBox1Automobile.TabIndex = 21;
             this.listBox1Automobile.SelectedIndexChanged += new System.EventHandler(this.listBox1Automobile_SelectedIndexChanged);
             // 
@@ -677,7 +673,7 @@
             // 
             // textBox10CityCustomer
             // 
-            this.textBox10CityCustomer.Location = new System.Drawing.Point(518, 101);
+            this.textBox10CityCustomer.Location = new System.Drawing.Point(518, 77);
             this.textBox10CityCustomer.Name = "textBox10CityCustomer";
             this.textBox10CityCustomer.Size = new System.Drawing.Size(161, 20);
             this.textBox10CityCustomer.TabIndex = 17;
@@ -686,7 +682,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(431, 102);
+            this.label15.Location = new System.Drawing.Point(431, 78);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(48, 17);
             this.label15.TabIndex = 19;
@@ -694,7 +690,7 @@
             // 
             // textBox11PhoneCustomer
             // 
-            this.textBox11PhoneCustomer.Location = new System.Drawing.Point(518, 75);
+            this.textBox11PhoneCustomer.Location = new System.Drawing.Point(518, 51);
             this.textBox11PhoneCustomer.Name = "textBox11PhoneCustomer";
             this.textBox11PhoneCustomer.Size = new System.Drawing.Size(161, 20);
             this.textBox11PhoneCustomer.TabIndex = 16;
@@ -703,7 +699,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.Location = new System.Drawing.Point(431, 76);
+            this.label16.Location = new System.Drawing.Point(431, 52);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(68, 17);
             this.label16.TabIndex = 17;
@@ -713,7 +709,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(431, 50);
+            this.label17.Location = new System.Drawing.Point(431, 26);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(42, 17);
             this.label17.TabIndex = 16;
@@ -721,7 +717,7 @@
             // 
             // textBox12FioCustomer
             // 
-            this.textBox12FioCustomer.Location = new System.Drawing.Point(518, 49);
+            this.textBox12FioCustomer.Location = new System.Drawing.Point(518, 25);
             this.textBox12FioCustomer.Name = "textBox12FioCustomer";
             this.textBox12FioCustomer.Size = new System.Drawing.Size(161, 20);
             this.textBox12FioCustomer.TabIndex = 15;
@@ -729,7 +725,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProkatAuto22.Properties.Resources.color;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 161);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 187);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(189, 112);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -739,8 +735,6 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel5.Controls.Add(this.textBox3IDCar);
-            this.panel5.Controls.Add(this.label30);
             this.panel5.Controls.Add(this.textBox14CarryingCar);
             this.panel5.Controls.Add(this.label24);
             this.panel5.Controls.Add(this.AutoGosNumberTextBox);
@@ -765,24 +759,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(419, 432);
             this.panel5.TabIndex = 20;
-            // 
-            // textBox3IDCar
-            // 
-            this.textBox3IDCar.Location = new System.Drawing.Point(343, 160);
-            this.textBox3IDCar.Name = "textBox3IDCar";
-            this.textBox3IDCar.ReadOnly = true;
-            this.textBox3IDCar.Size = new System.Drawing.Size(64, 20);
-            this.textBox3IDCar.TabIndex = 68;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label30.Location = new System.Drawing.Point(204, 161);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(56, 17);
-            this.label30.TabIndex = 67;
-            this.label30.Text = "ID Авто";
             // 
             // textBox14CarryingCar
             // 
@@ -862,7 +838,7 @@
             // button2ChangePhotoCar
             // 
             this.button2ChangePhotoCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2ChangePhotoCar.Location = new System.Drawing.Point(9, 280);
+            this.button2ChangePhotoCar.Location = new System.Drawing.Point(9, 306);
             this.button2ChangePhotoCar.Name = "button2ChangePhotoCar";
             this.button2ChangePhotoCar.Size = new System.Drawing.Size(128, 26);
             this.button2ChangePhotoCar.TabIndex = 29;
@@ -893,8 +869,6 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel6.Controls.Add(this.textBox2IdCustomer);
-            this.panel6.Controls.Add(this.label28);
             this.panel6.Controls.Add(this.textBox10CityCustomer);
             this.panel6.Controls.Add(this.listBox3Customers);
             this.panel6.Controls.Add(this.label15);
@@ -909,24 +883,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(767, 221);
             this.panel6.TabIndex = 13;
-            // 
-            // textBox2IdCustomer
-            // 
-            this.textBox2IdCustomer.Location = new System.Drawing.Point(518, 23);
-            this.textBox2IdCustomer.Name = "textBox2IdCustomer";
-            this.textBox2IdCustomer.ReadOnly = true;
-            this.textBox2IdCustomer.Size = new System.Drawing.Size(161, 20);
-            this.textBox2IdCustomer.TabIndex = 60;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label28.Location = new System.Drawing.Point(431, 24);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(81, 17);
-            this.label28.TabIndex = 59;
-            this.label28.Text = "ID Клиента";
             // 
             // listBox3Customers
             // 
@@ -1065,12 +1021,8 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox15AddressOrder;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox2IdCustomer;
-        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox2IDOrder;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox3IDCar;
-        private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ListBox listBox1DriverForOrder;
         private System.Windows.Forms.ListBox listBox2CustomerForOrder;
         private System.Windows.Forms.ListBox listBox1CarForOrder;

@@ -232,7 +232,6 @@ namespace GUI
         {
             CustomerClass RedactionCustomer = new CustomerClass();
 
-            RedactionCustomer.IDcustomer = textBox2IdCustomer.Text;
             RedactionCustomer.FIOcustomer = textBox12FioCustomer.Text;
             RedactionCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
             RedactionCustomer.CityCustomer = textBox10CityCustomer.Text;
@@ -255,7 +254,6 @@ namespace GUI
 
             CustomerClass CheckedCustomer = new CustomerClass();
             CheckedCustomer = (CustomerClass)listBox3Customers.SelectedItem;
-            textBox2IdCustomer.Text = CheckedCustomer.IDcustomer.ToString();
             textBox12FioCustomer.Text = CheckedCustomer.FIOcustomer.ToString();
             textBox11PhoneCustomer.Text = CheckedCustomer.PhoneCustomer.ToString();
             textBox10CityCustomer.Text = CheckedCustomer.CityCustomer.ToString();
@@ -286,7 +284,6 @@ namespace GUI
             textBox12FioCustomer.Text = "";
             textBox11PhoneCustomer.Text = "";
             textBox10CityCustomer.Text = "";
-            textBox2IdCustomer.Text = "";            
         }
 
 
@@ -416,7 +413,6 @@ namespace GUI
 
             AutomobileClass CheckedCar = new AutomobileClass();
             CheckedCar = (AutomobileClass)listBox1Automobile.SelectedItem;
-            textBox3IDCar.Text = CheckedCar.IDCar.ToString();
             textBox1ModelCar.Text = CheckedCar.ModelCar.ToString();
             textBox4PriceForHourCar.Text = CheckedCar.PriceHourCar.ToString();
 /*
