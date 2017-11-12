@@ -10,9 +10,9 @@ namespace ProkatAuto22.Classes
     {
         public string IDRequest { get; set; }
         public string DataRequest { get; set; }
-        public string CarRequest { get; set; }
-        public string DriverRequest { get; set; }
-        public string CustomerRequest { get; set; }
+        public AutomobileClass CarRequest { get; set; }
+        public DriverClass DriverRequest { get; set; }
+        public CustomerClass CustomerRequest { get; set; }
         public string AddressRequest { get; set; }
         public string TimeRequest { get; set; }          // формат даты, не протестировано.
         public string PriceRequest { get; set; }
@@ -34,7 +34,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Конструктор класса.
+        /// Конструктор экземпляра класса.
         /// </summary>
         public OrderClass()
         {
@@ -66,7 +66,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Выводит информацию о экземпляре в читаемом виде.
+        /// Выводит информацию о экземпляре заявки в читаемом виде.
         /// </summary>
         /// <returns></returns>
         public override string ToString()

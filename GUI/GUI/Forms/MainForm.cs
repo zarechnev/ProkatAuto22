@@ -508,9 +508,9 @@ namespace GUI
             OrderClass AddOrder = new OrderClass();
 
             AddOrder.DataRequest = dateTimePicker1.Text.ToString();
-            AddOrder.CarRequest = listBox1CarForOrder.SelectedItem.ToString();
-            AddOrder.DriverRequest = listBox1DriverForOrder.SelectedItem.ToString();
-            AddOrder.CustomerRequest = listBox2CustomerForOrder.SelectedItem.ToString();
+            AddOrder.CarRequest = (AutomobileClass)listBox1CarForOrder.SelectedItem;
+            AddOrder.DriverRequest = (DriverClass)listBox1DriverForOrder.SelectedItem;
+            AddOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.SelectedItem;
             AddOrder.AddressRequest = textBox15AddressOrder.Text;
             AddOrder.TimeRequest = textBox5TimeOrder.Text;
             AddOrder.PriceRequest = textBox6PriceOrder.Text;
@@ -548,9 +548,9 @@ namespace GUI
             RedactionOrder = (OrderClass)listBox4Order.SelectedItem;
             RedactionOrder.IDRequest = textBox2IDOrder.Text;
             RedactionOrder.DataRequest = dateTimePicker1.Text.ToString();
-            RedactionOrder.CarRequest = listBox1CarForOrder.SelectedItem.ToString();
-            RedactionOrder.DriverRequest = listBox1DriverForOrder.SelectedItem.ToString();
-            RedactionOrder.CustomerRequest = listBox2CustomerForOrder.SelectedItem.ToString();
+            RedactionOrder.CarRequest = (AutomobileClass)listBox1CarForOrder.SelectedItem;
+            RedactionOrder.DriverRequest = (DriverClass)listBox1DriverForOrder.SelectedItem;
+            RedactionOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.SelectedItem;
             RedactionOrder.AddressRequest = textBox15AddressOrder.Text;
             RedactionOrder.TimeRequest = textBox5TimeOrder.Text;
             RedactionOrder.PriceRequest = textBox6PriceOrder.Text;
