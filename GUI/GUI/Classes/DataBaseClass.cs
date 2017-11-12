@@ -39,7 +39,7 @@ namespace ProkatAuto22.Classes
                                         ";
 
         /// <summary>
-        /// Конструктор класса.
+        /// Конструктор экземпляра класса.
         /// </summary>
         public DataBaseClass()
         {
@@ -260,6 +260,24 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
+        /// Помечает водителя как удалённого.
+        /// </summary>
+        /// <param name="CustomerToDelete"></param>
+        public void DeleteCustomer(CustomerClass CustomerToDelete)
+        {
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"UPDATE client SET deleted = 1 WHERE ID = " + CustomerToDelete.IDcustomer + ";";
+                    MyDBLogger("Delete customer by ID: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        /// <summary>
         /// Записывает в базу нового клиента.
         /// </summary>
         /// <param name="NewCostomer"></param>
@@ -339,7 +357,7 @@ namespace ProkatAuto22.Classes
                 DBConnection.Open();
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
-                    Command.CommandText = @"SELECT ID FROM client;";
+                    Command.CommandText = @"SELECT ID FROM client WHERE deleted != 1;";
                     MyDBLogger("Select Client ID: " + Command.CommandText);
                     using (SQLiteDataReader Reader = Command.ExecuteReader())
                     {

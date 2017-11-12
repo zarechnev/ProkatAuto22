@@ -239,6 +239,11 @@ namespace GUI
             RedactionCustomer.EditCustomer();
 
             UpdateCustomersListbox();
+
+            /// Очищаем форму добавления клиентов
+            textBox12FioCustomer.Text = "";
+            textBox11PhoneCustomer.Text = "";
+            textBox10CityCustomer.Text = "";
         }
 
         /// <summary>
@@ -286,6 +291,25 @@ namespace GUI
             textBox10CityCustomer.Text = "";
         }
 
+        /// <summary>
+        /// Удаление клиента.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1DeleteOrder_Click(object sender, EventArgs e)
+        {
+            CustomerClass CustomerToDelete = new CustomerClass();
+            CustomerToDelete = (CustomerClass)listBox3Customers.SelectedItem;
+            CustomerToDelete.DeleteCustomer();
+
+            listBox2CustomerForOrder.Items.Clear();
+            UpdateCustomersListbox();
+
+            /// Очищаем форму добавления клиентов
+            textBox12FioCustomer.Text = "";
+            textBox11PhoneCustomer.Text = "";
+            textBox10CityCustomer.Text = "";
+        }
 
         //////////////////////////////////////// Автомобили
         /// <summary>

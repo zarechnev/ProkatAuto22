@@ -36,6 +36,7 @@
             this.button1AddAuto = new System.Windows.Forms.Button();
             this.button3RedactionAuto = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1DelDriver = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.button1EditPhotoDriver = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -90,6 +91,7 @@
             this.textBox12FioCustomer = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button1DeleteCar = new System.Windows.Forms.Button();
             this.textBox14CarryingCar = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.AutoGosNumberTextBox = new System.Windows.Forms.TextBox();
@@ -103,11 +105,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button1DeleteOrder = new System.Windows.Forms.Button();
             this.listBox3Customers = new System.Windows.Forms.ListBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.button1DelDriver = new System.Windows.Forms.Button();
-            this.button1DeleteCar = new System.Windows.Forms.Button();
-            this.button1DeleteOrder = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -206,6 +206,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(342, 432);
             this.panel1.TabIndex = 1;
+            // 
+            // button1DelDriver
+            // 
+            this.button1DelDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1DelDriver.Location = new System.Drawing.Point(247, 391);
+            this.button1DelDriver.Name = "button1DelDriver";
+            this.button1DelDriver.Size = new System.Drawing.Size(81, 32);
+            this.button1DelDriver.TabIndex = 58;
+            this.button1DelDriver.Text = "Удалить";
+            this.button1DelDriver.UseVisualStyleBackColor = true;
+            this.button1DelDriver.Click += new System.EventHandler(this.button1DelDriver_Click);
             // 
             // label19
             // 
@@ -763,6 +774,16 @@
             this.panel5.Size = new System.Drawing.Size(419, 432);
             this.panel5.TabIndex = 20;
             // 
+            // button1DeleteCar
+            // 
+            this.button1DeleteCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1DeleteCar.Location = new System.Drawing.Point(326, 391);
+            this.button1DeleteCar.Name = "button1DeleteCar";
+            this.button1DeleteCar.Size = new System.Drawing.Size(81, 32);
+            this.button1DeleteCar.TabIndex = 66;
+            this.button1DeleteCar.Text = "Удалить";
+            this.button1DeleteCar.UseVisualStyleBackColor = true;
+            // 
             // textBox14CarryingCar
             // 
             this.textBox14CarryingCar.Location = new System.Drawing.Point(343, 357);
@@ -888,6 +909,17 @@
             this.panel6.Size = new System.Drawing.Size(767, 221);
             this.panel6.TabIndex = 13;
             // 
+            // button1DeleteOrder
+            // 
+            this.button1DeleteOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1DeleteOrder.Location = new System.Drawing.Point(674, 178);
+            this.button1DeleteOrder.Name = "button1DeleteOrder";
+            this.button1DeleteOrder.Size = new System.Drawing.Size(81, 32);
+            this.button1DeleteOrder.TabIndex = 67;
+            this.button1DeleteOrder.Text = "Удалить";
+            this.button1DeleteOrder.UseVisualStyleBackColor = true;
+            this.button1DeleteOrder.Click += new System.EventHandler(this.button1DeleteOrder_Click);
+            // 
             // listBox3Customers
             // 
             this.listBox3Customers.FormattingEnabled = true;
@@ -906,37 +938,6 @@
             this.label25.Size = new System.Drawing.Size(135, 16);
             this.label25.TabIndex = 16;
             this.label25.Text = "Список клиентов";
-            // 
-            // button1DelDriver
-            // 
-            this.button1DelDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1DelDriver.Location = new System.Drawing.Point(247, 391);
-            this.button1DelDriver.Name = "button1DelDriver";
-            this.button1DelDriver.Size = new System.Drawing.Size(81, 32);
-            this.button1DelDriver.TabIndex = 58;
-            this.button1DelDriver.Text = "Удалить";
-            this.button1DelDriver.UseVisualStyleBackColor = true;
-            this.button1DelDriver.Click += new System.EventHandler(this.button1DelDriver_Click);
-            // 
-            // button1DeleteCar
-            // 
-            this.button1DeleteCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1DeleteCar.Location = new System.Drawing.Point(326, 391);
-            this.button1DeleteCar.Name = "button1DeleteCar";
-            this.button1DeleteCar.Size = new System.Drawing.Size(81, 32);
-            this.button1DeleteCar.TabIndex = 66;
-            this.button1DeleteCar.Text = "Удалить";
-            this.button1DeleteCar.UseVisualStyleBackColor = true;
-            // 
-            // button1DeleteOrder
-            // 
-            this.button1DeleteOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1DeleteOrder.Location = new System.Drawing.Point(674, 178);
-            this.button1DeleteOrder.Name = "button1DeleteOrder";
-            this.button1DeleteOrder.Size = new System.Drawing.Size(81, 32);
-            this.button1DeleteOrder.TabIndex = 67;
-            this.button1DeleteOrder.Text = "Удалить";
-            this.button1DeleteOrder.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
