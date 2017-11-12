@@ -21,18 +21,18 @@ namespace ProkatAuto22.Classes
                                             INSERT INTO additionalServices (ID, service) VALUES (4, 'Детские кресла');
                                             INSERT INTO additionalServices (ID, service) VALUES (5, 'GPS-навигатор');
                                             CREATE TABLE additionalServicesBinding (orderID INTEGER REFERENCES orders (ID), additionalServicesID INTEGER REFERENCES additionalServices (ID));
-                                            CREATE TABLE cars (ID INTEGER PRIMARY KEY AUTOINCREMENT, model VARCHAR (100), priceForHour NUMERIC (5), typeID INTEGER REFERENCES carTypes (ID), photoFileName VARCHAR (100), carCapacity INTEGER (3), yearOfIssue INTEGER (4), gosNumber VARCHAR (9), carCapacityTrunc INTEGER (5));
+                                            CREATE TABLE cars (ID INTEGER PRIMARY KEY AUTOINCREMENT, model VARCHAR (100), priceForHour NUMERIC (5), typeID INTEGER REFERENCES carTypes (ID), photoFileName VARCHAR (100), carCapacity INTEGER (3), yearOfIssue INTEGER (4), gosNumber VARCHAR (9), carCapacityTrunc INTEGER (5), deleted BOOLEAN DEFAULT (0));
                                             CREATE TABLE carTypes (ID INTEGER PRIMARY KEY AUTOINCREMENT, type VARCHAR (100));
                                             INSERT INTO carTypes (ID, type) VALUES (1, 'D');
                                             INSERT INTO carTypes (ID, type) VALUES (2, 'C');
                                             INSERT INTO carTypes (ID, type) VALUES (3, 'B');
-                                            CREATE TABLE client (ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (100), phoneNumber INTEGER (19), city VARCHAR (100));
+                                            CREATE TABLE client (ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (100), phoneNumber INTEGER (19), city VARCHAR (100), deleted BOOLEAN DEFAULT (0));
                                             CREATE TABLE driverHabits (ID INTEGER PRIMARY KEY AUTOINCREMENT, habit VARCHAR (100));
                                             INSERT INTO driverHabits (ID, habit) VALUES (1, 'Наркоман');
                                             INSERT INTO driverHabits (ID, habit) VALUES (2, 'Пьёт');
                                             INSERT INTO driverHabits (ID, habit) VALUES (3, 'Курит');
                                             CREATE TABLE driverHabitsBinding (driverID INTEGER REFERENCES drivers (ID), driverHabitsID INTEGER REFERENCES driverHabits (ID));
-                                            CREATE TABLE drivers (ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (100), photoFileName VARCHAR (100), experienceFrom INTEGER (4));
+                                            CREATE TABLE drivers (ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (100), photoFileName VARCHAR (100), experienceFrom INTEGER (4), deleted BOOLEAN DEFAULT (0));
                                             CREATE TABLE orders (ID INTEGER PRIMARY KEY AUTOINCREMENT, data DATETIME, carID INTEGER REFERENCES cars (ID), driverID INTEGER REFERENCES drivers (ID), duration INTEGER (2), clientID INTEGER REFERENCES client (ID), address VARCHAR (100));
                                             COMMIT TRANSACTION;
                                             PRAGMA foreign_keys = on;
@@ -222,14 +222,12 @@ namespace ProkatAuto22.Classes
         public List<DriverClass> ReadAllDriversDB()
         {
             List<DriverClass> ListOfDrivers = new List<DriverClass>();
-
-
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
                 DBConnection.Open();
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
-                    Command.CommandText = @"SELECT ID FROM drivers;";
+                    Command.CommandText = @"SELECT ID FROM drivers WHERE deleted != 1;";
                     MyDBLogger("Select Drivers ID: " + Command.CommandText);
                     using (SQLiteDataReader Reader = Command.ExecuteReader())
                     {
@@ -240,8 +238,25 @@ namespace ProkatAuto22.Classes
                     }
                 }
             }
-
             return (ListOfDrivers);
+        }
+
+        /// <summary>
+        /// Помечает водителя как удалённого.
+        /// </summary>
+        /// <param name="DriverToDelete"></param>
+        public void DeleteDriver(DriverClass DriverToDelete)
+        {
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"UPDATE drivers SET deleted = 1 WHERE ID = " + DriverToDelete.DriverDBID + ";";
+                    MyDBLogger("Delete driver by ID: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>

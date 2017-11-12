@@ -36,8 +36,6 @@
             this.button1AddAuto = new System.Windows.Forms.Button();
             this.button3RedactionAuto = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2IdDriver = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.button1EditPhotoDriver = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -111,6 +109,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.listBox3Customers = new System.Windows.Forms.ListBox();
             this.label25 = new System.Windows.Forms.Label();
+            this.button1DelDriver = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -192,8 +191,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel1.Controls.Add(this.textBox2IdDriver);
-            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.button1DelDriver);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.button1EditPhotoDriver);
             this.panel1.Controls.Add(this.panel4);
@@ -211,29 +209,11 @@
             this.panel1.Size = new System.Drawing.Size(342, 432);
             this.panel1.TabIndex = 1;
             // 
-            // textBox2IdDriver
-            // 
-            this.textBox2IdDriver.Location = new System.Drawing.Point(256, 176);
-            this.textBox2IdDriver.Name = "textBox2IdDriver";
-            this.textBox2IdDriver.ReadOnly = true;
-            this.textBox2IdDriver.Size = new System.Drawing.Size(70, 20);
-            this.textBox2IdDriver.TabIndex = 59;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label27.Location = new System.Drawing.Point(148, 177);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(89, 17);
-            this.label27.TabIndex = 58;
-            this.label27.Text = "ID Водителя";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label19.Location = new System.Drawing.Point(282, 246);
+            this.label19.Location = new System.Drawing.Point(282, 224);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(37, 17);
             this.label19.TabIndex = 57;
@@ -257,7 +237,7 @@
             this.panel4.Controls.Add(this.checkBox7Drink);
             this.panel4.Controls.Add(this.checkBox5Drugs);
             this.panel4.Controls.Add(this.checkBox6Smoke);
-            this.panel4.Location = new System.Drawing.Point(151, 271);
+            this.panel4.Location = new System.Drawing.Point(151, 249);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(176, 93);
             this.panel4.TabIndex = 6;
@@ -345,7 +325,7 @@
             // 
             // textBox3ExpirienceDriver
             // 
-            this.textBox3ExpirienceDriver.Location = new System.Drawing.Point(206, 245);
+            this.textBox3ExpirienceDriver.Location = new System.Drawing.Point(206, 223);
             this.textBox3ExpirienceDriver.Name = "textBox3ExpirienceDriver";
             this.textBox3ExpirienceDriver.Size = new System.Drawing.Size(70, 20);
             this.textBox3ExpirienceDriver.TabIndex = 5;
@@ -354,7 +334,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(148, 246);
+            this.label7.Location = new System.Drawing.Point(148, 224);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 17);
             this.label7.TabIndex = 17;
@@ -364,7 +344,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(148, 199);
+            this.label6.Location = new System.Drawing.Point(148, 177);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 17);
             this.label6.TabIndex = 16;
@@ -372,7 +352,7 @@
             // 
             // textBox2FioDriver
             // 
-            this.textBox2FioDriver.Location = new System.Drawing.Point(148, 219);
+            this.textBox2FioDriver.Location = new System.Drawing.Point(148, 197);
             this.textBox2FioDriver.Name = "textBox2FioDriver";
             this.textBox2FioDriver.Size = new System.Drawing.Size(180, 20);
             this.textBox2FioDriver.TabIndex = 4;
@@ -967,6 +947,17 @@
             this.label25.TabIndex = 16;
             this.label25.Text = "Список клиентов";
             // 
+            // button1DelDriver
+            // 
+            this.button1DelDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1DelDriver.Location = new System.Drawing.Point(101, 391);
+            this.button1DelDriver.Name = "button1DelDriver";
+            this.button1DelDriver.Size = new System.Drawing.Size(81, 32);
+            this.button1DelDriver.TabIndex = 58;
+            this.button1DelDriver.Text = "Удалить";
+            this.button1DelDriver.UseVisualStyleBackColor = true;
+            this.button1DelDriver.Click += new System.EventHandler(this.button1DelDriver_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1074,8 +1065,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox15AddressOrder;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox2IdDriver;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox textBox2IdCustomer;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox2IDOrder;
@@ -1085,6 +1074,7 @@
         private System.Windows.Forms.ListBox listBox1DriverForOrder;
         private System.Windows.Forms.ListBox listBox2CustomerForOrder;
         private System.Windows.Forms.ListBox listBox1CarForOrder;
+        private System.Windows.Forms.Button button1DelDriver;
     }
 }
 

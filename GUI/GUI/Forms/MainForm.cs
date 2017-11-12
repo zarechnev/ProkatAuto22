@@ -58,6 +58,20 @@ namespace GUI
         }
 
         /// <summary>
+        /// Очищаем форму добавления водителей.
+        /// </summary>
+        private void ClearDriverPanel()
+        {
+            textBox2FioDriver.Text = "";
+            textBox3ExpirienceDriver.Text = "";
+            checkBox6Smoke.Checked = false;
+            checkBox5Drugs.Checked = false;
+            checkBox7Drink.Checked = false;
+            pictureBox2.Image = null;
+            pictureBox2.BackColor = Color.Gray;
+        }
+
+        /// <summary>
         /// Добавление водителя.
         /// </summary>
         /// <param name="sender"></param>
@@ -83,15 +97,7 @@ namespace GUI
             UpdateDriversListbox();
             FlagCopy = false;
 
-            /// Очищаем форму добавления водителей
-            textBox2IdDriver.Text = "";
-            textBox2FioDriver.Text = "";
-            textBox3ExpirienceDriver.Text = "";
-            checkBox6Smoke.Checked = false;
-            checkBox5Drugs.Checked = false;
-            checkBox7Drink.Checked = false;
-            pictureBox2.Image = null;
-            pictureBox2.BackColor = Color.Gray;
+            ClearDriverPanel();
         }
 
         /// <summary>
@@ -119,6 +125,22 @@ namespace GUI
         }
 
         /// <summary>
+        /// Удаление водителя.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1DelDriver_Click(object sender, EventArgs e)
+        {
+            DriverClass DriverToDelete = new DriverClass();
+            DriverToDelete = (DriverClass)listBox2Driver.SelectedItem;
+            DriverToDelete.DeleteDriver();
+            UpdateDriversListbox();
+
+            ClearDriverPanel();
+            listBox1DriverForOrder.Items.Clear();
+        }
+
+        /// <summary>
         /// Сохранение водителя (редактирование).
         /// </summary>
         /// <param name="sender"></param>
@@ -128,7 +150,6 @@ namespace GUI
             DriverClass RedactionDriver = new DriverClass();
 
             RedactionDriver = (DriverClass)listBox2Driver.SelectedItem;
-            RedactionDriver.DriverDBID = textBox2IdDriver.Text;
             RedactionDriver.FIOdriver = textBox2FioDriver.Text;
             RedactionDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
             RedactionDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
@@ -145,9 +166,9 @@ namespace GUI
             }
             RedactionDriver.EditDriver();
 
-
             UpdateDriversListbox();
             FlagCopy = false;
+            ClearDriverPanel();
         }
 
         /// <summary>
@@ -163,7 +184,6 @@ namespace GUI
 
             DriverClass CheckedDriver = new DriverClass();
             CheckedDriver = (DriverClass)listBox2Driver.SelectedItem;
-            textBox2IdDriver.Text = CheckedDriver.DriverDBID.ToString();
             textBox2FioDriver.Text = CheckedDriver.FIOdriver.ToString();
             textBox3ExpirienceDriver.Text = CheckedDriver.ExpirienceDriver.ToString();
             checkBox7Drink.Checked = false;
@@ -298,7 +318,7 @@ namespace GUI
             AddCar.PhotoCar = destFile;
             AddCar.ModelCar = textBox1ModelCar.Text;
             AddCar.PriceHourCar = textBox4PriceForHourCar.Text;
-            AddCar.TypeCar = comboBox2CarType.SelectedItem.ToString();                    //Combo-box надо подумать.
+            //AddCar.TypeCar = comboBox2CarType.SelectedItem.ToString();                    //Combo-box надо подумать.
             AddCar.CapacityCar = textBox9CapacityCar.Text;
             AddCar.YearIssueCar = textBox7YearIssueCar.Text;
             AddCar.GosNumberCar = AutoGosNumberTextBox.Text;
@@ -360,7 +380,6 @@ namespace GUI
             AutomobileClass RedactionCar = new AutomobileClass();
 
             RedactionCar = (AutomobileClass)listBox1Automobile.SelectedItem;
-            RedactionCar.IDCar = textBox2IdDriver.Text;
             RedactionCar.ModelCar = textBox1ModelCar.Text;
             RedactionCar.PriceHourCar = textBox4PriceForHourCar.Text;
       //    RedactionCar.TypeCar = comboBox2CarType.Text;                    // Пока не работает, в базу не добавляется категория.
