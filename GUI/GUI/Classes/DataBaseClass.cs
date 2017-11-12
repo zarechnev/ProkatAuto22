@@ -23,9 +23,9 @@ namespace ProkatAuto22.Classes
                                             CREATE TABLE additionalServicesBinding (orderID INTEGER REFERENCES orders (ID), additionalServicesID INTEGER REFERENCES additionalServices (ID));
                                             CREATE TABLE cars (ID INTEGER PRIMARY KEY AUTOINCREMENT, model VARCHAR (100), priceForHour NUMERIC (5), typeID INTEGER REFERENCES carTypes (ID), photoFileName VARCHAR (100), carCapacity INTEGER (3), yearOfIssue INTEGER (4), gosNumber VARCHAR (9), carCapacityTrunc INTEGER (5), deleted BOOLEAN DEFAULT (0));
                                             CREATE TABLE carTypes (ID INTEGER PRIMARY KEY AUTOINCREMENT, type VARCHAR (100));
-                                            INSERT INTO carTypes (ID, type) VALUES (1, 'D');
+                                            INSERT INTO carTypes (ID, type) VALUES (1, 'B');
                                             INSERT INTO carTypes (ID, type) VALUES (2, 'C');
-                                            INSERT INTO carTypes (ID, type) VALUES (3, 'B');
+                                            INSERT INTO carTypes (ID, type) VALUES (3, 'D');
                                             CREATE TABLE client (ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (100), phoneNumber INTEGER (19), city VARCHAR (100), deleted BOOLEAN DEFAULT (0));
                                             CREATE TABLE driverHabits (ID INTEGER PRIMARY KEY AUTOINCREMENT, habit VARCHAR (100));
                                             INSERT INTO driverHabits (ID, habit) VALUES (1, 'Наркоман');
@@ -260,7 +260,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Помечает водителя как удалённого.
+        /// Помечает клиента как удалённого.
         /// </summary>
         /// <param name="CustomerToDelete"></param>
         public void DeleteCustomer(CustomerClass CustomerToDelete)
@@ -382,15 +382,15 @@ namespace ProkatAuto22.Classes
                 DBConnection.Open();
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
-                    int AddedCarID;
-                    Command.CommandText = @"INSERT INTO cars (model, priceForHour, photoFileName, carCapacity, yearOfIssue, gosNumber, carCapacityTrunc) VALUES ('" +
+                    Command.CommandText = @"INSERT INTO cars (model, priceForHour, photoFileName, carCapacity, yearOfIssue, gosNumber, carCapacityTrunc, typeID) VALUES ('" +
                         NewCar.ModelCar + "','" +
                         NewCar.PriceHourCar + "','" +
                         NewCar.PhotoCar + "','" +
                         NewCar.CapacityCar + "','" +
                         NewCar.YearIssueCar + "','" +
                         NewCar.GosNumberCar + "','" +
-                        NewCar.CarryingCar + "');";
+                        NewCar.CarryingCar + "'," +
+                        NewCar.CarCategoryID + ");";
                     MyDBLogger("Create car with SQL-command: " + Command.CommandText);
                     Command.ExecuteNonQuery();
                 }
@@ -448,13 +448,12 @@ namespace ProkatAuto22.Classes
         public List<AutomobileClass> ReadAllCars()
         {
             List<AutomobileClass> AllCars = new List<AutomobileClass>();
-
             using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
             {
                 DBConnection.Open();
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
-                    Command.CommandText = @"SELECT ID FROM cars;";
+                    Command.CommandText = @"SELECT ID FROM cars WHERE deleted != 1;";
                     MyDBLogger("Select Cars ID: " + Command.CommandText);
                     using (SQLiteDataReader Reader = Command.ExecuteReader())
                     {
@@ -466,6 +465,24 @@ namespace ProkatAuto22.Classes
                 }
             }
             return AllCars;
+        }
+
+        /// <summary>
+        /// Помечает автомобиль как удалённый.
+        /// </summary>
+        /// <param name="CarToDelete"></param>
+        public void DeleteCar(AutomobileClass CarToDelete)
+        {
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"UPDATE cars SET deleted = 1 WHERE ID = " + CarToDelete.IDCar + ";";
+                    MyDBLogger("Delete car by ID: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>

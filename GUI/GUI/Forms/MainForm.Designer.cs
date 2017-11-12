@@ -131,11 +131,14 @@
             // 
             this.comboBox2CarType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2CarType.FormattingEnabled = true;
+            this.comboBox2CarType.Items.AddRange(new object[] {
+            "B",
+            "C",
+            "D"});
             this.comboBox2CarType.Location = new System.Drawing.Point(343, 252);
             this.comboBox2CarType.Name = "comboBox2CarType";
             this.comboBox2CarType.Size = new System.Drawing.Size(64, 21);
             this.comboBox2CarType.TabIndex = 24;
-            this.comboBox2CarType.SelectedIndexChanged += new System.EventHandler(this.comboBox2CarType_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -783,6 +786,7 @@
             this.button1DeleteCar.TabIndex = 66;
             this.button1DeleteCar.Text = "Удалить";
             this.button1DeleteCar.UseVisualStyleBackColor = true;
+            this.button1DeleteCar.Click += new System.EventHandler(this.button1DeleteCar_Click);
             // 
             // textBox14CarryingCar
             // 
