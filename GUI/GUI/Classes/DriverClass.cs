@@ -29,7 +29,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Конструктор класса.
+        /// Конструктор экземпляра класса.
         /// </summary>
         public DriverClass()
         {
@@ -50,6 +50,14 @@ namespace ProkatAuto22.Classes
         public void EditDriver()
         {
             DB.EditDriverDB(this);
+        }
+
+        /// <summary>
+        /// Удаление водителя.
+        /// </summary>
+        public void DeleteDriver()
+        {
+            DB.DeleteDriver(this);
         }
 
         /// <summary>

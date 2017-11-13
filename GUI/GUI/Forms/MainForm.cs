@@ -30,10 +30,11 @@ namespace GUI
             Directory.CreateDirectory(@"DriverPhoto");
             Directory.CreateDirectory(@"AutomobilePhoto");
 
-            ComboboxRealization();
-
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "dd.MM.yyyy; hh:mm";
+
+            /// Указываем дефолтную категорию ТС.
+            comboBox2CarType.SelectedIndex = 0;
 
             UpdateDriversListbox();
             UpdateCarsListbox();
@@ -55,6 +56,20 @@ namespace GUI
             {
                 listBox2Driver.Items.Add(Driver);
             });
+        }
+
+        /// <summary>
+        /// Очищаем форму добавления водителей.
+        /// </summary>
+        private void ClearDriverPanel()
+        {
+            textBox2FioDriver.Text = "";
+            textBox3ExpirienceDriver.Text = "";
+            checkBox6Smoke.Checked = false;
+            checkBox5Drugs.Checked = false;
+            checkBox7Drink.Checked = false;
+            pictureBox2.Image = null;
+            pictureBox2.BackColor = Color.Gray;
         }
 
         /// <summary>
@@ -83,15 +98,7 @@ namespace GUI
             UpdateDriversListbox();
             FlagCopy = false;
 
-            /// Очищаем форму добавления водителей
-            textBox2IdDriver.Text = "";
-            textBox2FioDriver.Text = "";
-            textBox3ExpirienceDriver.Text = "";
-            checkBox6Smoke.Checked = false;
-            checkBox5Drugs.Checked = false;
-            checkBox7Drink.Checked = false;
-            pictureBox2.Image = null;
-            pictureBox2.BackColor = Color.Gray;
+            ClearDriverPanel();
         }
 
         /// <summary>
@@ -119,6 +126,22 @@ namespace GUI
         }
 
         /// <summary>
+        /// Удаление водителя.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1DelDriver_Click(object sender, EventArgs e)
+        {
+            DriverClass DriverToDelete = new DriverClass();
+            DriverToDelete = (DriverClass)listBox2Driver.SelectedItem;
+            DriverToDelete.DeleteDriver();
+            UpdateDriversListbox();
+
+            ClearDriverPanel();
+            listBox1DriverForOrder.Items.Clear();
+        }
+
+        /// <summary>
         /// Сохранение водителя (редактирование).
         /// </summary>
         /// <param name="sender"></param>
@@ -128,7 +151,6 @@ namespace GUI
             DriverClass RedactionDriver = new DriverClass();
 
             RedactionDriver = (DriverClass)listBox2Driver.SelectedItem;
-            RedactionDriver.DriverDBID = textBox2IdDriver.Text;
             RedactionDriver.FIOdriver = textBox2FioDriver.Text;
             RedactionDriver.ExpirienceDriver = textBox3ExpirienceDriver.Text;
             RedactionDriver.DriverHabitSmoke = checkBox6Smoke.Checked;
@@ -145,9 +167,9 @@ namespace GUI
             }
             RedactionDriver.EditDriver();
 
-
             UpdateDriversListbox();
             FlagCopy = false;
+            ClearDriverPanel();
         }
 
         /// <summary>
@@ -163,7 +185,6 @@ namespace GUI
 
             DriverClass CheckedDriver = new DriverClass();
             CheckedDriver = (DriverClass)listBox2Driver.SelectedItem;
-            textBox2IdDriver.Text = CheckedDriver.DriverDBID.ToString();
             textBox2FioDriver.Text = CheckedDriver.FIOdriver.ToString();
             textBox3ExpirienceDriver.Text = CheckedDriver.ExpirienceDriver.ToString();
             checkBox7Drink.Checked = false;
@@ -212,7 +233,6 @@ namespace GUI
         {
             CustomerClass RedactionCustomer = new CustomerClass();
 
-            RedactionCustomer.IDcustomer = textBox2IdCustomer.Text;
             RedactionCustomer.FIOcustomer = textBox12FioCustomer.Text;
             RedactionCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
             RedactionCustomer.CityCustomer = textBox10CityCustomer.Text;
@@ -220,6 +240,11 @@ namespace GUI
             RedactionCustomer.EditCustomer();
 
             UpdateCustomersListbox();
+
+            /// Очищаем форму добавления клиентов
+            textBox12FioCustomer.Text = "";
+            textBox11PhoneCustomer.Text = "";
+            textBox10CityCustomer.Text = "";
         }
 
         /// <summary>
@@ -235,7 +260,6 @@ namespace GUI
 
             CustomerClass CheckedCustomer = new CustomerClass();
             CheckedCustomer = (CustomerClass)listBox3Customers.SelectedItem;
-            textBox2IdCustomer.Text = CheckedCustomer.IDcustomer.ToString();
             textBox12FioCustomer.Text = CheckedCustomer.FIOcustomer.ToString();
             textBox11PhoneCustomer.Text = CheckedCustomer.PhoneCustomer.ToString();
             textBox10CityCustomer.Text = CheckedCustomer.CityCustomer.ToString();
@@ -266,9 +290,27 @@ namespace GUI
             textBox12FioCustomer.Text = "";
             textBox11PhoneCustomer.Text = "";
             textBox10CityCustomer.Text = "";
-            textBox2IdCustomer.Text = "";            
         }
 
+        /// <summary>
+        /// Удаление клиента.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1DeleteOrder_Click(object sender, EventArgs e)
+        {
+            CustomerClass CustomerToDelete = new CustomerClass();
+            CustomerToDelete = (CustomerClass)listBox3Customers.SelectedItem;
+            CustomerToDelete.DeleteCustomer();
+
+            listBox2CustomerForOrder.Items.Clear();
+            UpdateCustomersListbox();
+
+            /// Очищаем форму добавления клиентов
+            textBox12FioCustomer.Text = "";
+            textBox11PhoneCustomer.Text = "";
+            textBox10CityCustomer.Text = "";
+        }
 
         //////////////////////////////////////// Автомобили
         /// <summary>
@@ -287,6 +329,22 @@ namespace GUI
         }
 
         /// <summary>
+        /// Очищаем форму добавления автомобилей.
+        /// </summary>
+        private void ClearCarPanel()
+        {
+            textBox1ModelCar.Text = "";
+            textBox4PriceForHourCar.Text = "";
+            comboBox2CarType.SelectedIndex = 0;
+            textBox9CapacityCar.Text = "";
+            textBox7YearIssueCar.Text = "";
+            AutoGosNumberTextBox.Text = "";
+            textBox14CarryingCar.Text = "";
+            pictureBox1.Image = null;
+            pictureBox1.BackColor = Color.Gray;
+        }
+
+        /// <summary>
         /// Добавление автомобиля. Не протестировано
         /// </summary>
         /// <param name="sender"></param>
@@ -298,7 +356,7 @@ namespace GUI
             AddCar.PhotoCar = destFile;
             AddCar.ModelCar = textBox1ModelCar.Text;
             AddCar.PriceHourCar = textBox4PriceForHourCar.Text;
-            AddCar.TypeCar = comboBox2CarType.SelectedItem.ToString();                    //Combo-box надо подумать.
+            AddCar.TypeCar = comboBox2CarType.SelectedItem.ToString();
             AddCar.CapacityCar = textBox9CapacityCar.Text;
             AddCar.YearIssueCar = textBox7YearIssueCar.Text;
             AddCar.GosNumberCar = AutoGosNumberTextBox.Text;
@@ -314,16 +372,7 @@ namespace GUI
             UpdateCarsListbox();
             FlagCopy = false;
 
-            // Очищаем форму добавления автомобилей
-            textBox1ModelCar.Text = "";
-            textBox4PriceForHourCar.Text = "";
-            comboBox2CarType.SelectedIndex = -1;                  
-            textBox9CapacityCar.Text = "";
-            textBox7YearIssueCar.Text = "";
-            AutoGosNumberTextBox.Text = "";
-            textBox14CarryingCar.Text = "";
-            pictureBox1.Image = null;
-            pictureBox1.BackColor = Color.Gray;
+            ClearCarPanel();
         }
 
         /// <summary>
@@ -360,10 +409,9 @@ namespace GUI
             AutomobileClass RedactionCar = new AutomobileClass();
 
             RedactionCar = (AutomobileClass)listBox1Automobile.SelectedItem;
-            RedactionCar.IDCar = textBox2IdDriver.Text;
             RedactionCar.ModelCar = textBox1ModelCar.Text;
             RedactionCar.PriceHourCar = textBox4PriceForHourCar.Text;
-      //    RedactionCar.TypeCar = comboBox2CarType.Text;                    // Пока не работает, в базу не добавляется категория.
+            RedactionCar.TypeCar = comboBox2CarType.Text;
             RedactionCar.CapacityCar = textBox9CapacityCar.Text;
             RedactionCar.YearIssueCar = textBox7YearIssueCar.Text;
             RedactionCar.GosNumberCar = AutoGosNumberTextBox.Text;
@@ -379,9 +427,24 @@ namespace GUI
             }
             RedactionCar.EditCar();
 
-
             UpdateCarsListbox();
             FlagCopy = false;
+            ClearCarPanel();
+        }
+
+        /// <summary>
+        /// Удаляем автомобиль.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1DeleteCar_Click(object sender, EventArgs e)
+        {
+            AutomobileClass CarToDelete = new AutomobileClass();
+            CarToDelete = (AutomobileClass)listBox1Automobile.SelectedItem;
+            CarToDelete.DeleteCar();
+
+            ClearCarPanel();
+            UpdateCarsListbox();
         }
 
         /// <summary>
@@ -397,19 +460,10 @@ namespace GUI
 
             AutomobileClass CheckedCar = new AutomobileClass();
             CheckedCar = (AutomobileClass)listBox1Automobile.SelectedItem;
-            textBox3IDCar.Text = CheckedCar.IDCar.ToString();
             textBox1ModelCar.Text = CheckedCar.ModelCar.ToString();
             textBox4PriceForHourCar.Text = CheckedCar.PriceHourCar.ToString();
-/*
-            if(CheckedCar.TypeCar.ToString() == "B")    // Пока не работает, в базу не добавляется категория.
-            { comboBox2CarType.SelectedIndex = 0;}
-            if (CheckedCar.TypeCar.ToString() == "C")
-            { comboBox2CarType.SelectedIndex = 1; }
-            if (CheckedCar.TypeCar.ToString() == "D")
-            { comboBox2CarType.SelectedIndex = 2; }
 
-             comboBox2CarType.Text = CheckedCar.TypeCar.ToString();                   
-       */   textBox9CapacityCar.Text = CheckedCar.CapacityCar.ToString();
+            textBox9CapacityCar.Text = CheckedCar.CapacityCar.ToString();
             textBox7YearIssueCar.Text = CheckedCar.YearIssueCar.ToString();
             AutoGosNumberTextBox.Text = CheckedCar.GosNumberCar.ToString();
             textBox14CarryingCar.Text = CheckedCar.CarryingCar.ToString();
@@ -427,91 +481,6 @@ namespace GUI
             listBox1CarForOrder.Items.Add(CheckedCar);
         }
 
-        /// <summary>
-        /// Метод управляет работой комбо-бокса.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ComboboxRealization()
-        {
-            comboBox2CarType.Items.Add("B");
-            comboBox2CarType.Items.Add("C");
-            comboBox2CarType.Items.Add("D");
-        }
-
-        /// <summary>
-        /// Метод срабатывает при клике на класс авто из combobox.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void comboBox2CarType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            /*       switch(comboBox2CarType.SelectedIndex)
-                    {
-                        case 0:
-                            UpdateAutomobileCategoryB();
-                            break;
-                        case 1:
-                            UpdateAutomobileCategoryC();
-                            break;
-                        case 2:
-                            UpdateAutomobileCategoryD();
-                            break;
-                    }
-           */
-
-        }
-
-        /*
-       /// <summary>
-       /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории B.
-       /// </summary>
-       private void UpdateAutomobileCategoryB()
-       {
-           listBox1Automobile.Items.Clear();
-
-           List<AutomobileClass> AllCars = new List<AutomobileClass>();
-           AllCars = AutomobileClass.ReadAllCars();
-           AllCars.ForEach(delegate (AutomobileClass Car)
-           {
-               if (Car.TypeCar.ToString() == "B")
-                   listBox1Automobile.Items.Add(Car);
-           });
-       }
-
-       /// <summary>
-       /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории C.
-       /// </summary>
-       private void UpdateAutomobileCategoryC()
-       {
-           listBox1Automobile.Items.Clear();
-
-           List<AutomobileClass> AllCars = new List<AutomobileClass>();
-           AllCars = AutomobileClass.ReadAllCars();
-           AllCars.ForEach(delegate (AutomobileClass Car)
-           {
-               if (Car.TypeCar.ToString() == "C")
-                   listBox1Automobile.Items.Add(Car);
-           });
-       }
-
-       /// <summary>
-       /// Обновляет содержимое лист-бокса для списка автомобилей отсортированных по категории D.
-       /// </summary>
-       private void UpdateAutomobileCategoryD()
-       {
-           listBox1Automobile.Items.Clear();
-
-           List<AutomobileClass> AllCars = new List<AutomobileClass>();
-           AllCars = AutomobileClass.ReadAllCars();
-           AllCars.ForEach(delegate (AutomobileClass Car)
-           {
-               if (Car.TypeCar.ToString() == "D")
-                   listBox1Automobile.Items.Add(Car);
-           });
-       }
-   */
 
         /////////////////////////////////////////// Заказы
         /// <summary>
@@ -539,9 +508,9 @@ namespace GUI
             OrderClass AddOrder = new OrderClass();
 
             AddOrder.DataRequest = dateTimePicker1.Text.ToString();
-            AddOrder.CarRequest = listBox1CarForOrder.SelectedItem.ToString();
-            AddOrder.DriverRequest = listBox1DriverForOrder.SelectedItem.ToString();
-            AddOrder.CustomerRequest = listBox2CustomerForOrder.SelectedItem.ToString();
+            AddOrder.CarRequest = (AutomobileClass)listBox1CarForOrder.SelectedItem;
+            AddOrder.DriverRequest = (DriverClass)listBox1DriverForOrder.SelectedItem;
+            AddOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.SelectedItem;
             AddOrder.AddressRequest = textBox15AddressOrder.Text;
             AddOrder.TimeRequest = textBox5TimeOrder.Text;
             AddOrder.PriceRequest = textBox6PriceOrder.Text;
@@ -579,9 +548,9 @@ namespace GUI
             RedactionOrder = (OrderClass)listBox4Order.SelectedItem;
             RedactionOrder.IDRequest = textBox2IDOrder.Text;
             RedactionOrder.DataRequest = dateTimePicker1.Text.ToString();
-            RedactionOrder.CarRequest = listBox1CarForOrder.SelectedItem.ToString();
-            RedactionOrder.DriverRequest = listBox1DriverForOrder.SelectedItem.ToString();
-            RedactionOrder.CustomerRequest = listBox2CustomerForOrder.SelectedItem.ToString();
+            RedactionOrder.CarRequest = (AutomobileClass)listBox1CarForOrder.SelectedItem;
+            RedactionOrder.DriverRequest = (DriverClass)listBox1DriverForOrder.SelectedItem;
+            RedactionOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.SelectedItem;
             RedactionOrder.AddressRequest = textBox15AddressOrder.Text;
             RedactionOrder.TimeRequest = textBox5TimeOrder.Text;
             RedactionOrder.PriceRequest = textBox6PriceOrder.Text;

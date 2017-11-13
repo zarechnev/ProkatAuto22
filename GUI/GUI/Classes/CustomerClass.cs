@@ -16,7 +16,7 @@ namespace ProkatAuto22.Classes
         private DataBaseClass DB;
 
         /// <summary>
-        /// Конструктор класса.
+        /// Конструктор экземпляра класса.
         /// </summary>
         public CustomerClass()
         {
@@ -39,6 +39,14 @@ namespace ProkatAuto22.Classes
         public void InsertCustomer()
         {
             DB.AddNewCustomerDB(this);
+        }
+
+        /// <summary>
+        /// Удаление клиента.
+        /// </summary>
+        public void DeleteCustomer()
+        {
+            DB.DeleteCustomer(this);
         }
 
         /// <summary>
