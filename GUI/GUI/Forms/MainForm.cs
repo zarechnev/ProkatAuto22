@@ -645,5 +645,90 @@ namespace GUI
             }
         }
 
+
+
+
+
+        // Валидация полей
+        //FIO vod
+        private void textBox2FioDriver_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 'А' || e.KeyChar > 'я')&&(e.KeyChar!=32))
+                e.Handled = true;
+        }
+        //Stag
+        private void textBox3ExpirienceDriver_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57))
+                e.Handled = true;
+        }
+        //cena arendy
+        private void textBox4PriceForHourCar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57))
+                e.Handled = true;
+        }
+        //vmestimost
+        private void textBox9CapacityCar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57))
+                e.Handled = true;
+        }
+        //god vypuska
+        private void textBox7YearIssueCar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (textBox7YearIssueCar.TextLength ==4) {e.Handled=true ;}
+            if (e.KeyChar==8)e.Handled=false;
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57))
+                e.Handled = true;
+
+        }
+        //gos nomer
+        private void AutoGosNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57))
+                e.Handled = true;
+        }
+        //gruzopodemnost
+        private void textBox14CarryingCar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57))
+                e.Handled = true;
+        }
+
+        //fio
+        private void textBox12FioCustomer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 'А' || e.KeyChar > 'я') && (e.KeyChar != 32))
+                e.Handled = true;
+        }
+
+        private void textBox11PhoneCustomer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57))
+                e.Handled = true;
+        }
+
+        private void textBox10CityCustomer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 'А' || e.KeyChar > 'я') && (e.KeyChar != 32))
+                e.Handled = true;
+        }
+
+
+
+        //vremya arendy
+        private void textBox5TimeOrder_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57))
+                e.Handled = true;
+        }
+
+        private void textBox6PriceOrder_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 48 || e.KeyChar > 57))
+                e.Handled = true;
+        }
+
     }
 }
