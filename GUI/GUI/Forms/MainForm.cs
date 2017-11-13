@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ProkatAuto22;
 using ProkatAuto22.Classes;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace GUI
 {
@@ -17,16 +18,18 @@ namespace GUI
     {
         string destFile = "";
         string sourcePath;
-
+        List<string> ListDeletePhoto;
         bool FlagCopy = false;
-
+      
         /// <summary>
         /// Конструктор класса.
         /// </summary>
         public Form1()
         {
             InitializeComponent();
-
+            ListDeletePhoto = new List<string>();
+            Application.ApplicationExit += new EventHandler(this.OnApplicationExit);
+    
             Directory.CreateDirectory(@"DriverPhoto");
             Directory.CreateDirectory(@"AutomobilePhoto");
 
@@ -39,6 +42,13 @@ namespace GUI
             UpdateDriversListbox();
             UpdateCarsListbox();
             UpdateCustomersListbox();
+            UpdateOrdersListbox();
+        }
+
+        private void OnApplicationExit(object sender, EventArgs e)
+        {
+            if(ListDeletePhoto.Count !=0)
+            DeletePhoto(ListDeletePhoto);
         }
 
 
@@ -108,16 +118,19 @@ namespace GUI
         /// <param name="e"></param>
         private void button1EditPhotoDriver_Click(object sender, EventArgs e)
         {
+            MD5 md5 = new MD5CryptoServiceProvider();
             OpenFileDialog AddPhotoDriver = new OpenFileDialog();
 
             AddPhotoDriver.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
             if (AddPhotoDriver.ShowDialog() == DialogResult.OK)
             {
-                string fileNameDriver = AddPhotoDriver.SafeFileName.GetHashCode().ToString();
+                string fileNameDriver = AddPhotoDriver.SafeFileName;
                 sourcePath = AddPhotoDriver.FileName;
                 string targetPath = @"DriverPhoto";
+                byte[] checkSum = md5.ComputeHash(Encoding.UTF8.GetBytes(fileNameDriver));
+                string encodedFileNameDriver = BitConverter.ToString(checkSum).Replace("-", String.Empty) + Path.GetExtension(fileNameDriver);
 
-                destFile = Path.Combine(targetPath, fileNameDriver);
+                destFile = Path.Combine(targetPath, encodedFileNameDriver);
 
                 pictureBox2.Load(sourcePath);
 
@@ -135,9 +148,11 @@ namespace GUI
             DriverClass DriverToDelete = new DriverClass();
             DriverToDelete = (DriverClass)listBox2Driver.SelectedItem;
             DriverToDelete.DeleteDriver();
-            UpdateDriversListbox();
+            ListDeletePhoto.Add(DriverToDelete.PhotoDriver);
 
+            UpdateDriversListbox();
             ClearDriverPanel();
+            
             listBox1DriverForOrder.Items.Clear();
         }
 
@@ -158,7 +173,10 @@ namespace GUI
             RedactionDriver.DriverHabitDrugs = checkBox5Drugs.Checked;
 
             if (destFile != "")
-            { RedactionDriver.PhotoDriver = destFile; }
+            {
+                ListDeletePhoto.Add(RedactionDriver.PhotoDriver);
+                RedactionDriver.PhotoDriver = destFile;
+            }
 
             if (FlagCopy)
             {
@@ -312,6 +330,8 @@ namespace GUI
             textBox10CityCustomer.Text = "";
         }
 
+        
+
         //////////////////////////////////////// Автомобили
         /// <summary>
         /// Обновляет содержимое лист-бокса для списка автомобилей. Не протестировано
@@ -382,16 +402,19 @@ namespace GUI
         /// <param name="e"></param>
         private void button2ChangePhotoCar_Click(object sender, EventArgs e)
         {
+            MD5 md5 = new MD5CryptoServiceProvider();
             OpenFileDialog AddPhotoCar = new OpenFileDialog();
 
             AddPhotoCar.Filter = ("(*.jpg)|*.jpg|(*.png)|*.png|All files (*.*)|*.*");
             if (AddPhotoCar.ShowDialog() == DialogResult.OK)
             {
-                string fileNameCar = AddPhotoCar.SafeFileName.GetHashCode().ToString();
+                string fileNameCar = AddPhotoCar.SafeFileName;
                 sourcePath = AddPhotoCar.FileName;
                 string targetPath = @"AutomobilePhoto";
+                byte[] checkSum = md5.ComputeHash(Encoding.UTF8.GetBytes(fileNameCar));
+                string encodedFileNameCar = BitConverter.ToString(checkSum).Replace("-", String.Empty) + Path.GetExtension(fileNameCar);
 
-                destFile = Path.Combine(targetPath, fileNameCar);
+                destFile = Path.Combine(targetPath, encodedFileNameCar);
 
                 pictureBox1.Load(sourcePath);
 
@@ -418,7 +441,10 @@ namespace GUI
             RedactionCar.CarryingCar = textBox14CarryingCar.Text;
 
             if (destFile != "")
-            { RedactionCar.PhotoCar = destFile; }
+            {
+                ListDeletePhoto.Add(RedactionCar.PhotoCar);
+                RedactionCar.PhotoCar = destFile;
+            }
 
             if (FlagCopy)
             {
@@ -442,6 +468,7 @@ namespace GUI
             AutomobileClass CarToDelete = new AutomobileClass();
             CarToDelete = (AutomobileClass)listBox1Automobile.SelectedItem;
             CarToDelete.DeleteCar();
+            ListDeletePhoto.Add(CarToDelete.PhotoCar);
 
             ClearCarPanel();
             UpdateCarsListbox();
@@ -499,6 +526,24 @@ namespace GUI
         }
 
         /// <summary>
+        /// Очищаем форму добавления заказов.
+        /// </summary>
+        private void ClearOrderPanel()
+        {
+            dateTimePicker1.Text = "";
+            listBox1CarForOrder.SelectedIndex = -1;
+            listBox1DriverForOrder.SelectedIndex = -1;
+            listBox2CustomerForOrder.SelectedIndex = -1;
+            textBox15AddressOrder.Text = "";
+            textBox5TimeOrder.Text = "";
+            textBox6PriceOrder.Text = "";
+            checkBox1KidsChair.Checked = false;
+            checkBox2WinterTyres.Checked = false;
+            checkBox3SportFastenings.Checked = false;
+            checkBox4GPS.Checked = false;
+        }
+
+        /// <summary>
         /// Добавление заказа. Не протестировано
         /// </summary>
         /// <param name="sender"></param>
@@ -523,17 +568,7 @@ namespace GUI
             UpdateOrdersListbox();
 
             // Очищаем форму добавления заказов                 // Не протестировано
-            dateTimePicker1.Text = "";                      
-            listBox1CarForOrder.SelectedIndex = -1;      
-            listBox1DriverForOrder.SelectedIndex = -1;    
-            listBox2CustomerForOrder.SelectedIndex = -1;
-            textBox15AddressOrder.Text = "";
-            textBox5TimeOrder.Text = "";
-            textBox6PriceOrder.Text = "";
-            checkBox1KidsChair.Checked = false;
-            checkBox2WinterTyres.Checked = false;
-            checkBox3SportFastenings.Checked = false;
-            checkBox4GPS.Checked = false;
+            ClearOrderPanel();
         }
 
         /// <summary>
@@ -596,5 +631,19 @@ namespace GUI
             if (CheckedOrder.SportFastenings) checkBox3SportFastenings.Checked = true;
             if (CheckedOrder.Gps) checkBox4GPS.Checked = true;
         }
+
+        /// <summary>
+        /// Метод удаляет неиспользуемые фото из списка.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeletePhoto(List<string> s)
+        {
+            foreach (string i in s)
+            {
+                File.Delete(i);
+            }
+        }
+
     }
 }
