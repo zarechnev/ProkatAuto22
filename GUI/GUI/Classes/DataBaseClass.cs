@@ -628,7 +628,16 @@ namespace ProkatAuto22.Classes
         /// <param name="OrderToEdit"></param>
         public void DeleteOrderDB(OrderClass OrderToDelete)
         {
-
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"DELETE FROM orders WHERE ID = " + OrderToDelete.IDRequest + ";";
+                    MyDBLogger("Delete Order by ID: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
@@ -644,7 +653,7 @@ namespace ProkatAuto22.Classes
                 DBConnection.Open();
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
-                    Command.CommandText = @"SELECT ID FROM orders;";
+                    Command.CommandText = @"SELECT ID FROM orders ORDER BY ID DESC;";
                     MyDBLogger("Select Orders ID: " + Command.CommandText);
                     using (SQLiteDataReader Reader = Command.ExecuteReader())
                     {

@@ -647,10 +647,6 @@ namespace GUI
             }
         }
 
-
-
-
-
         // Валидация полей
         //FIO vod
         private void textBox2FioDriver_KeyPress(object sender, KeyPressEventArgs e)
@@ -717,8 +713,6 @@ namespace GUI
                 e.Handled = true;
         }
 
-
-
         //vremya arendy
         private void textBox5TimeOrder_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -732,5 +726,20 @@ namespace GUI
                 e.Handled = true;
         }
 
+        /// <summary>
+        /// Удаление заявок.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button8DeleteRequest_Click(object sender, EventArgs e)
+        {
+            OrderClass OrderToDelete = new OrderClass();
+            OrderToDelete = (OrderClass)listBox4Order.SelectedItem;
+            OrderToDelete.DeleteOrder();
+
+            ClearOrderPanel();
+
+            UpdateOrdersListbox();
+        }
     }
 }
