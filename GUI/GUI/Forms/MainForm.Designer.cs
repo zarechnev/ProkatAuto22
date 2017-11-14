@@ -537,9 +537,9 @@
             this.checkBox2WinterTyres.AutoSize = true;
             this.checkBox2WinterTyres.Location = new System.Drawing.Point(4, 47);
             this.checkBox2WinterTyres.Name = "checkBox2WinterTyres";
-            this.checkBox2WinterTyres.Size = new System.Drawing.Size(96, 17);
+            this.checkBox2WinterTyres.Size = new System.Drawing.Size(130, 17);
             this.checkBox2WinterTyres.TabIndex = 40;
-            this.checkBox2WinterTyres.Text = "Зимние шины";
+            this.checkBox2WinterTyres.Text = "Шипованные колёса";
             this.checkBox2WinterTyres.UseVisualStyleBackColor = true;
             // 
             // checkBox3SportFastenings
@@ -585,6 +585,7 @@
             // 
             this.textBox6PriceOrder.Location = new System.Drawing.Point(211, 561);
             this.textBox6PriceOrder.Name = "textBox6PriceOrder";
+            this.textBox6PriceOrder.ReadOnly = true;
             this.textBox6PriceOrder.Size = new System.Drawing.Size(158, 20);
             this.textBox6PriceOrder.TabIndex = 37;
             this.textBox6PriceOrder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6PriceOrder_KeyPress);

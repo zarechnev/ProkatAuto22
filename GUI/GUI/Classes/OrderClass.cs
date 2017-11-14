@@ -9,13 +9,19 @@ namespace ProkatAuto22.Classes
     class OrderClass
     {
         public string IDRequest { get; set; }
+        /// <summary>
+        /// Дата-время заказа.
+        /// </summary>
         public string DataRequest { get; set; }
-        public AutomobileClass CarRequest { get; set; }
-        public DriverClass DriverRequest { get; set; }
-        public CustomerClass CustomerRequest { get; set; }
+        public AutomobileClass CarRequest;
+        public DriverClass DriverRequest;
+        public CustomerClass CustomerRequest;
         public string AddressRequest { get; set; }
-        public string TimeRequest { get; set; }          // формат даты, не протестировано.
-        public string PriceRequest { get; set; }
+        /// <summary>
+        /// Длительность аренды.
+        /// </summary>
+        public string TimeRequest { get; set; }
+        public string PriceRequest { get; }
         public bool KidsChair { get; set; }
         public bool WinterTires { get; set; }
         public bool SportFastenings { get; set; }

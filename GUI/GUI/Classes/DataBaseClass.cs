@@ -16,10 +16,10 @@ namespace ProkatAuto22.Classes
                                             PRAGMA foreign_keys = off;
                                             BEGIN TRANSACTION;
                                             CREATE TABLE additionalServices (ID INTEGER PRIMARY KEY AUTOINCREMENT, service VARCHAR (100));
-                                            INSERT INTO additionalServices (ID, service) VALUES (2, 'Зимние шины');
+                                            INSERT INTO additionalServices (ID, service) VALUES (1, 'Детские кресла');
+                                            INSERT INTO additionalServices (ID, service) VALUES (2, 'Шипованные колёса');
                                             INSERT INTO additionalServices (ID, service) VALUES (3, 'Спортивные крепления');
-                                            INSERT INTO additionalServices (ID, service) VALUES (4, 'Детские кресла');
-                                            INSERT INTO additionalServices (ID, service) VALUES (5, 'GPS-навигатор');
+                                            INSERT INTO additionalServices (ID, service) VALUES (4, 'GPS-навигатор');
                                             CREATE TABLE additionalServicesBinding (orderID INTEGER REFERENCES orders (ID), additionalServicesID INTEGER REFERENCES additionalServices (ID));
                                             CREATE TABLE cars (ID INTEGER PRIMARY KEY AUTOINCREMENT, model VARCHAR (100), priceForHour NUMERIC (5), typeID INTEGER REFERENCES carTypes (ID), photoFileName VARCHAR (100), carCapacity INTEGER (3), yearOfIssue INTEGER (4), gosNumber VARCHAR (9), carCapacityTrunc INTEGER (5), deleted BOOLEAN DEFAULT (0));
                                             CREATE TABLE carTypes (ID INTEGER PRIMARY KEY AUTOINCREMENT, type VARCHAR (100));
@@ -509,7 +509,60 @@ namespace ProkatAuto22.Classes
         /// <param name="NewOrder"></param>
         public void AddNewOrderDB(OrderClass NewOrder)
         {
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                int LastAddedOrder;
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"INSERT INTO orders (data, carID, driverID, duration, clientID, address) VALUES ('" +
+                        NewOrder.DataRequest + "','" +
+                        NewOrder.CarRequest.IDCar + "','" +
+                        NewOrder.DriverRequest.DriverDBID + "','" +
+                        NewOrder.TimeRequest + "','" +
+                        NewOrder.CustomerRequest.IDcustomer + "','" +
+                        NewOrder.AddressRequest.ToUpper() + "');";
+                    MyDBLogger("Create order with SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
 
+                    Command.CommandText = @"SELECT ID from orders ORDER by ID DESC LIMIT 1;";
+                    MyDBLogger("Get last order with SQL-command: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        Reader.Read();
+                        LastAddedOrder = Reader.GetInt32(0);
+                        MyDBLogger("Last record Orders ID is: " + LastAddedOrder);
+                    }
+
+                    if (NewOrder.KidsChair)
+                    {
+                        Command.CommandText = @"INSERT INTO additionalServicesBinding (orderID, additionalServicesID) VALUES (" + LastAddedOrder + "," + 1 + ");";
+                        MyDBLogger("Order service (KidsChair) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+
+                    if (NewOrder.WinterTires)
+                    {
+                        Command.CommandText = @"INSERT INTO additionalServicesBinding (orderID, additionalServicesID) VALUES (" + LastAddedOrder + "," + 2 + ");";
+                        MyDBLogger("Order service (WinterTires) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+
+                    if (NewOrder.SportFastenings)
+                    {
+                        Command.CommandText = @"INSERT INTO additionalServicesBinding (orderID, additionalServicesID) VALUES (" + LastAddedOrder + "," + 3 + ");";
+                        MyDBLogger("Order service (SportFastenings) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+
+                    if (NewOrder.Gps)
+                    {
+                        Command.CommandText = @"INSERT INTO additionalServicesBinding (orderID, additionalServicesID) VALUES (" + LastAddedOrder + "," + 4 + ");";
+                        MyDBLogger("Order service (Gps) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -519,7 +572,7 @@ namespace ProkatAuto22.Classes
         /// <returns></returns>
         public OrderClass ReadOrderDB(string OrderID)
         {
-            OrderClass ReadOrder= new OrderClass();
+            OrderClass ReadOrder = new OrderClass();
 
             return ReadOrder;
         }

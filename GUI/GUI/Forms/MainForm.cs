@@ -553,12 +553,11 @@ namespace GUI
             OrderClass AddOrder = new OrderClass();
 
             AddOrder.DataRequest = dateTimePicker1.Text.ToString();
-            AddOrder.CarRequest = (AutomobileClass)listBox1CarForOrder.SelectedItem;
-            AddOrder.DriverRequest = (DriverClass)listBox1DriverForOrder.SelectedItem;
-            AddOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.SelectedItem;
+            AddOrder.CarRequest = (AutomobileClass)listBox1CarForOrder.Items[0];
+            AddOrder.DriverRequest = (DriverClass)listBox1DriverForOrder.Items[0];
+            AddOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.Items[0];
             AddOrder.AddressRequest = textBox15AddressOrder.Text;
             AddOrder.TimeRequest = textBox5TimeOrder.Text;
-            AddOrder.PriceRequest = textBox6PriceOrder.Text;
             AddOrder.KidsChair = checkBox1KidsChair.Checked;
             AddOrder.WinterTires = checkBox2WinterTyres.Checked;
             AddOrder.SportFastenings = checkBox3SportFastenings.Checked;
@@ -588,7 +587,6 @@ namespace GUI
             RedactionOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.SelectedItem;
             RedactionOrder.AddressRequest = textBox15AddressOrder.Text;
             RedactionOrder.TimeRequest = textBox5TimeOrder.Text;
-            RedactionOrder.PriceRequest = textBox6PriceOrder.Text;
             RedactionOrder.KidsChair = checkBox1KidsChair.Checked;
             RedactionOrder.WinterTires = checkBox2WinterTyres.Checked;
             RedactionOrder.SportFastenings = checkBox3SportFastenings.Checked;
