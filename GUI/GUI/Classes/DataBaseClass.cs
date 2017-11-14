@@ -414,7 +414,7 @@ namespace ProkatAuto22.Classes
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
                     // Считываем информацию о водителе
-                    Command.CommandText = @"SELECT model, priceForHour, photoFileName, carCapacity, yearOfIssue, gosNumber, carCapacityTrunc FROM cars WHERE ID = '" + ReadCarDB.IDCar + "';";
+                    Command.CommandText = @"SELECT model, priceForHour, photoFileName, carCapacity, yearOfIssue, gosNumber, carCapacityTrunc, typeID FROM cars WHERE ID = '" + ReadCarDB.IDCar + "';";
                     MyDBLogger("Select Car by ID: " + Command.CommandText);
                     using (SQLiteDataReader Reader = Command.ExecuteReader())
                     {
@@ -426,6 +426,7 @@ namespace ProkatAuto22.Classes
                         ReadCarDB.YearIssueCar = Reader.GetValue(4).ToString();
                         ReadCarDB.GosNumberCar = Reader.GetValue(5).ToString();
                         ReadCarDB.CarryingCar = Reader.GetValue(6).ToString();
+                        ReadCarDB.CarCategoryID = Convert.ToInt32(Reader.GetValue(7).ToString());
                     }
                 }
             }
