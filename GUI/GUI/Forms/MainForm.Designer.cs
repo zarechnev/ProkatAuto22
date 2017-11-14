@@ -341,6 +341,7 @@
             this.textBox3ExpirienceDriver.Name = "textBox3ExpirienceDriver";
             this.textBox3ExpirienceDriver.Size = new System.Drawing.Size(70, 20);
             this.textBox3ExpirienceDriver.TabIndex = 5;
+            this.textBox3ExpirienceDriver.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3ExpirienceDriver_KeyPress);
             // 
             // label7
             // 
@@ -368,6 +369,7 @@
             this.textBox2FioDriver.Name = "textBox2FioDriver";
             this.textBox2FioDriver.Size = new System.Drawing.Size(180, 20);
             this.textBox2FioDriver.TabIndex = 4;
+            this.textBox2FioDriver.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2FioDriver_KeyPress);
             // 
             // pictureBox2
             // 
@@ -585,6 +587,7 @@
             this.textBox6PriceOrder.Name = "textBox6PriceOrder";
             this.textBox6PriceOrder.Size = new System.Drawing.Size(158, 20);
             this.textBox6PriceOrder.TabIndex = 37;
+            this.textBox6PriceOrder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6PriceOrder_KeyPress);
             // 
             // label13
             // 
@@ -634,6 +637,7 @@
             this.textBox5TimeOrder.Name = "textBox5TimeOrder";
             this.textBox5TimeOrder.Size = new System.Drawing.Size(56, 20);
             this.textBox5TimeOrder.TabIndex = 36;
+            this.textBox5TimeOrder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5TimeOrder_KeyPress);
             // 
             // label9
             // 
@@ -693,6 +697,7 @@
             this.textBox10CityCustomer.Name = "textBox10CityCustomer";
             this.textBox10CityCustomer.Size = new System.Drawing.Size(161, 20);
             this.textBox10CityCustomer.TabIndex = 17;
+            this.textBox10CityCustomer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox10CityCustomer_KeyPress);
             // 
             // label15
             // 
@@ -710,6 +715,7 @@
             this.textBox11PhoneCustomer.Name = "textBox11PhoneCustomer";
             this.textBox11PhoneCustomer.Size = new System.Drawing.Size(161, 20);
             this.textBox11PhoneCustomer.TabIndex = 16;
+            this.textBox11PhoneCustomer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox11PhoneCustomer_KeyPress);
             // 
             // label16
             // 
@@ -737,6 +743,7 @@
             this.textBox12FioCustomer.Name = "textBox12FioCustomer";
             this.textBox12FioCustomer.Size = new System.Drawing.Size(161, 20);
             this.textBox12FioCustomer.TabIndex = 15;
+            this.textBox12FioCustomer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox12FioCustomer_KeyPress);
             // 
             // pictureBox1
             // 
@@ -794,6 +801,7 @@
             this.textBox14CarryingCar.Name = "textBox14CarryingCar";
             this.textBox14CarryingCar.Size = new System.Drawing.Size(64, 20);
             this.textBox14CarryingCar.TabIndex = 28;
+            this.textBox14CarryingCar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox14CarryingCar_KeyPress);
             // 
             // label24
             // 
@@ -811,6 +819,7 @@
             this.AutoGosNumberTextBox.Name = "AutoGosNumberTextBox";
             this.AutoGosNumberTextBox.Size = new System.Drawing.Size(64, 20);
             this.AutoGosNumberTextBox.TabIndex = 27;
+            this.AutoGosNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AutoGosNumberTextBox_KeyPress);
             // 
             // label22
             // 
@@ -828,6 +837,7 @@
             this.textBox9CapacityCar.Name = "textBox9CapacityCar";
             this.textBox9CapacityCar.Size = new System.Drawing.Size(64, 20);
             this.textBox9CapacityCar.TabIndex = 25;
+            this.textBox9CapacityCar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox9CapacityCar_KeyPress);
             // 
             // textBox7YearIssueCar
             // 
@@ -835,6 +845,7 @@
             this.textBox7YearIssueCar.Name = "textBox7YearIssueCar";
             this.textBox7YearIssueCar.Size = new System.Drawing.Size(64, 20);
             this.textBox7YearIssueCar.TabIndex = 26;
+            this.textBox7YearIssueCar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7YearIssueCar_KeyPress);
             // 
             // label1
             // 
@@ -852,6 +863,7 @@
             this.textBox4PriceForHourCar.Name = "textBox4PriceForHourCar";
             this.textBox4PriceForHourCar.Size = new System.Drawing.Size(64, 20);
             this.textBox4PriceForHourCar.TabIndex = 23;
+            this.textBox4PriceForHourCar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4PriceForHourCar_KeyPress);
             // 
             // label20
             // 
