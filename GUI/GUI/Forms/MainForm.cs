@@ -376,7 +376,7 @@ namespace GUI
             AddCar.PhotoCar = destFile;
             AddCar.ModelCar = textBox1ModelCar.Text;
             AddCar.PriceHourCar = textBox4PriceForHourCar.Text;
-            AddCar.TypeCar = comboBox2CarType.SelectedItem.ToString();
+            AddCar.CarCategoryID =comboBox2CarType.SelectedIndex+1;
             AddCar.CapacityCar = textBox9CapacityCar.Text;
             AddCar.YearIssueCar = textBox7YearIssueCar.Text;
             AddCar.GosNumberCar = AutoGosNumberTextBox.Text;
@@ -434,7 +434,7 @@ namespace GUI
             RedactionCar = (AutomobileClass)listBox1Automobile.SelectedItem;
             RedactionCar.ModelCar = textBox1ModelCar.Text;
             RedactionCar.PriceHourCar = textBox4PriceForHourCar.Text;
-            RedactionCar.TypeCar = comboBox2CarType.Text;
+            RedactionCar.CarCategoryID = comboBox2CarType.SelectedIndex +1;
             RedactionCar.CapacityCar = textBox9CapacityCar.Text;
             RedactionCar.YearIssueCar = textBox7YearIssueCar.Text;
             RedactionCar.GosNumberCar = AutoGosNumberTextBox.Text;
@@ -489,7 +489,7 @@ namespace GUI
             CheckedCar = (AutomobileClass)listBox1Automobile.SelectedItem;
             textBox1ModelCar.Text = CheckedCar.ModelCar.ToString();
             textBox4PriceForHourCar.Text = CheckedCar.PriceHourCar.ToString();
-
+            comboBox2CarType.Text = CheckedCar.TypeCar;
             textBox9CapacityCar.Text = CheckedCar.CapacityCar.ToString();
             textBox7YearIssueCar.Text = CheckedCar.YearIssueCar.ToString();
             AutoGosNumberTextBox.Text = CheckedCar.GosNumberCar.ToString();
@@ -639,9 +639,11 @@ namespace GUI
         /// <param name="e"></param>
         private void DeletePhoto(List<string> s)
         {
+            
             foreach (string i in s)
             {
-                File.Delete(i);
+                if (i != "")
+                    File.Delete(i);
             }
         }
 
