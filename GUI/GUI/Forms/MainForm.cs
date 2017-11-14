@@ -472,6 +472,8 @@ namespace GUI
 
             ClearCarPanel();
             UpdateCarsListbox();
+
+            listBox1CarForOrder.Items.Clear();
         }
 
         /// <summary>
