@@ -89,7 +89,7 @@ namespace ProkatAuto22.Classes
         /// <returns></returns>
         public override string ToString()
         {
-            return this.IDCar + ", " + this.ModelCar + ", " + this.PriceHourCar + " р.";
+            return this.IDCar + ", " + this.ModelCar + " (" + this.YearIssueCar + " г.в.). Час аренды: " +  this.PriceHourCar + " р.";
         }
     }
 }
