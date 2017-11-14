@@ -533,9 +533,9 @@ namespace GUI
         private void ClearOrderPanel()
         {
             dateTimePicker1.Text = "";
-            listBox1CarForOrder.SelectedIndex = -1;
-            listBox1DriverForOrder.SelectedIndex = -1;
-            listBox2CustomerForOrder.SelectedIndex = -1;
+            listBox1CarForOrder.Items.Clear();
+            listBox1DriverForOrder.Items.Clear();
+            listBox2CustomerForOrder.Items.Clear();
             textBox15AddressOrder.Text = "";
             textBox5TimeOrder.Text = "";
             textBox6PriceOrder.Text = "";
@@ -555,12 +555,11 @@ namespace GUI
             OrderClass AddOrder = new OrderClass();
 
             AddOrder.DataRequest = dateTimePicker1.Text.ToString();
-            AddOrder.CarRequest = (AutomobileClass)listBox1CarForOrder.SelectedItem;
-            AddOrder.DriverRequest = (DriverClass)listBox1DriverForOrder.SelectedItem;
-            AddOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.SelectedItem;
+            AddOrder.CarRequest = (AutomobileClass)listBox1CarForOrder.Items[0];
+            AddOrder.DriverRequest = (DriverClass)listBox1DriverForOrder.Items[0];
+            AddOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.Items[0];
             AddOrder.AddressRequest = textBox15AddressOrder.Text;
             AddOrder.TimeRequest = textBox5TimeOrder.Text;
-            AddOrder.PriceRequest = textBox6PriceOrder.Text;
             AddOrder.KidsChair = checkBox1KidsChair.Checked;
             AddOrder.WinterTires = checkBox2WinterTyres.Checked;
             AddOrder.SportFastenings = checkBox3SportFastenings.Checked;
@@ -590,7 +589,6 @@ namespace GUI
             RedactionOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.SelectedItem;
             RedactionOrder.AddressRequest = textBox15AddressOrder.Text;
             RedactionOrder.TimeRequest = textBox5TimeOrder.Text;
-            RedactionOrder.PriceRequest = textBox6PriceOrder.Text;
             RedactionOrder.KidsChair = checkBox1KidsChair.Checked;
             RedactionOrder.WinterTires = checkBox2WinterTyres.Checked;
             RedactionOrder.SportFastenings = checkBox3SportFastenings.Checked;
@@ -614,16 +612,16 @@ namespace GUI
             OrderClass CheckedOrder = new OrderClass();
             CheckedOrder = (OrderClass)listBox4Order.SelectedItem;
             textBox2IDOrder.Text = CheckedOrder.IDRequest.ToString();
-            dateTimePicker1.Text = CheckedOrder.DataRequest.ToString();
+            ///dateTimePicker1.Text = CheckedOrder.DataRequest.ToString();
             listBox1CarForOrder.Items.Clear();
-            listBox1CarForOrder.Items.Add(CheckedOrder.CarRequest.ToString());
+            listBox1CarForOrder.Items.Add(CheckedOrder.CarRequest);
             listBox1DriverForOrder.Items.Clear();
-            listBox1DriverForOrder.Items.Add(CheckedOrder.DriverRequest.ToString());
+            listBox1DriverForOrder.Items.Add(CheckedOrder.DriverRequest);
             listBox2CustomerForOrder.Items.Clear();
-            listBox2CustomerForOrder.Items.Add(CheckedOrder.CustomerRequest.ToString());
-            textBox15AddressOrder.Text = CheckedOrder.AddressRequest.ToString();
+            listBox2CustomerForOrder.Items.Add(CheckedOrder.CustomerRequest);
+            textBox15AddressOrder.Text = CheckedOrder.AddressRequest;
             textBox5TimeOrder.Text = CheckedOrder.TimeRequest.ToString();
-            textBox6PriceOrder.Text = CheckedOrder.PriceRequest.ToString();
+            ///textBox6PriceOrder.Text = CheckedOrder.PriceRequest.ToString();
             checkBox1KidsChair.Checked = false;
             checkBox2WinterTyres.Checked = false;
             checkBox3SportFastenings.Checked = false;
@@ -648,10 +646,6 @@ namespace GUI
                     File.Delete(i);
             }
         }
-
-
-
-
 
         // Валидация полей
         //FIO vod
@@ -719,8 +713,6 @@ namespace GUI
                 e.Handled = true;
         }
 
-
-
         //vremya arendy
         private void textBox5TimeOrder_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -734,5 +726,20 @@ namespace GUI
                 e.Handled = true;
         }
 
+        /// <summary>
+        /// Удаление заявок.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button8DeleteRequest_Click(object sender, EventArgs e)
+        {
+            OrderClass OrderToDelete = new OrderClass();
+            OrderToDelete = (OrderClass)listBox4Order.SelectedItem;
+            OrderToDelete.DeleteOrder();
+
+            ClearOrderPanel();
+
+            UpdateOrdersListbox();
+        }
     }
 }
