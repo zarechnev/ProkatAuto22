@@ -33,7 +33,7 @@ namespace ProkatAuto22.Classes
                                             INSERT INTO driverHabits (ID, habit) VALUES (3, 'Курит');
                                             CREATE TABLE driverHabitsBinding (driverID INTEGER REFERENCES drivers (ID), driverHabitsID INTEGER REFERENCES driverHabits (ID));
                                             CREATE TABLE drivers (ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR (100), photoFileName VARCHAR (100), experienceFrom INTEGER (4), deleted BOOLEAN DEFAULT (0));
-                                            CREATE TABLE orders (ID INTEGER PRIMARY KEY AUTOINCREMENT, data DATETIME, carID INTEGER REFERENCES cars (ID), driverID INTEGER REFERENCES drivers (ID), duration INTEGER (2), clientID INTEGER REFERENCES client (ID), address VARCHAR (100));
+                                            CREATE TABLE orders (ID INTEGER PRIMARY KEY AUTOINCREMENT, date DATETIME, carID INTEGER REFERENCES cars (ID), driverID INTEGER REFERENCES drivers (ID), duration INTEGER (2), clientID INTEGER REFERENCES client (ID), address VARCHAR (100));
                                             COMMIT TRANSACTION;
                                             PRAGMA foreign_keys = on;
                                         ";
@@ -515,7 +515,7 @@ namespace ProkatAuto22.Classes
                 DBConnection.Open();
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
-                    Command.CommandText = @"INSERT INTO orders (data, carID, driverID, duration, clientID, address) VALUES ('" +
+                    Command.CommandText = @"INSERT INTO orders (date, carID, driverID, duration, clientID, address) VALUES ('" +
                         NewOrder.DataRequest + "','" +
                         NewOrder.CarRequest.IDCar + "','" +
                         NewOrder.DriverRequest.DriverDBID + "','" +
@@ -573,6 +573,42 @@ namespace ProkatAuto22.Classes
         public OrderClass ReadOrderDB(string OrderID)
         {
             OrderClass ReadOrder = new OrderClass();
+            ReadOrder.IDRequest = OrderID;
+
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"SELECT date, duration, address, carID, clientID, driverID FROM orders WHERE ID = '" + ReadOrder.IDRequest + "';";
+                    MyDBLogger("Select Order by ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        Reader.Read();
+                        ReadOrder.DataRequest = Reader.GetString(0);
+                        ReadOrder.TimeRequest = Reader.GetValue(1).ToString();
+                        ReadOrder.AddressRequest = Reader.GetString(2);
+                        ReadOrder.CarRequest = ReadCarDB(Reader.GetValue(3).ToString());
+                        ReadOrder.CustomerRequest = ReadCustomerDB(Reader.GetValue(4).ToString());
+                        ReadOrder.DriverRequest = ReadDriverDB(Reader.GetValue(5).ToString());
+                    }
+
+                    // Считываем дополнительные услуги
+                    Command.CommandText = @"SELECT additionalServicesID FROM additionalServicesBinding WHERE orderID = '" + ReadOrder.IDRequest + "';";
+                    MyDBLogger("Select additional services for order: " + Command.CommandText);
+
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
+                            if (Reader.GetInt32(0) == 1) { ReadOrder.KidsChair = true; }
+                            if (Reader.GetInt32(0) == 2) { ReadOrder.WinterTires = true; }
+                            if (Reader.GetInt32(0) == 3) { ReadOrder.SportFastenings = true; }
+                            if (Reader.GetInt32(0) == 4) { ReadOrder.Gps = true; }
+                        }
+                    }
+                }
+            }
 
             return ReadOrder;
         }
@@ -602,6 +638,23 @@ namespace ProkatAuto22.Classes
         public List<OrderClass> ReadAllOrdersDB()
         {
             List<OrderClass> AllOrders = new List<OrderClass>();
+
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"SELECT ID FROM orders;";
+                    MyDBLogger("Select Orders ID: " + Command.CommandText);
+                    using (SQLiteDataReader Reader = Command.ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
+                            AllOrders.Add(this.ReadOrderDB(Reader.GetInt32(0).ToString()));
+                        }
+                    }
+                }
+            }
 
             return AllOrders;
         }

@@ -531,9 +531,9 @@ namespace GUI
         private void ClearOrderPanel()
         {
             dateTimePicker1.Text = "";
-            listBox1CarForOrder.SelectedIndex = -1;
-            listBox1DriverForOrder.SelectedIndex = -1;
-            listBox2CustomerForOrder.SelectedIndex = -1;
+            listBox1CarForOrder.Items.Clear();
+            listBox1DriverForOrder.Items.Clear();
+            listBox2CustomerForOrder.Items.Clear();
             textBox15AddressOrder.Text = "";
             textBox5TimeOrder.Text = "";
             textBox6PriceOrder.Text = "";
@@ -610,16 +610,16 @@ namespace GUI
             OrderClass CheckedOrder = new OrderClass();
             CheckedOrder = (OrderClass)listBox4Order.SelectedItem;
             textBox2IDOrder.Text = CheckedOrder.IDRequest.ToString();
-            dateTimePicker1.Text = CheckedOrder.DataRequest.ToString();
+            ///dateTimePicker1.Text = CheckedOrder.DataRequest.ToString();
             listBox1CarForOrder.Items.Clear();
-            listBox1CarForOrder.Items.Add(CheckedOrder.CarRequest.ToString());
+            listBox1CarForOrder.Items.Add(CheckedOrder.CarRequest);
             listBox1DriverForOrder.Items.Clear();
-            listBox1DriverForOrder.Items.Add(CheckedOrder.DriverRequest.ToString());
+            listBox1DriverForOrder.Items.Add(CheckedOrder.DriverRequest);
             listBox2CustomerForOrder.Items.Clear();
-            listBox2CustomerForOrder.Items.Add(CheckedOrder.CustomerRequest.ToString());
-            textBox15AddressOrder.Text = CheckedOrder.AddressRequest.ToString();
+            listBox2CustomerForOrder.Items.Add(CheckedOrder.CustomerRequest);
+            textBox15AddressOrder.Text = CheckedOrder.AddressRequest;
             textBox5TimeOrder.Text = CheckedOrder.TimeRequest.ToString();
-            textBox6PriceOrder.Text = CheckedOrder.PriceRequest.ToString();
+            ///textBox6PriceOrder.Text = CheckedOrder.PriceRequest.ToString();
             checkBox1KidsChair.Checked = false;
             checkBox2WinterTyres.Checked = false;
             checkBox3SportFastenings.Checked = false;
