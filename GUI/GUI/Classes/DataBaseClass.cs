@@ -372,7 +372,7 @@ namespace ProkatAuto22.Classes
         }
 
         /// <summary>
-        /// Добавляет новый автомобиль. Не протестировано. Автор: Марина.
+        /// Добавляет новый автомобиль. Автор: Марина.
         /// </summary>
         /// <param name="NewCar"></param>
         public void AddNewCarDB(AutomobileClass NewCar)
@@ -383,7 +383,7 @@ namespace ProkatAuto22.Classes
                 using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
                 {
                     Command.CommandText = @"INSERT INTO cars (model, priceForHour, photoFileName, carCapacity, yearOfIssue, gosNumber, carCapacityTrunc, typeID) VALUES ('" +
-                        NewCar.ModelCar + "','" +
+                        NewCar.ModelCar.ToUpper() + "','" +
                         NewCar.PriceHourCar + "','" +
                         NewCar.PhotoCar + "','" +
                         NewCar.CapacityCar + "','" +
@@ -438,7 +438,24 @@ namespace ProkatAuto22.Classes
         /// <param name="CarToEdit"></param>
         public void EditCarDB(AutomobileClass CarToEdit)
         {
-
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"UPDATE cars SET model ='" + CarToEdit.ModelCar.ToUpper() + "', " +
+                        "priceForHour = '" + CarToEdit.PriceHourCar + "', " +
+                        "photoFileName = '" + CarToEdit.PhotoCar + "', " +
+                        "carCapacity = '" + CarToEdit.CapacityCar + "', " +
+                        "yearOfIssue = '" + CarToEdit.YearIssueCar + "', " +
+                        "gosNumber = '" + CarToEdit.GosNumberCar + "', " +
+                        "carCapacityTrunc = '" + CarToEdit.CarryingCar + "', " +
+                        "typeID = '" + CarToEdit.CarCategoryID + "' " +
+                        "WHERE ID = " + CarToEdit.IDCar + ";";
+                    MyDBLogger("Edit car with SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
