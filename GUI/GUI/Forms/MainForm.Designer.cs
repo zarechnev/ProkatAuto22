@@ -620,6 +620,7 @@
             this.button8DeleteRequest.TabIndex = 45;
             this.button8DeleteRequest.Text = "Удалить";
             this.button8DeleteRequest.UseVisualStyleBackColor = true;
+            this.button8DeleteRequest.Click += new System.EventHandler(this.button8DeleteRequest_Click);
             // 
             // button9AddRequest
             // 
