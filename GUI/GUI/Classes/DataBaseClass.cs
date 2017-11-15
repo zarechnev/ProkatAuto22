@@ -619,7 +619,56 @@ namespace ProkatAuto22.Classes
         /// <param name="OrderToEdit"></param>
         public void EditOrderDB(OrderClass OrderToEdit)
         {
+            using (SQLiteConnection DBConnection = new SQLiteConnection("data source=" + DBFileName))
+            {
+                DBConnection.Open();
+                using (SQLiteCommand Command = new SQLiteCommand(DBConnection))
+                {
+                    Command.CommandText = @"UPDATE orders SET " +
+                        "date = '" + OrderToEdit.DataRequest + "', " +
+                        "carID = '" + OrderToEdit.CarRequest.IDCar + "', " +
+                        "driverID = '" + OrderToEdit.DriverRequest.DriverDBID + "', " +
+                        "duration = '" + OrderToEdit.TimeRequest + "', " +
+                        "clientID = '" + OrderToEdit.CustomerRequest.IDcustomer + "', " +
+                        "address = '" + OrderToEdit.AddressRequest.ToUpper() + "' " +
+                        "WHERE ID = '" + OrderToEdit.IDRequest + "';";
+                    MyDBLogger("Edit order with SQL-command: " + Command.CommandText);
+                    Command.ExecuteNonQuery();
 
+                    /// Удаляем доп. услуги.
+                    Command.CommandText = @"DELETE FROM additionalServicesBinding WHERE driverID = '" + OrderToEdit.IDRequest + "';";
+                    MyDBLogger("Delete additional services with SQL-command: " + Command.CommandText);
+
+                    /// Устанавливаем доп. услуги.
+                    if (OrderToEdit.KidsChair)
+                    {
+                        Command.CommandText = @"INSERT INTO additionalServicesBinding (orderID, additionalServicesID) VALUES (" + OrderToEdit.IDRequest + "," + 1 + ");";
+                        MyDBLogger("Order service (KidsChair) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+
+                    if (OrderToEdit.WinterTires)
+                    {
+                        Command.CommandText = @"INSERT INTO additionalServicesBinding (orderID, additionalServicesID) VALUES (" + OrderToEdit.IDRequest + "," + 2 + ");";
+                        MyDBLogger("Order service (WinterTires) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+
+                    if (OrderToEdit.SportFastenings)
+                    {
+                        Command.CommandText = @"INSERT INTO additionalServicesBinding (orderID, additionalServicesID) VALUES (" + OrderToEdit.IDRequest + "," + 3 + ");";
+                        MyDBLogger("Order service (SportFastenings) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+
+                    if (OrderToEdit.Gps)
+                    {
+                        Command.CommandText = @"INSERT INTO additionalServicesBinding (orderID, additionalServicesID) VALUES (" + OrderToEdit.IDRequest + "," + 4 + ");";
+                        MyDBLogger("Order service (Gps) SQL-command: " + Command.CommandText);
+                        Command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         /// <summary>
