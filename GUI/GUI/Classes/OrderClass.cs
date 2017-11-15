@@ -21,7 +21,15 @@ namespace ProkatAuto22.Classes
         /// Длительность аренды.
         /// </summary>
         public string TimeRequest { get; set; }
-        public string PriceRequest { get; }
+        /// <summary>
+        /// Стоимость заказа.
+        /// </summary>
+        public string PriceRequest {
+            get
+            {
+                return (Convert.ToInt32(this.CarRequest.PriceHourCar) * Convert.ToInt32(this.TimeRequest)).ToString();
+            }
+        }
         public bool KidsChair { get; set; }
         public bool WinterTires { get; set; }
         public bool SportFastenings { get; set; }

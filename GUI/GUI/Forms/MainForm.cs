@@ -584,9 +584,6 @@ namespace GUI
             RedactionOrder = (OrderClass)listBox4Order.SelectedItem;
             RedactionOrder.IDRequest = textBox2IDOrder.Text;
             RedactionOrder.DataRequest = dateTimePicker1.Text.ToString();
-            RedactionOrder.CarRequest = (AutomobileClass)listBox1CarForOrder.SelectedItem;
-            RedactionOrder.DriverRequest = (DriverClass)listBox1DriverForOrder.SelectedItem;
-            RedactionOrder.CustomerRequest = (CustomerClass)listBox2CustomerForOrder.SelectedItem;
             RedactionOrder.AddressRequest = textBox15AddressOrder.Text;
             RedactionOrder.TimeRequest = textBox5TimeOrder.Text;
             RedactionOrder.KidsChair = checkBox1KidsChair.Checked;
