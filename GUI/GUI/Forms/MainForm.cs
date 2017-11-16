@@ -250,7 +250,7 @@ namespace GUI
         private void button10RedactionCustomer_Click(object sender, EventArgs e)
         {
             CustomerClass RedactionCustomer = new CustomerClass();
-
+            RedactionCustomer = (CustomerClass)listBox3Customers.SelectedItem;
             RedactionCustomer.FIOcustomer = textBox12FioCustomer.Text;
             RedactionCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
             RedactionCustomer.CityCustomer = textBox10CityCustomer.Text;
