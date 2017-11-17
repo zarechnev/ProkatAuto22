@@ -618,7 +618,7 @@ namespace GUI
             listBox2CustomerForOrder.Items.Add(CheckedOrder.CustomerRequest);
             textBox15AddressOrder.Text = CheckedOrder.AddressRequest;
             textBox5TimeOrder.Text = CheckedOrder.TimeRequest.ToString();
-            ///textBox6PriceOrder.Text = CheckedOrder.PriceRequest.ToString();
+            textBox6PriceOrder.Text = CheckedOrder.PriceRequest;
             checkBox1KidsChair.Checked = false;
             checkBox2WinterTyres.Checked = false;
             checkBox3SportFastenings.Checked = false;
