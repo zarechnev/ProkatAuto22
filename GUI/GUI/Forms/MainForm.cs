@@ -250,7 +250,7 @@ namespace GUI
         private void button10RedactionCustomer_Click(object sender, EventArgs e)
         {
             CustomerClass RedactionCustomer = new CustomerClass();
-
+            RedactionCustomer = (CustomerClass)listBox3Customers.SelectedItem;
             RedactionCustomer.FIOcustomer = textBox12FioCustomer.Text;
             RedactionCustomer.PhoneCustomer = textBox11PhoneCustomer.Text;
             RedactionCustomer.CityCustomer = textBox10CityCustomer.Text;
@@ -618,7 +618,7 @@ namespace GUI
             listBox2CustomerForOrder.Items.Add(CheckedOrder.CustomerRequest);
             textBox15AddressOrder.Text = CheckedOrder.AddressRequest;
             textBox5TimeOrder.Text = CheckedOrder.TimeRequest.ToString();
-            ///textBox6PriceOrder.Text = CheckedOrder.PriceRequest.ToString();
+            textBox6PriceOrder.Text = CheckedOrder.PriceRequest;
             checkBox1KidsChair.Checked = false;
             checkBox2WinterTyres.Checked = false;
             checkBox3SportFastenings.Checked = false;

@@ -239,7 +239,7 @@
             this.button1EditPhotoDriver.Name = "button1EditPhotoDriver";
             this.button1EditPhotoDriver.Size = new System.Drawing.Size(128, 26);
             this.button1EditPhotoDriver.TabIndex = 10;
-            this.button1EditPhotoDriver.Text = "Изменить фото";
+            this.button1EditPhotoDriver.Text = "Выбрать фото";
             this.button1EditPhotoDriver.UseVisualStyleBackColor = true;
             this.button1EditPhotoDriver.Click += new System.EventHandler(this.button1EditPhotoDriver_Click);
             // 
@@ -420,6 +420,7 @@
             this.listBox2CustomerForOrder.Name = "listBox2CustomerForOrder";
             this.listBox2CustomerForOrder.Size = new System.Drawing.Size(204, 17);
             this.listBox2CustomerForOrder.TabIndex = 65;
+            this.listBox2CustomerForOrder.TabStop = false;
             // 
             // listBox1CarForOrder
             // 
@@ -427,7 +428,8 @@
             this.listBox1CarForOrder.Location = new System.Drawing.Point(165, 433);
             this.listBox1CarForOrder.Name = "listBox1CarForOrder";
             this.listBox1CarForOrder.Size = new System.Drawing.Size(204, 17);
-            this.listBox1CarForOrder.TabIndex = 64;
+            this.listBox1CarForOrder.TabIndex = 36;
+            this.listBox1CarForOrder.TabStop = false;
             // 
             // listBox1DriverForOrder
             // 
@@ -435,7 +437,8 @@
             this.listBox1DriverForOrder.Location = new System.Drawing.Point(165, 457);
             this.listBox1DriverForOrder.Name = "listBox1DriverForOrder";
             this.listBox1DriverForOrder.Size = new System.Drawing.Size(204, 17);
-            this.listBox1DriverForOrder.TabIndex = 60;
+            this.listBox1DriverForOrder.TabIndex = 37;
+            this.listBox1DriverForOrder.TabStop = false;
             // 
             // textBox2IDOrder
             // 
@@ -443,7 +446,8 @@
             this.textBox2IDOrder.Name = "textBox2IDOrder";
             this.textBox2IDOrder.ReadOnly = true;
             this.textBox2IDOrder.Size = new System.Drawing.Size(158, 20);
-            this.textBox2IDOrder.TabIndex = 63;
+            this.textBox2IDOrder.TabIndex = 34;
+            this.textBox2IDOrder.TabStop = false;
             // 
             // label29
             // 
@@ -460,7 +464,7 @@
             this.textBox15AddressOrder.Location = new System.Drawing.Point(165, 509);
             this.textBox15AddressOrder.Name = "textBox15AddressOrder";
             this.textBox15AddressOrder.Size = new System.Drawing.Size(204, 20);
-            this.textBox15AddressOrder.TabIndex = 35;
+            this.textBox15AddressOrder.TabIndex = 38;
             // 
             // label26
             // 
@@ -477,7 +481,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(172, 405);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
-            this.dateTimePicker1.TabIndex = 34;
+            this.dateTimePicker1.TabIndex = 35;
             this.dateTimePicker1.Value = new System.DateTime(2017, 11, 6, 13, 19, 27, 0);
             // 
             // label18
@@ -519,7 +523,7 @@
             this.checkBox1KidsChair.Location = new System.Drawing.Point(4, 24);
             this.checkBox1KidsChair.Name = "checkBox1KidsChair";
             this.checkBox1KidsChair.Size = new System.Drawing.Size(109, 17);
-            this.checkBox1KidsChair.TabIndex = 39;
+            this.checkBox1KidsChair.TabIndex = 41;
             this.checkBox1KidsChair.Text = "Детские кресла";
             this.checkBox1KidsChair.UseVisualStyleBackColor = true;
             // 
@@ -529,7 +533,7 @@
             this.checkBox4GPS.Location = new System.Drawing.Point(4, 93);
             this.checkBox4GPS.Name = "checkBox4GPS";
             this.checkBox4GPS.Size = new System.Drawing.Size(106, 17);
-            this.checkBox4GPS.TabIndex = 42;
+            this.checkBox4GPS.TabIndex = 44;
             this.checkBox4GPS.Text = "GPS- навигатор";
             this.checkBox4GPS.UseVisualStyleBackColor = true;
             // 
@@ -539,7 +543,7 @@
             this.checkBox2WinterTyres.Location = new System.Drawing.Point(4, 47);
             this.checkBox2WinterTyres.Name = "checkBox2WinterTyres";
             this.checkBox2WinterTyres.Size = new System.Drawing.Size(130, 17);
-            this.checkBox2WinterTyres.TabIndex = 40;
+            this.checkBox2WinterTyres.TabIndex = 42;
             this.checkBox2WinterTyres.Text = "Шипованные колёса";
             this.checkBox2WinterTyres.UseVisualStyleBackColor = true;
             // 
@@ -549,7 +553,7 @@
             this.checkBox3SportFastenings.Location = new System.Drawing.Point(4, 70);
             this.checkBox3SportFastenings.Name = "checkBox3SportFastenings";
             this.checkBox3SportFastenings.Size = new System.Drawing.Size(145, 17);
-            this.checkBox3SportFastenings.TabIndex = 41;
+            this.checkBox3SportFastenings.TabIndex = 43;
             this.checkBox3SportFastenings.Text = "Спортивные крепления";
             this.checkBox3SportFastenings.UseVisualStyleBackColor = true;
             // 
@@ -588,7 +592,7 @@
             this.textBox6PriceOrder.Name = "textBox6PriceOrder";
             this.textBox6PriceOrder.ReadOnly = true;
             this.textBox6PriceOrder.Size = new System.Drawing.Size(158, 20);
-            this.textBox6PriceOrder.TabIndex = 37;
+            this.textBox6PriceOrder.TabIndex = 40;
             this.textBox6PriceOrder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6PriceOrder_KeyPress);
             // 
             // label13
@@ -607,7 +611,7 @@
             this.button7RedactionRequest.Location = new System.Drawing.Point(107, 616);
             this.button7RedactionRequest.Name = "button7RedactionRequest";
             this.button7RedactionRequest.Size = new System.Drawing.Size(125, 32);
-            this.button7RedactionRequest.TabIndex = 44;
+            this.button7RedactionRequest.TabIndex = 46;
             this.button7RedactionRequest.Text = "Редактировать";
             this.button7RedactionRequest.UseVisualStyleBackColor = true;
             this.button7RedactionRequest.Click += new System.EventHandler(this.button7RedactionRequest_Click);
@@ -618,7 +622,7 @@
             this.button8DeleteRequest.Location = new System.Drawing.Point(474, 616);
             this.button8DeleteRequest.Name = "button8DeleteRequest";
             this.button8DeleteRequest.Size = new System.Drawing.Size(72, 32);
-            this.button8DeleteRequest.TabIndex = 45;
+            this.button8DeleteRequest.TabIndex = 47;
             this.button8DeleteRequest.Text = "Удалить";
             this.button8DeleteRequest.UseVisualStyleBackColor = true;
             this.button8DeleteRequest.Click += new System.EventHandler(this.button8DeleteRequest_Click);
@@ -629,7 +633,7 @@
             this.button9AddRequest.Location = new System.Drawing.Point(17, 616);
             this.button9AddRequest.Name = "button9AddRequest";
             this.button9AddRequest.Size = new System.Drawing.Size(84, 32);
-            this.button9AddRequest.TabIndex = 43;
+            this.button9AddRequest.TabIndex = 45;
             this.button9AddRequest.Text = "Добавить";
             this.button9AddRequest.UseVisualStyleBackColor = true;
             this.button9AddRequest.Click += new System.EventHandler(this.button9AddRequest_Click);
@@ -639,7 +643,7 @@
             this.textBox5TimeOrder.Location = new System.Drawing.Point(313, 535);
             this.textBox5TimeOrder.Name = "textBox5TimeOrder";
             this.textBox5TimeOrder.Size = new System.Drawing.Size(56, 20);
-            this.textBox5TimeOrder.TabIndex = 36;
+            this.textBox5TimeOrder.TabIndex = 39;
             this.textBox5TimeOrder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5TimeOrder_KeyPress);
             // 
             // label9
@@ -885,7 +889,7 @@
             this.button2ChangePhotoCar.Name = "button2ChangePhotoCar";
             this.button2ChangePhotoCar.Size = new System.Drawing.Size(128, 26);
             this.button2ChangePhotoCar.TabIndex = 29;
-            this.button2ChangePhotoCar.Text = "Изменить фото";
+            this.button2ChangePhotoCar.Text = "Выбрать фото";
             this.button2ChangePhotoCar.UseVisualStyleBackColor = true;
             this.button2ChangePhotoCar.Click += new System.EventHandler(this.button2ChangePhotoCar_Click);
             // 
