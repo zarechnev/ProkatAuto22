@@ -186,6 +186,7 @@ namespace GUI
             RedactionDriver.EditDriver();
 
             UpdateDriversListbox();
+            UpdateOrdersListbox();
             FlagCopy = false;
             ClearDriverPanel();
         }
@@ -258,6 +259,7 @@ namespace GUI
             RedactionCustomer.EditCustomer();
 
             UpdateCustomersListbox();
+            UpdateOrdersListbox();
 
             /// Очищаем форму добавления клиентов
             textBox12FioCustomer.Text = "";
@@ -454,6 +456,7 @@ namespace GUI
             RedactionCar.EditCar();
 
             UpdateCarsListbox();
+            UpdateOrdersListbox();                  
             FlagCopy = false;
             ClearCarPanel();
         }
@@ -592,7 +595,8 @@ namespace GUI
             RedactionOrder.Gps = checkBox4GPS.Checked;
 
             RedactionOrder.EditOrder();
-            UpdateOrdersListbox();      
+            UpdateOrdersListbox();
+            ClearOrderPanel();
         }
 
         /// <summary>

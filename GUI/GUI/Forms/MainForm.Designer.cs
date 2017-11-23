@@ -122,6 +122,7 @@
             // listBox1Automobile
             // 
             this.listBox1Automobile.FormattingEnabled = true;
+            this.listBox1Automobile.HorizontalScrollbar = true;
             this.listBox1Automobile.Location = new System.Drawing.Point(9, 23);
             this.listBox1Automobile.Name = "listBox1Automobile";
             this.listBox1Automobile.Size = new System.Drawing.Size(398, 147);
@@ -298,6 +299,7 @@
             // listBox2Driver
             // 
             this.listBox2Driver.FormattingEnabled = true;
+            this.listBox2Driver.HorizontalScrollbar = true;
             this.listBox2Driver.Location = new System.Drawing.Point(14, 23);
             this.listBox2Driver.Name = "listBox2Driver";
             this.listBox2Driver.Size = new System.Drawing.Size(314, 147);
@@ -560,6 +562,7 @@
             // listBox4Order
             // 
             this.listBox4Order.FormattingEnabled = true;
+            this.listBox4Order.HorizontalScrollbar = true;
             this.listBox4Order.Location = new System.Drawing.Point(17, 23);
             this.listBox4Order.Name = "listBox4Order";
             this.listBox4Order.Size = new System.Drawing.Size(529, 342);
@@ -946,6 +949,7 @@
             // listBox3Customers
             // 
             this.listBox3Customers.FormattingEnabled = true;
+            this.listBox3Customers.HorizontalScrollbar = true;
             this.listBox3Customers.Location = new System.Drawing.Point(14, 24);
             this.listBox3Customers.Name = "listBox3Customers";
             this.listBox3Customers.Size = new System.Drawing.Size(356, 186);
