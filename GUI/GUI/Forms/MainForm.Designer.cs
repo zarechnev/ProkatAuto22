@@ -53,7 +53,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2FioDriver = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listBox2CustomerForOrder = new System.Windows.Forms.ListBox();
             this.listBox1CarForOrder = new System.Windows.Forms.ListBox();
@@ -90,7 +89,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox12FioCustomer = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button1DeleteCar = new System.Windows.Forms.Button();
             this.textBox14CarryingCar = new System.Windows.Forms.TextBox();
@@ -109,14 +107,16 @@
             this.button1DeleteOrder = new System.Windows.Forms.Button();
             this.listBox3Customers = new System.Windows.Forms.ListBox();
             this.label25 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1Automobile
@@ -373,17 +373,6 @@
             this.textBox2FioDriver.Size = new System.Drawing.Size(180, 20);
             this.textBox2FioDriver.TabIndex = 4;
             this.textBox2FioDriver.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2FioDriver_KeyPress);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.ErrorImage = null;
-            this.pictureBox2.Image = global::ProkatAuto22.Properties.Resources.color;
-            this.pictureBox2.Location = new System.Drawing.Point(14, 176);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(128, 135);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
             // 
             // panel2
             // 
@@ -755,16 +744,6 @@
             this.textBox12FioCustomer.TabIndex = 15;
             this.textBox12FioCustomer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox12FioCustomer_KeyPress);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProkatAuto22.Properties.Resources.color;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 187);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(189, 112);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -966,6 +945,27 @@
             this.label25.TabIndex = 16;
             this.label25.Text = "Список клиентов";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProkatAuto22.Properties.Resources.нен;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 187);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(189, 112);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.ErrorImage = null;
+            this.pictureBox2.Image = global::ProkatAuto22.Properties.Resources.images;
+            this.pictureBox2.Location = new System.Drawing.Point(14, 176);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(128, 135);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -986,16 +986,16 @@
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
