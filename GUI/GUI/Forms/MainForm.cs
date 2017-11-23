@@ -20,7 +20,9 @@ namespace GUI
         string sourcePath;
         List<string> ListDeletePhoto;
         bool FlagCopy = false;
-      
+        Bitmap DriverDefaultPhoto = ProkatAuto22.Properties.Resources.images;
+        Bitmap CarDefaultPhoto = ProkatAuto22.Properties.Resources.нен;
+
         /// <summary>
         /// Конструктор класса.
         /// </summary>
@@ -78,8 +80,10 @@ namespace GUI
             checkBox6Smoke.Checked = false;
             checkBox5Drugs.Checked = false;
             checkBox7Drink.Checked = false;
-            pictureBox2.Image = null;
-            pictureBox2.BackColor = Color.Gray;
+            /*       pictureBox2.Image = null;
+                   pictureBox2.BackColor = Color.Gray;
+                   */
+            pictureBox2.Image = DriverDefaultPhoto;
         }
 
         /// <summary>
@@ -215,8 +219,10 @@ namespace GUI
 
             if (CheckedDriver.PhotoDriver == "")
             {
-                pictureBox2.Image = null;
-                pictureBox2.BackColor = Color.Gray;
+                /*          pictureBox2.Image = null;
+                          pictureBox2.BackColor = Color.Gray;
+                          */
+                pictureBox2.Image = DriverDefaultPhoto;
             }
             else
                 pictureBox2.Load(CheckedDriver.PhotoDriver);
@@ -362,8 +368,10 @@ namespace GUI
             textBox7YearIssueCar.Text = "";
             AutoGosNumberTextBox.Text = "";
             textBox14CarryingCar.Text = "";
-            pictureBox1.Image = null;
-            pictureBox1.BackColor = Color.Gray;
+            /*     pictureBox1.Image = null;
+                 pictureBox1.BackColor = Color.Gray;
+                 */
+            pictureBox1.Image = CarDefaultPhoto;
         }
 
         /// <summary>
@@ -502,8 +510,9 @@ namespace GUI
 
             if (CheckedCar.PhotoCar == "")
             {
-                pictureBox1.Image = null;
-                pictureBox1.BackColor = Color.Gray;
+                // pictureBox1.Image = null;
+                //   pictureBox1.BackColor = Color.Gray;
+                pictureBox1.Image = CarDefaultPhoto;
             }
             else
                 pictureBox1.Load(CheckedCar.PhotoCar);

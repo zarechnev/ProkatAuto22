@@ -135,6 +135,9 @@
   <ItemGroup>
     <Content Include="car.ico" />
     <Content Include="car2.ico" />
+    <Content Include="Resources\images.jpg" />
+    <Content Include="Resources\екуку.JPG" />
+    <None Include="Resources\нен.JPG" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
