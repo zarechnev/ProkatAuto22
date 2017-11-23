@@ -20,7 +20,9 @@ namespace GUI
         string sourcePath;
         List<string> ListDeletePhoto;
         bool FlagCopy = false;
-      
+        Bitmap DriverDefaultPhoto = ProkatAuto22.Properties.Resources.images;
+        Bitmap CarDefaultPhoto = ProkatAuto22.Properties.Resources.нен;
+
         /// <summary>
         /// Конструктор класса.
         /// </summary>
@@ -78,8 +80,10 @@ namespace GUI
             checkBox6Smoke.Checked = false;
             checkBox5Drugs.Checked = false;
             checkBox7Drink.Checked = false;
-            pictureBox2.Image = null;
-            pictureBox2.BackColor = Color.Gray;
+            /*       pictureBox2.Image = null;
+                   pictureBox2.BackColor = Color.Gray;
+                   */
+            pictureBox2.Image = DriverDefaultPhoto;
         }
 
         /// <summary>
@@ -186,6 +190,7 @@ namespace GUI
             RedactionDriver.EditDriver();
 
             UpdateDriversListbox();
+            UpdateOrdersListbox();
             FlagCopy = false;
             ClearDriverPanel();
         }
@@ -214,8 +219,10 @@ namespace GUI
 
             if (CheckedDriver.PhotoDriver == "")
             {
-                pictureBox2.Image = null;
-                pictureBox2.BackColor = Color.Gray;
+                /*          pictureBox2.Image = null;
+                          pictureBox2.BackColor = Color.Gray;
+                          */
+                pictureBox2.Image = DriverDefaultPhoto;
             }
             else
                 pictureBox2.Load(CheckedDriver.PhotoDriver);
@@ -258,6 +265,7 @@ namespace GUI
             RedactionCustomer.EditCustomer();
 
             UpdateCustomersListbox();
+            UpdateOrdersListbox();
 
             /// Очищаем форму добавления клиентов
             textBox12FioCustomer.Text = "";
@@ -360,8 +368,10 @@ namespace GUI
             textBox7YearIssueCar.Text = "";
             AutoGosNumberTextBox.Text = "";
             textBox14CarryingCar.Text = "";
-            pictureBox1.Image = null;
-            pictureBox1.BackColor = Color.Gray;
+            /*     pictureBox1.Image = null;
+                 pictureBox1.BackColor = Color.Gray;
+                 */
+            pictureBox1.Image = CarDefaultPhoto;
         }
 
         /// <summary>
@@ -454,6 +464,7 @@ namespace GUI
             RedactionCar.EditCar();
 
             UpdateCarsListbox();
+            UpdateOrdersListbox();                  
             FlagCopy = false;
             ClearCarPanel();
         }
@@ -499,8 +510,9 @@ namespace GUI
 
             if (CheckedCar.PhotoCar == "")
             {
-                pictureBox1.Image = null;
-                pictureBox1.BackColor = Color.Gray;
+                // pictureBox1.Image = null;
+                //   pictureBox1.BackColor = Color.Gray;
+                pictureBox1.Image = CarDefaultPhoto;
             }
             else
                 pictureBox1.Load(CheckedCar.PhotoCar);
@@ -592,7 +604,8 @@ namespace GUI
             RedactionOrder.Gps = checkBox4GPS.Checked;
 
             RedactionOrder.EditOrder();
-            UpdateOrdersListbox();      
+            UpdateOrdersListbox();
+            ClearOrderPanel();
         }
 
         /// <summary>
